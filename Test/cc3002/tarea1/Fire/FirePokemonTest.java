@@ -10,13 +10,13 @@ public class FirePokemonTest {
     private IPokemon charmander;
     @Before
     public void setUp() throws Exception {
-        charmander=new FirePokemon("Charmander",7,50);
+        charmander=new FirePokemon("Charmander",4,50);
     }
 
     @Test
     public void SimplePokemonTest(){
         String expectedName="Charmander";
-        int expectedPokedexID=7;
+        int expectedPokedexID=4;
         int expectedHP=50;
         assertEquals(expectedName, charmander.getName());
         assertEquals(expectedPokedexID, charmander.getPokedexID());
