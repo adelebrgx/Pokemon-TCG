@@ -6,4 +6,6 @@ public class WaterEnergy extends AEnergy {
     public String type(){
         return "Water";
     }
+
+
 }

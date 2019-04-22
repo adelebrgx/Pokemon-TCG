@@ -10,7 +10,7 @@ public class ElectricPokemonTest {
     private IPokemon pikachu;
     @Before
     public void setUp() throws Exception {
-        pikachu=new FirePokemon("Pikachu",25,70);
+        pikachu=new ElectricPokemon("Pikachu",25,70);
     }
 
     @Test

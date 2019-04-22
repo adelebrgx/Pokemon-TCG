@@ -11,7 +11,7 @@ public class FightingPokemonTest {
     private IPokemon mankey;
     @Before
     public void setUp() throws Exception {
-        mankey=new FirePokemon("Mankey",56,60);
+        mankey=new FightingPokemon("Mankey",56,60);
     }
 
     @Test
