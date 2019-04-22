@@ -7,6 +7,7 @@ public class FireAttack extends AAttack {
     public FireAttack(String aName, int abaseDamage, String aDescription){
         super(aName,abaseDamage,aDescription);
     }
+
     @Override
     public void performAttack(IPokemon aPokemon) {
         aPokemon.receiveFireAttack(this);

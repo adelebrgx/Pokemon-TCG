@@ -47,7 +47,10 @@ public class Entrenador {
     }
 
     public void selectPokemon(IPokemon aPokemon){
-        if (this.pokemonBank.size()==0){
+        if(!hand.contains(aPokemon)){
+            System.out.println("Player does not posess this pokemon");
+        }
+        else if (this.pokemonBank.size()==0){
             addPokemontoBank(aPokemon);
         }
         else {
@@ -62,19 +65,16 @@ public class Entrenador {
     }
 
     public void drawCard(ICard card){
-        if (this.hand.size()<6){
-            this.hand.add(card);}
-        else {
-            System.out.println("Player already has 6 cards in his hand");
-        }
+        this.hand.add(card);
     }
+
     public String getName(){
         return this.name;
     }
+
     public int getHandSize(){
-        return this.hand.size();}
-
-
+        return this.hand.size();
+    }
 
     public IPokemon getSelectedPokemon(){
         return this.selectedPokemon;
@@ -112,6 +112,7 @@ public class Entrenador {
             }
             if(canAttack==true){
                 anAttack.performAttack(following.getSelectedPokemon());
+                //verificamos si murio el Pokemon
                 if (following.getSelectedPokemon().getHP()<=0){
                     following.getBank().remove(0);
                     following.selectedPokemon=following.getBank().get(0);
@@ -120,10 +121,6 @@ public class Entrenador {
             else{
                 System.out.println("The pokemon doesn't posess enough energy to use this attack");
             }
-
-
-
-
         }
     }
 

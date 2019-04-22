@@ -2,7 +2,7 @@ package cc3002.tarea1;
 
 import cc3002.tarea1.Electric.ElectricPokemon;
 import cc3002.tarea1.Fighting.FightingPokemon;
-import cc3002.tarea1.Fighting.FigthingEnergy;
+import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.FireAttack;
 import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Fire.FirePokemon;
@@ -32,7 +32,7 @@ public class EntrenadorExample extends Entrenador {
         IEnergy plant= new PlantEnergy();
         IEnergy fire=new FireEnergy();
         IEnergy water=new WaterEnergy();
-        IEnergy fighting=new FigthingEnergy();
+        IEnergy fighting=new FightingEnergy();
         Torpedo.setEnergyCost("Fire", 2);
         Torpedo.setEnergyCost("Plant",1);
 

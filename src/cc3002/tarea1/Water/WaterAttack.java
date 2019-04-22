@@ -9,6 +9,7 @@ public class WaterAttack extends AAttack {
         super(aName,abaseDamage,aDescription);
     }
 
+    @Override
     public void performAttack(IPokemon aPokemon){
         aPokemon.receiveWaterAttack(this);
     }

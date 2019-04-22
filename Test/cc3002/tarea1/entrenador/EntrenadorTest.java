@@ -1,7 +1,7 @@
 package cc3002.tarea1.entrenador;
 
 import cc3002.tarea1.Entrenador;
-import cc3002.tarea1.Fighting.FigthingEnergy;
+import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Fire.FirePokemon;
 import cc3002.tarea1.IEnergy;
@@ -13,7 +13,6 @@ import cc3002.tarea1.Water.WaterPokemon;
 import cc3002.tarea1.Plant.PlantPokemon;
 import cc3002.tarea1.Fighting.FightingPokemon;
 import cc3002.tarea1.Electric.ElectricPokemon;
-import cc3002.tarea1.ICard;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -48,7 +47,7 @@ public class EntrenadorTest {
     plant= new PlantEnergy();
     fire=new FireEnergy();
     water=new WaterEnergy();
-    fighting=new FigthingEnergy();
+    fighting=new FightingEnergy();
 
 
 

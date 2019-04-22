@@ -13,8 +13,7 @@ public class ElectricPokemon extends APokemon {
         return "Electric";
     }
     @Override
-    public void receiveFireAttack(IAttack anAttack){
-        this.receiveNormalAttack(anAttack); }
+    public void receiveFireAttack(IAttack anAttack){ this.receiveNormalAttack(anAttack); }
     @Override
     public void receiveWaterAttack(IAttack anAttack){
         this.receiveNormalAttack(anAttack);

@@ -2,7 +2,18 @@ package cc3002.tarea1;
 
 import java.util.HashMap;
 
-public abstract class AEnergy implements IEnergy {
+public abstract class AEnergy implements IEnergy{
+
+    private String name;
+
+    public AEnergy(String someName){
+        this.name=name;
+    }
+
+    public String getName(){
+        return this.name;
+    }
+
     public void beingPlayedBy(Entrenador inAction){
         if (inAction.getBank().size()==0){
             System.out.println("There is no Pokemon to apply this energy to");

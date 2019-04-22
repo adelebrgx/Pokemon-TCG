@@ -1,12 +1,5 @@
 package cc3002.tarea1;
 
-import cc3002.tarea1.Electric.ElectricEnergy;
-import cc3002.tarea1.Fighting.FigthingEnergy;
-import cc3002.tarea1.Fire.FireEnergy;
-import cc3002.tarea1.Plant.PlantEnergy;
-import cc3002.tarea1.Psychic.PsychicEnergy;
-import cc3002.tarea1.Water.WaterEnergy;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
