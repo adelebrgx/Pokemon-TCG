@@ -103,11 +103,11 @@ public class EntrenadorTest {
     public void playCardTest(){
         Red.drawCard(charmander);
         Red.drawCard(abra);
-        Red.playCard(charmander, Blue);
+        Red.playCard(charmander);
 
         assertEquals("Charmander",Red.getSelectedPokemon().getName());
 
-        Red.playCard(abra, Blue);
+        Red.playCard(abra);
         assertEquals("Charmander",Red.getSelectedPokemon().getName());
         assertEquals("Charmander",Red.getBank().get(0).getName());
         assertEquals("Abra",Red.getBank().get(1).getName());
@@ -121,9 +121,9 @@ public class EntrenadorTest {
         Red.drawCard(water);
         Red.drawCard(fire);
         Red.drawCard(plant);
-        Red.playCard(charmander, Blue);
-        Red.playCard(water,Blue);
-        Red.playCard(fire,Blue);
+        Red.playCard(charmander);
+        Red.playCard(water);
+        Red.playCard(fire);
 
 
         assertEquals(1, Red.getSelectedPokemon().getQuantityofAnEnergy(water));

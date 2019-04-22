@@ -1,14 +1,16 @@
 package cc3002.tarea1;
 
+import cc3002.tarea1.IEnergy;
+
 import java.util.HashMap;
 
-public class Attack {
+public abstract class AAttack implements IAttack{
     private String name;
     private int baseDamage;
     private String description;
-    private HashMap<IEnergy, Integer> cost;
+    private HashMap<String, Integer> cost;
 
-    public Attack(String aName, int abaseDamage, String aDescription){
+    public AAttack(String aName, int abaseDamage, String aDescription){
         this.name=aName;
         this.baseDamage=abaseDamage;
         this.description=aDescription;
@@ -29,11 +31,13 @@ public class Attack {
         return this.description;
     }
 
-    public HashMap<IEnergy, Integer> getCost(){
+    public HashMap<String, Integer> getCost(){
         return this.cost;
     }
 
-    public void setEnergyCost(IEnergy energy, int quantity){
+    public void setEnergyCost(String energy, int quantity){
         this.cost.put(energy,quantity);
     }
+
+
 }

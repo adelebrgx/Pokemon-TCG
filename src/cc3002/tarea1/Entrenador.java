@@ -1,5 +1,7 @@
 package cc3002.tarea1;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import cc3002.tarea1.Electric.ElectricPokemon;
@@ -86,11 +88,43 @@ public class Entrenador {
         return this.hand;
     }
 
-    public void playCard(ICard aCard, Entrenador following){
+    public void playCard(ICard aCard){
         if(!hand.contains(aCard)){
             System.out.println("The player cannot play a card which is not in his hand");
         }
-        aCard.beingPlayedBy(this, following);
+        aCard.beingPlayedBy(this);
+    }
+
+    public void attack(IAttack anAttack, Entrenador following) {
+        if (!this.getSelectedPokemon().getAttacksList().contains(anAttack)) {
+            System.out.println("Pokemon cannot use attack he doesn't posess");
+        } else {
+            //compare energies
+            HashMap<String,Integer> map= anAttack.getCost();
+            boolean canAttack=true;
+            for (String key:map.keySet()) {
+                int energy=map.get(key);
+                int quantity= this.getSelectedPokemon().getQuantityofAnEnergy(key);
+                if(energy!=quantity){
+                    canAttack=false;
+                    break;
+                }
+            }
+            if(canAttack==true){
+                anAttack.performAttack(following.getSelectedPokemon());
+                if (following.getSelectedPokemon().getHP()<=0){
+                    following.getBank().remove(0);
+                    following.selectedPokemon=following.getBank().get(0);
+                }
+            }
+            else{
+                System.out.println("The pokemon doesn't posess enough energy to use this attack");
+            }
+
+
+
+
+        }
     }
 
 }

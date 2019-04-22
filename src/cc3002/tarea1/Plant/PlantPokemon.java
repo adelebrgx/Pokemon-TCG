@@ -1,7 +1,7 @@
 package cc3002.tarea1.Plant;
 
 import cc3002.tarea1.APokemon;
-import cc3002.tarea1.Attack;
+import cc3002.tarea1.IAttack;
 
 public class PlantPokemon extends APokemon {
     public PlantPokemon(String someName, int somePokedexID, int someHP) {
@@ -12,29 +12,28 @@ public class PlantPokemon extends APokemon {
     public String type(){
         return "Plant";
     }
-
     @Override
-    public void receiveFireAttack(Attack anAttack){
+    public void receiveFireAttack(IAttack anAttack){
         this.receiveWeaknessAttack(anAttack);
     }
     @Override
-    public void receiveWaterAttack(Attack anAttack){
+    public void receiveWaterAttack(IAttack anAttack){
         this.receiveResistantAttack(anAttack);
     }
     @Override
-    public void receivePlantAttack(Attack anAttack){
+    public void receivePlantAttack(IAttack anAttack){
         this.receiveNormalAttack(anAttack);
     }
     @Override
-    public void receiveElectricAttack(Attack anAttack){
+    public void receiveElectricAttack(IAttack anAttack){
         this.receiveNormalAttack(anAttack);
     }
     @Override
-    public void receiveFightingAttack(Attack anAttack){
+    public void receiveFightingAttack(IAttack anAttack){
         this.receiveNormalAttack(anAttack);
     }
     @Override
-    public void receivePsychicAttack(Attack anAttack){
+    public void receivePsychicAttack(IAttack anAttack){
         this.receiveNormalAttack(anAttack);
     }
 }
