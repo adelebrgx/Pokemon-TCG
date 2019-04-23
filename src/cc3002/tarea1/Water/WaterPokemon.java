@@ -1,12 +1,16 @@
 package cc3002.tarea1.Water;
 
-import cc3002.tarea1.APokemon;
-import cc3002.tarea1.IAttack;
-import cc3002.tarea1.IAttack;
+import cc3002.tarea1.*;
+
+import java.util.ArrayList;
 
 public class WaterPokemon extends APokemon {
-    public WaterPokemon(String someName, int somePokedexID, int someHP) {
-        super(someName, somePokedexID, someHP);
+    public WaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
+        super(someName, somePokedexID, someHP, someAttacks);
+    }
+
+    public void hurt(IPokemon pokemon, Attack anattack){
+        pokemon.receiveWaterAttack(anattack);
     }
 
     @Override
@@ -14,23 +18,23 @@ public class WaterPokemon extends APokemon {
         return "Water";
     }
     @Override
-    public void receiveFireAttack(IAttack anAttack){
+    public void receiveFireAttack(Attack anAttack){
         this.receiveNormalAttack(anAttack);
     }
     @Override
-    public void receiveWaterAttack(IAttack anAttack){
+    public void receiveWaterAttack(Attack anAttack){
         this.receiveNormalAttack(anAttack);
     }
     @Override
-    public void receivePlantAttack(IAttack anAttack){
+    public void receivePlantAttack(Attack anAttack){
         this.receiveWeaknessAttack(anAttack);
     }
     @Override
-    public void receiveElectricAttack(IAttack anAttack){ this.receiveWeaknessAttack(anAttack);}
+    public void receiveElectricAttack(Attack anAttack){ this.receiveWeaknessAttack(anAttack);}
     @Override
-    public void receiveFightingAttack(IAttack anAttack){ this.receiveResistantAttack(anAttack); }
+    public void receiveFightingAttack(Attack anAttack){ this.receiveResistantAttack(anAttack); }
     @Override
-    public void receivePsychicAttack(IAttack anAttack){
+    public void receivePsychicAttack(Attack anAttack){
         this.receiveNormalAttack(anAttack);
     }
 }

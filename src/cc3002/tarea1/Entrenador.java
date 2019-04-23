@@ -8,6 +8,7 @@ public class Entrenador {
     private List<ICard> hand;
     private List<IPokemon> pokemonBank;
     private IPokemon selectedPokemon;
+    private List<IPokemon> pokemonLost;
 
     //Constructor del entrenador
     public Entrenador(String name){
@@ -15,6 +16,7 @@ public class Entrenador {
         hand= new ArrayList<ICard>(6);
         pokemonBank=new ArrayList<IPokemon>(6);
         selectedPokemon= null;
+        pokemonLost=new ArrayList<IPokemon>();
 
     }
 
@@ -85,7 +87,7 @@ public class Entrenador {
         aCard.beingPlayedBy(this);
     }
 
-    public void attack(IAttack anAttack, Entrenador following) {
+    public void useAttack(Attack anAttack, Entrenador following) {
         if (!this.getSelectedPokemon().getAttacksList().contains(anAttack)) {
             System.out.println("Pokemon cannot use attack he doesn't posess");
         } else {
@@ -94,18 +96,20 @@ public class Entrenador {
             boolean canAttack=true;
             for (String key:map.keySet()) {
                 int energy=map.get(key);
-                int quantity= this.getSelectedPokemon().getQuantityofAnEnergy(key);
+                int quantity= this.getSelectedPokemon().getEnergiesAssociated().get(key);
                 if(energy!=quantity){
                     canAttack=false;
                     break;
                 }
             }
             if(canAttack==true){
-                anAttack.performAttack(following.getSelectedPokemon());
-                //verificamos si murio el Pokemon
-                if (following.getSelectedPokemon().getHP()<=0){
+                this.getSelectedPokemon().hurt(following.getSelectedPokemon(), anAttack);
+                if (!following.getSelectedPokemon().isAlive()){
+                    IPokemon lost=following.pokemonBank.get(0);
                     following.getBank().remove(0);
-                    following.selectedPokemon=following.getBank().get(0);
+                    following.pokemonLost.add(lost);
+                    IPokemon newPokemoninGame=following.getBank().get(0);
+                    following.selectPokemon(newPokemoninGame);
                 }
             }
             else{

@@ -1,5 +1,6 @@
 package cc3002.tarea1.entrenador;
 
+import cc3002.tarea1.Attack;
 import cc3002.tarea1.Entrenador;
 import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.FireEnergy;
@@ -15,6 +16,8 @@ import cc3002.tarea1.Fighting.FightingPokemon;
 import cc3002.tarea1.Electric.ElectricPokemon;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -32,27 +35,27 @@ public class EntrenadorTest {
     private IEnergy water;
     private IEnergy fire;
     private IEnergy fighting;
+    private Attack torpedo;
 
 
     @Before
     public void setUp() throws Exception {
     Red= new Entrenador("Red");
     Blue= new Entrenador("Blue");
-    charmander=new FirePokemon("Charmander",4,50);
-    squirtle= new WaterPokemon("Squirtle", 7, 50);
-    abra= new PsychicPokemon("Abra", 7, 50);
-    bulbasaur=new PlantPokemon("Bulbasaur",1,50);
-    mankey=new FightingPokemon("Mankey",56,60);
-    pikachu=new ElectricPokemon("Pikachu",25,70);
+
+    charmander=new FirePokemon("Charmander",4,50,new ArrayList<>());
+    squirtle= new WaterPokemon("Squirtle", 7, 50,new ArrayList<>());
+    abra= new PsychicPokemon("Abra", 7, 50,new ArrayList<>());
+    bulbasaur=new PlantPokemon("Bulbasaur",1,50,new ArrayList<>());
+    mankey=new FightingPokemon("Mankey",56,60,new ArrayList<>());
+    pikachu=new ElectricPokemon("Pikachu",25,70,new ArrayList<>());
+
     plant= new PlantEnergy();
     fire=new FireEnergy();
     water=new WaterEnergy();
     fighting=new FightingEnergy();
 
-
-
-
-
+    torpedo= new Attack("Torpedo", 30, "a Whip Attack");
     }
 
     @Test
@@ -99,7 +102,7 @@ public class EntrenadorTest {
 
     }
     @Test
-    public void playCardTest(){
+    public void playPokemonCardTest(){
         Red.drawCard(charmander);
         Red.drawCard(abra);
         Red.playCard(charmander);
@@ -114,7 +117,7 @@ public class EntrenadorTest {
     }
 
     @Test
-    public void playEnergyTest(){
+    public void playEnergyCardTest(){
 
         Red.drawCard(charmander);
         Red.drawCard(water);
@@ -128,6 +131,31 @@ public class EntrenadorTest {
         assertEquals(1, Red.getSelectedPokemon().getQuantityofAnEnergy(water));
         assertEquals(1, Red.getSelectedPokemon().getQuantityofAnEnergy(fire));
         assertEquals(0, Red.getSelectedPokemon().getQuantityofAnEnergy(plant));
+    }
+
+    @Test
+    public void attackTest(){
+        torpedo.setEnergyCost("Fire", 2);
+        torpedo.setEnergyCost("Plant",1);
+        Red.drawCard(charmander);
+        Red.drawCard(fire);
+        Red.drawCard(fire);
+        Red.drawCard(plant);
+        Blue.drawCard(squirtle);
+        Blue.drawCard(bulbasaur);
+        Blue.playCard(squirtle);
+        Blue.playCard(bulbasaur);
+        Red.playCard(charmander);
+        assertEquals("Squirtle",Blue.getSelectedPokemon().getName());
+        assertEquals(50,Blue.getSelectedPokemon().getHP());
+        Red.playCard(fire);
+        Red.playCard(fire);
+        Red.playCard(plant);
+        charmander.setAttack(torpedo);
+        Red.useAttack(torpedo,Blue);
+        assertEquals(20,Blue.getSelectedPokemon().getHP());
+        Red.useAttack(torpedo,Blue);
+        assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
     }
 
 

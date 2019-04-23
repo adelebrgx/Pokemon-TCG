@@ -1,5 +1,12 @@
 package cc3002.tarea1;
 
+import cc3002.tarea1.Electric.ElectricEnergy;
+import cc3002.tarea1.Fire.FireEnergy;
+import cc3002.tarea1.Plant.PlantEnergy;
+import cc3002.tarea1.Psychic.PsychicEnergy;
+import cc3002.tarea1.Water.WaterEnergy;
+import cc3002.tarea1.Fighting.FightingEnergy;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,20 +16,20 @@ public abstract class APokemon implements IPokemon  {
     private int pokedexID;
     private int hp;
     public HashMap<String, Integer> EnergiesAssociated;
-    private ArrayList<IAttack> attackList;
+    private ArrayList<Attack> attackList;
 
-    public APokemon(String someName, int somePokedexID, int someHP){
+    public APokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> attacks){
         this.name=someName;
         this.pokedexID=somePokedexID;
         this.hp=someHP;
-        this.attackList= new ArrayList<IAttack>(4);
+        this.attackList= attacks;
         this.EnergiesAssociated= new HashMap<String, Integer>();
-        this.EnergiesAssociated.put("Water",0);
-        this.EnergiesAssociated.put("Fire",0);
-        this.EnergiesAssociated.put("Plant",0);
-        this.EnergiesAssociated.put("Fighting",0);
-        this.EnergiesAssociated.put("Electric",0);
-        this.EnergiesAssociated.put("Psychic",0);
+        this.EnergiesAssociated.put(new WaterEnergy().type(),0);
+        this.EnergiesAssociated.put(new FireEnergy().type(),0);
+        this.EnergiesAssociated.put(new PlantEnergy().type(),0);
+        this.EnergiesAssociated.put(new FightingEnergy().type(),0);
+        this.EnergiesAssociated.put(new ElectricEnergy().type(),0);
+        this.EnergiesAssociated.put(new PsychicEnergy().type(),0);
     }
 
     public String getName(){
@@ -34,7 +41,7 @@ public abstract class APokemon implements IPokemon  {
     public int getPokedexID(){
         return this.pokedexID;
     }
-    public List<IAttack> getAttackList(){
+    public List<Attack> getAttackList(){
         return this.attackList;
     }
     public HashMap<String, Integer> getEnergiesAssociated(){
@@ -46,11 +53,18 @@ public abstract class APokemon implements IPokemon  {
     public int getQuantityofAnEnergy(String energy){
         return this.EnergiesAssociated.get(energy);
     }
-    public ArrayList<IAttack> getAttacksList(){
+    public ArrayList<Attack> getAttacksList(){
         return this.attackList;
     }
+    public boolean isAlive(){
+        if(this.hp<=0){
+            return false;
+        }
+        else{return true;}
 
-    public void setAttack(IAttack anAttack){
+    }
+
+    public void setAttack(Attack anAttack){
         if(this.attackList.size()>=4){
             System.out.println("Pokemon already has 4 attacks");
         }
@@ -59,14 +73,19 @@ public abstract class APokemon implements IPokemon  {
         }
     }
 
-    public void receiveWeaknessAttack(IAttack anAttack){
+
+
+    public void receiveWeaknessAttack(Attack anAttack){
         this.hp-=anAttack.getBaseDamage()*2;
+        if (this.hp<0){this.hp=0;}
     }
-    public void receiveResistantAttack(IAttack anAttack){
+    public void receiveResistantAttack(Attack anAttack){
         this.hp-=(anAttack.getBaseDamage()-30);
+        if (this.hp<0){this.hp=0;}
     }
-    public void receiveNormalAttack(IAttack anAttack){
+    public void receiveNormalAttack(Attack anAttack){
         this.hp-=anAttack.getBaseDamage();
+        if (this.hp<0){this.hp=0;}
     }
 
     public void beingPlayedBy(Entrenador inAction){
