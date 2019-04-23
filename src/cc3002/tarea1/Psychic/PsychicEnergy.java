@@ -4,7 +4,7 @@ import cc3002.tarea1.AEnergy;
 
 public class PsychicEnergy extends AEnergy {
 
-    public PsychicEnergy(String someName){super(someName);}
+    public PsychicEnergy(){super("Psychic");}
 
     @Override
     public String type(){

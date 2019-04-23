@@ -4,7 +4,7 @@ import cc3002.tarea1.AEnergy;
 
 public class ElectricEnergy extends AEnergy {
 
-    public ElectricEnergy(String someName){super(someName);}
+    public ElectricEnergy(){super("Energy");}
 
     @Override
     public String type(){

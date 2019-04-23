@@ -31,8 +31,12 @@ public abstract class AAttack implements IAttack{
         return this.description;
     }
 
-    public HashMap<String, Integer> getCost(){
+    public HashMap<String, Integer> getCosts(){
         return this.cost;
+    }
+
+    public int quantityOneEnergy(IEnergy energy){
+        return this.cost.get(energy.type());
     }
 
     public void setEnergyCost(String energy, int quantity){

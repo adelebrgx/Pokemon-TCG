@@ -1,17 +1,7 @@
 package cc3002.tarea1;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-
-import cc3002.tarea1.Electric.ElectricPokemon;
-import cc3002.tarea1.Fighting.FightingPokemon;
-import cc3002.tarea1.IPokemon;
-import cc3002.tarea1.APokemon;
-import cc3002.tarea1.Fire.FirePokemon;
-import cc3002.tarea1.Plant.PlantPokemon;
-import cc3002.tarea1.Psychic.PsychicPokemon;
-import cc3002.tarea1.Water.WaterPokemon;
 
 public class Entrenador {
     private String name;
@@ -100,7 +90,7 @@ public class Entrenador {
             System.out.println("Pokemon cannot use attack he doesn't posess");
         } else {
             //compare energies
-            HashMap<String,Integer> map= anAttack.getCost();
+            HashMap<String,Integer> map= anAttack.getCosts();
             boolean canAttack=true;
             for (String key:map.keySet()) {
                 int energy=map.get(key);
