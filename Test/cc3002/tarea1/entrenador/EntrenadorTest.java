@@ -156,6 +156,10 @@ public class EntrenadorTest {
         assertEquals(20,Blue.getSelectedPokemon().getHP());
         Red.useAttack(torpedo,Blue);
         assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
+        torpedo.setEnergyCost("Fire",1);
+        Red.useAttack(torpedo,Blue);
+        assertEquals(50,Blue.getSelectedPokemon().getHP());
+
     }
 
 

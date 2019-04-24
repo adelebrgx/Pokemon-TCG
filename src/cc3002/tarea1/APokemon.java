@@ -32,30 +32,39 @@ public abstract class APokemon implements IPokemon  {
         this.EnergiesAssociated.put(new PsychicEnergy().type(),0);
     }
 
+    @Override
     public String getName(){
         return this.name;
     }
+    @Override
     public int getHP(){
         return this.hp;
     }
+    @Override
     public int getPokedexID(){
         return this.pokedexID;
     }
+
     public List<Attack> getAttackList(){
         return this.attackList;
     }
+    @Override
     public HashMap<String, Integer> getEnergiesAssociated(){
         return this.EnergiesAssociated;
     }
+    @Override
     public int getQuantityofAnEnergy(IEnergy energy){
         return this.EnergiesAssociated.get(energy.type());
     }
+    @Override
     public int getQuantityofAnEnergy(String energy){
         return this.EnergiesAssociated.get(energy);
     }
+    @Override
     public ArrayList<Attack> getAttacksList(){
         return this.attackList;
     }
+    @Override
     public boolean isAlive(){
         if(this.hp<=0){
             return false;
@@ -64,6 +73,7 @@ public abstract class APokemon implements IPokemon  {
 
     }
 
+    @Override
     public void setAttack(Attack anAttack){
         if(this.attackList.size()>=4){
             System.out.println("Pokemon already has 4 attacks");
@@ -74,20 +84,22 @@ public abstract class APokemon implements IPokemon  {
     }
 
 
-
+    @Override
     public void receiveWeaknessAttack(Attack anAttack){
         this.hp-=anAttack.getBaseDamage()*2;
         if (this.hp<0){this.hp=0;}
     }
+    @Override
     public void receiveResistantAttack(Attack anAttack){
         this.hp-=(anAttack.getBaseDamage()-30);
         if (this.hp<0){this.hp=0;}
     }
+    @Override
     public void receiveNormalAttack(Attack anAttack){
         this.hp-=anAttack.getBaseDamage();
         if (this.hp<0){this.hp=0;}
     }
-
+    @Override
     public void beingPlayedBy(Entrenador inAction){
         inAction.addPokemontoBank(this);
     }
