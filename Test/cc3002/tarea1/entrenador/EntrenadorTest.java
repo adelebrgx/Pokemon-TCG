@@ -69,6 +69,8 @@ public class EntrenadorTest {
 
     @Test
     public void addPokemontoBankTest(){
+        Red.playCard(pikachu);
+        assertEquals(0,Red.getBank().size());
         Red.drawCard(charmander);
         Red.drawCard(squirtle);
 

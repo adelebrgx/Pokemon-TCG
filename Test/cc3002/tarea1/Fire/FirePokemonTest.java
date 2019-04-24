@@ -41,6 +41,7 @@ public class FirePokemonTest {
         assertEquals("Charmander", charmander.getName());
         assertEquals(4, charmander.getPokedexID());
         assertEquals(50,charmander.getHP());
+        assertEquals("Fire", charmander.type());
     }
 
     @Test

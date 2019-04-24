@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Class which represents a Pokemon player and all the actions he/she can perform
+ * @author Adèle Bourgeix
+ */
 public class Entrenador {
     private String name;
     private List<ICard> hand;
@@ -10,7 +14,11 @@ public class Entrenador {
     private IPokemon selectedPokemon;
     private List<IPokemon> pokemonLost;
 
-    //Constructor del entrenador
+    /**
+     * Trainer's constructor
+     * @param name player's name that we'll use to refer to him
+     */
+
     public Entrenador(String name){
         this.name=name;
         hand= new ArrayList<ICard>(6);
@@ -20,6 +28,10 @@ public class Entrenador {
 
     }
 
+    /**
+     * A player can add one Pokemon from his hand to his Pokemon bank
+     * @param pokemon Pokemon that's going to be put in the player's bank
+     */
     public void addPokemontoBank(IPokemon pokemon){
         if(!hand.contains(pokemon)){
             System.out.println("The player does not have this pokemon in his or her hand");
@@ -38,6 +50,10 @@ public class Entrenador {
 
     }
 
+    /**
+     * A player can select one of his Pokemons to be put on the battle field
+     * @param aPokemon Pokemon that is going to be selected
+     */
     public void selectPokemon(IPokemon aPokemon){
         if(!hand.contains(aPokemon)){
             System.out.println("Player does not posess this pokemon");
@@ -56,30 +72,57 @@ public class Entrenador {
         }
     }
 
+    /**
+     * Player draws card from stack
+     * @param card Card from stack
+     */
     public void drawCard(ICard card){
         this.hand.add(card);
     }
 
+    /**
+     * Getter to the player's name
+     * @return
+     */
     public String getName(){
         return this.name;
     }
 
+    /**
+     * Getter to the number of cards in the player's hand
+     * @return
+     */
     public int getHandSize(){
         return this.hand.size();
     }
 
+    /**
+     * Getter to the Pokemon, the player put in the battlefield
+     * @return
+     */
     public IPokemon getSelectedPokemon(){
         return this.selectedPokemon;
     }
 
+    /**
+     * Getter to the Pokemons the player put in his bank
+     * @return
+     */
     public List<IPokemon> getBank(){
         return this.pokemonBank;
     }
 
+    /**
+     * Getter to the cards in the player's hand
+     * @return
+     */
     public List<ICard> getHand(){
         return this.hand;
     }
 
+    /** A player can play an Energy Card on his selected Pokemon or add a Pokemon Card to his Pokemon bank
+     * @param aCard Energy or Pokemon card played by the player
+     */
     public void playCard(ICard aCard){
         if(!hand.contains(aCard)){
             System.out.println("The player cannot play a card which is not in his hand");
@@ -87,6 +130,11 @@ public class Entrenador {
         aCard.beingPlayedBy(this);
     }
 
+    /**
+     * A player uses one of his selected pokemon's attack to play it against the pokemon of his opponent. The attack can only be performed if the Pokemon posesses it and has enough energy to use it.
+     * @param anAttack attack used by the player
+     * @param following the opponent of the player who uses the attack
+     */
     public void useAttack(Attack anAttack, Entrenador following) {
         if (!this.getSelectedPokemon().getAttacksList().contains(anAttack)) {
             System.out.println("Pokemon cannot use attack he doesn't posess");

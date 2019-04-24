@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Pokemon Abstract class which extends the Pokemon interface
+ * @author Adèle Bourgeix
+ */
 public abstract class APokemon implements IPokemon  {
     private String name;
     private int pokedexID;
@@ -18,6 +22,12 @@ public abstract class APokemon implements IPokemon  {
     public HashMap<String, Integer> EnergiesAssociated;
     private ArrayList<Attack> attackList;
 
+    /** A Pokemon is created: a name is given to it, it's assigned an index of the Pokedex, some hp and a set of attacks it'll be allowed to perform.
+     * @param someName name given to the pokemon
+     * @param somePokedexID Pokedex index used to refer to it
+     * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
+     * @param attacks attacks pokemon can perform
+     */
     public APokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> attacks){
         this.name=someName;
         this.pokedexID=somePokedexID;
@@ -56,10 +66,7 @@ public abstract class APokemon implements IPokemon  {
     public int getQuantityofAnEnergy(IEnergy energy){
         return this.EnergiesAssociated.get(energy.type());
     }
-    @Override
-    public int getQuantityofAnEnergy(String energy){
-        return this.EnergiesAssociated.get(energy);
-    }
+
     @Override
     public ArrayList<Attack> getAttacksList(){
         return this.attackList;

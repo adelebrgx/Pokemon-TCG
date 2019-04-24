@@ -41,6 +41,7 @@ public class PsychicPokemonTest {
         assertEquals("Abra", abra.getName());
         assertEquals(63, abra.getPokedexID());
         assertEquals(50,abra.getHP());
+        assertEquals("Psychic", abra.type());
     }
     @Test
     public void selectAttackTest(){

@@ -42,6 +42,7 @@ public class FightingPokemonTest {
         assertEquals("Mankey", mankey.getName());
         assertEquals(56, mankey.getPokedexID());
         assertEquals(60,mankey.getHP());
+        assertEquals("Fighting", mankey.type());
     }
 
     @Test

@@ -41,6 +41,7 @@ public class PlantPokemonTest {
         assertEquals("Bulbasaur", bulbasaur.getName());
         assertEquals(1, bulbasaur.getPokedexID());
         assertEquals(50,bulbasaur.getHP());
+        assertEquals("Plant", bulbasaur.type());
     }
 
     @Test

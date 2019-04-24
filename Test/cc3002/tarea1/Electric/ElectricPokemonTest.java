@@ -41,6 +41,7 @@ public class ElectricPokemonTest {
         assertEquals("Pikachu", pikachu.getName());
         assertEquals(25, pikachu.getPokedexID());
         assertEquals(90,pikachu.getHP());
+        assertEquals("Electric", pikachu.type());
     }
     @Test
     public void selectAttackTest(){

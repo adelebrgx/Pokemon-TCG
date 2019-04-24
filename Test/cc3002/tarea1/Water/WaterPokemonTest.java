@@ -44,6 +44,7 @@ public class WaterPokemonTest {
         assertEquals(7, squirtle.getPokedexID());
         assertEquals(70,squirtle.getHP());
         assertEquals(new ArrayList<>(), squirtle.getAttacksList());
+        assertEquals("Water", squirtle.type());
     }
     @Test
     public void selectAttackTest(){
