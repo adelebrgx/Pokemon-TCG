@@ -48,6 +48,11 @@ A player in implemented within the class Player. A player is described by his/he
 All the functionnalities a player can perform are implemented in the class and will allow us to implement the game further on. 
 Amongst all the actions the player can perform, he/she can draw a card, put a Pokemon in his bank, send a Pokemon to a battlefield, attack the opponent's Pokemon, or play a Card : that's to say put a new Pokemon in his Pokemon bank or assign an energy to the Pokemon he/she sent to the battlefield. 
 
+## Built with 
+
+* **JDK Version 8** project built with Java
+* **JUnit4** testing framework used to run the tests
+
 
 ## Getting started 
 
@@ -68,3 +73,6 @@ Open the project with Intellij. To run all the tests, do a right click on the te
 The first version of the project deployed on April 27th, 2019 implements the entities of the project, their basic functionnalities and the interactions among them. 
 
 More versions will be deployed during the following months. 
+
+## Author 
+* **Adèle Bourgeix**
