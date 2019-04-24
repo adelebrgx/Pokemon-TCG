@@ -1,6 +1,6 @@
 package cc3002.tarea1.Plant;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IPokemon;
 
 import org.junit.Before;
@@ -21,7 +21,7 @@ public class PlantPokemonTest {
     private Attack tackle;
     private Attack shadowbowl;
     private Attack vinewhip;
-    private Entrenador Blue;
+    private Player Blue;
     @Before
     public void setUp() throws Exception {
         shadowbowl=new Attack("Shadow Bowl",40,"Attack of type pokemon: psychic");
@@ -33,7 +33,7 @@ public class PlantPokemonTest {
         aquajet=new Attack("Aqua Jet",30,"Attack of type pokemon: water");
         bulbasaur=new PlantPokemon("Bulbasaur",1,50,new ArrayList<>());
         ivysaur=new PlantPokemon("Ivysaur",2,70,new ArrayList<>(Arrays.asList(tackle)));
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
     }
 
     @Test

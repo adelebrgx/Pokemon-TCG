@@ -1,9 +1,8 @@
 package cc3002.tarea1.Electric;
 
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IEnergy;
 import cc3002.tarea1.IPokemon;
-import javafx.scene.effect.Blend;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,13 +12,13 @@ import static org.junit.Assert.assertEquals;
 
 public class ElectricEnergyTest {
     private IEnergy electric;
-    private Entrenador Blue;
+    private Player Blue;
     private IPokemon pikachu;
 
     @Before
     public void setUp() throws Exception {
         electric= new ElectricEnergy();
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
         pikachu=new ElectricPokemon("Pikachu",25,90,new ArrayList<>());
 
     }

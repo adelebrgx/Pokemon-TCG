@@ -7,7 +7,7 @@ import java.util.List;
  * Class which represents a Pokemon player and all the actions he/she can perform
  * @author Adèle Bourgeix
  */
-public class Entrenador {
+public class Player {
     private String name;
     private List<ICard> hand;
     private List<IPokemon> pokemonBank;
@@ -19,7 +19,7 @@ public class Entrenador {
      * @param name player's name that we'll use to refer to him
      */
 
-    public Entrenador(String name){
+    public Player(String name){
         this.name=name;
         hand= new ArrayList<ICard>(6);
         pokemonBank=new ArrayList<IPokemon>(6);
@@ -135,7 +135,7 @@ public class Entrenador {
      * @param anAttack attack used by the player
      * @param following the opponent of the player who uses the attack
      */
-    public void useAttack(Attack anAttack, Entrenador following) {
+    public void useAttack(Attack anAttack, Player following) {
         if (!this.getSelectedPokemon().getAttacksList().contains(anAttack)) {
             System.out.println("Pokemon cannot use attack he doesn't posess");
         } else {

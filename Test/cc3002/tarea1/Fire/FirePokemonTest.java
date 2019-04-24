@@ -1,6 +1,6 @@
 package cc3002.tarea1.Fire;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IPokemon;
 
 import org.junit.Before;
@@ -21,7 +21,7 @@ public class FirePokemonTest {
     private Attack tackle;
     private Attack shadowbowl;
     private Attack firepunch;
-    private Entrenador Blue;
+    private Player Blue;
     @Before
     public void setUp() throws Exception {
         shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
@@ -33,7 +33,7 @@ public class FirePokemonTest {
         firepunch=new Attack("Fire Punch",40,"Attack of pokemon type: fire");
         charmander=new FirePokemon("Charmander",4,50,new ArrayList<>());
         charmeleon=new FirePokemon("Charmeleon",5,70,new ArrayList<>(Arrays.asList(flamethrower)));
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
     }
 
     @Test

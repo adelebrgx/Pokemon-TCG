@@ -19,5 +19,5 @@ public interface IEnergy extends ICard {
     /** What happens when an energy card is played by th player toward his selected pokemon
      * @param inAction player which plays the energy card during the game
      */
-    public void beingPlayedBy(Entrenador inAction);
+    public void beingPlayedBy(Player inAction);
 }

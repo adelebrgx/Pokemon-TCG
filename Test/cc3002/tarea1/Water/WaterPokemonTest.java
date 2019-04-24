@@ -1,7 +1,7 @@
 package cc3002.tarea1.Water;
 
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import org.junit.Before;
 import org.junit.Test;
 import cc3002.tarea1.IPokemon;
@@ -21,7 +21,7 @@ public class WaterPokemonTest {
     private Attack flamethrower;
     private Attack tackle;
     private Attack shadowbowl;
-    private Entrenador Blue;
+    private Player Blue;
 
     @Before
     public void setUp() throws Exception {
@@ -34,7 +34,7 @@ public class WaterPokemonTest {
         bubble = new Attack("Bubble", 40,"Attack of pokemon type: water");
         squirtle=new WaterPokemon("Squirtle",7,70,new ArrayList<>());
         watortle=new WaterPokemon("Watortle", 8, 85, new ArrayList<>(Arrays.asList(bubble)) );
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
     }
 
     @Test

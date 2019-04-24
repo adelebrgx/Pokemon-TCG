@@ -1,7 +1,7 @@
 package cc3002.tarea1.entrenador;
 
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Fire.FirePokemon;
@@ -23,8 +23,8 @@ import static org.junit.Assert.*;
 
 public class EntrenadorTest {
 
-    private Entrenador Red;
-    private Entrenador Blue;
+    private Player Red;
+    private Player Blue;
     private IPokemon charmander;
     private IPokemon squirtle;
     private IPokemon abra;
@@ -40,8 +40,8 @@ public class EntrenadorTest {
 
     @Before
     public void setUp() throws Exception {
-    Red= new Entrenador("Red");
-    Blue= new Entrenador("Blue");
+    Red= new Player("Red");
+    Blue= new Player("Blue");
 
     charmander=new FirePokemon("Charmander",4,50,new ArrayList<>());
     squirtle= new WaterPokemon("Squirtle", 7, 50,new ArrayList<>());

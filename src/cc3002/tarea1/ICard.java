@@ -9,5 +9,5 @@ public interface ICard {
     /** What happens when a card, whatever its type, is played!
      * @param inAction player which plays the card
      */
-    public void beingPlayedBy(Entrenador inAction);
+    public void beingPlayedBy(Player inAction);
 }

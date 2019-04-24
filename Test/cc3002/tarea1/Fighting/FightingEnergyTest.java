@@ -1,6 +1,6 @@
 package cc3002.tarea1.Fighting;
 
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IEnergy;
 import cc3002.tarea1.IPokemon;
 import org.junit.Before;
@@ -12,13 +12,13 @@ import static org.junit.Assert.assertEquals;
 
 public class FightingEnergyTest {
     private IEnergy fighting;
-    private Entrenador Blue;
+    private Player Blue;
     private IPokemon mankey;
 
     @Before
     public void setUp() throws Exception {
         fighting= new FightingEnergy();
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
         mankey=new FightingPokemon("Mankey",56,60,new ArrayList<>());
 
     }

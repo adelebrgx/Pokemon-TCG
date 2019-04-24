@@ -1,6 +1,6 @@
 package cc3002.tarea1.Fighting;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IPokemon;
 
 import org.junit.Before;
@@ -21,7 +21,7 @@ public class FightingPokemonTest {
     private Attack tackle;
     private Attack shadowbowl;
     private Attack lowkick;
-    private Entrenador Blue;
+    private Player Blue;
     @Before
     public void setUp() throws Exception {
         shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
@@ -33,7 +33,7 @@ public class FightingPokemonTest {
         lowkick=new Attack("Low Kick",40,"Attack of pokemon type: fighting");
         mankey=new FightingPokemon("Mankey",56,60,new ArrayList<>());
         primeape=new FightingPokemon("Primeape", 57, 100,new ArrayList<>(Arrays.asList(karatechop)));
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
     }
 
     @Test

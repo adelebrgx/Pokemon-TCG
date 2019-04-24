@@ -1,6 +1,6 @@
 package cc3002.tarea1.Psychic;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IPokemon;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class PsychicPokemonTest {
     private Attack tackle;
     private Attack shadowbowl;
     private Attack psyshock;
-    private Entrenador Blue;
+    private Player Blue;
     @Before
     public void setUp() throws Exception {
         shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
@@ -32,7 +32,7 @@ public class PsychicPokemonTest {
         aquajet=new Attack("Aqua Jet",30,"Attack of pokemon type: water");
         abra=new PsychicPokemon("Abra",63,50, new ArrayList<>());
         kadabra=new PsychicPokemon("Kadabra",64,80, new ArrayList<>(Arrays.asList(shadowbowl)));
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
 
     }
 

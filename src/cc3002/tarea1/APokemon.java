@@ -107,7 +107,7 @@ public abstract class APokemon implements IPokemon  {
         if (this.hp<0){this.hp=0;}
     }
     @Override
-    public void beingPlayedBy(Entrenador inAction){
+    public void beingPlayedBy(Player inAction){
         inAction.addPokemontoBank(this);
     }
 }

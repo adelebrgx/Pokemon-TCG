@@ -21,7 +21,7 @@ public abstract class AEnergy implements IEnergy{
         return this.name;
     }
 
-    public void beingPlayedBy(Entrenador inAction){
+    public void beingPlayedBy(Player inAction){
         if (inAction.getBank().size()==0){
             System.out.println("There is no Pokemon to apply this energy to");
         }

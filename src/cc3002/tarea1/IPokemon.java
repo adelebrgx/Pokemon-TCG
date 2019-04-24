@@ -117,7 +117,7 @@ public interface IPokemon extends ICard{
     /** What happens when the pokemon card is played
      * @param inAction Player who plays the pokemon card
      */
-    public void beingPlayedBy(Entrenador inAction);
+    public void beingPlayedBy(Player inAction);
 
 
 

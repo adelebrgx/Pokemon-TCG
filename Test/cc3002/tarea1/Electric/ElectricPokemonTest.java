@@ -1,6 +1,6 @@
 package cc3002.tarea1.Electric;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IPokemon;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class ElectricPokemonTest {
     private Attack tackle;
     private Attack shadowbowl;
     private Attack discharge;
-    private Entrenador Blue;
+    private Player Blue;
     @Before
     public void setUp() throws Exception {
         shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
@@ -32,7 +32,7 @@ public class ElectricPokemonTest {
         aquajet=new Attack("Aqua Jet",30,"Attack of pokemon type: water");
         pikachu=new ElectricPokemon("Pikachu",25,90,new ArrayList<>());
         raichu=new ElectricPokemon("Raichu", 26, 110, new ArrayList<>(Arrays.asList(discharge)));
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
     }
 
     @Test

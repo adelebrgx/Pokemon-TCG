@@ -1,6 +1,6 @@
 package cc3002.tarea1.Water;
 
-import cc3002.tarea1.Entrenador;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.IEnergy;
 import cc3002.tarea1.IPokemon;
 import org.junit.Before;
@@ -12,13 +12,13 @@ import static org.junit.Assert.assertEquals;
 
 public class WaterEnergyTest {
     private IEnergy water;
-    private Entrenador Blue;
+    private Player Blue;
     private IPokemon squirtle;
 
     @Before
     public void setUp() throws Exception {
         water= new WaterEnergy();
-        Blue=new Entrenador("Blue");
+        Blue=new Player("Blue");
         squirtle=new WaterPokemon("Squirtle",7,70,new ArrayList<>());
     }
 
