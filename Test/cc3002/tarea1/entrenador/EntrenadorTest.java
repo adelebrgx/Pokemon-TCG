@@ -76,12 +76,14 @@ public class EntrenadorTest {
 
         Red.addPokemontoBank(charmander);
         Red.addPokemontoBank(squirtle);
+        Red.selectPokemon(pikachu);
 
 
         assertEquals(0,Red.getBank().indexOf(charmander));
         assertEquals("Squirtle",Red.getBank().get(1).getName());
         assertEquals("Charmander",Red.getBank().get(0).getName());
         assertEquals("Charmander", Red.getSelectedPokemon().getName());
+        assertEquals(2, Red.getBank().size());
 
     }
 

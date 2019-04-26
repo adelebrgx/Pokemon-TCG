@@ -3,6 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="1144ba69-b292-43a9-a281-b8bf7ffbd00a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/Electric/ElectricPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/Electric/ElectricPokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/Fighting/FightingPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/Fighting/FightingPokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/Fire/FirePokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/Fire/FirePokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantPokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/Psychic/PsychicPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/Psychic/PsychicPokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FightingPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FightingPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,21 +26,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/cc3002_tarea1$All_in_cc3002_tarea1.ic" NAME="All in cc3002-tarea1 Coverage Results" MODIFIED="1556118753194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/cc3002_tarea1$All_in_cc3002_tarea1.ic" NAME="All in cc3002-tarea1 Coverage Results" MODIFIED="1556288746218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="134" />
+    <option name="myElementSize" value="158" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="39" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="-522">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,10 +49,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java">
+        <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="-935">
+              <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,22 +61,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java">
+        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="22" column="41" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="41" />
+            <state relative-caret-position="418">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/AEnergy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -70,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Fighting/FightingPokemonTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+            <state relative-caret-position="306">
+              <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -82,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Fire/FirePokemonTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+            <state relative-caret-position="295">
+              <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,12 +97,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java">
+        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="53" />
+            <state relative-caret-position="235">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#961#962#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantPokemonTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
+            <state relative-caret-position="295">
+              <caret line="107" column="22" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,8 +125,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Psychic/PsychicPokemonTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
+            <state relative-caret-position="295">
+              <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,10 +147,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java">
+        <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Electric/ElectricPokemonTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+            <state relative-caret-position="250">
+              <caret line="106" column="3" selection-start-line="106" selection-start-column="3" selection-end-line="110" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,13 +202,6 @@
         <option value="$PROJECT_DIR$/Modelo.puml" />
         <option value="$PROJECT_DIR$/bgl.puml" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Entrenador.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FightingPokemon.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/IEnergy.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/AEnergy.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterEnergy.java" />
@@ -200,6 +212,14 @@
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricEnergy.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/ICard.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Attack.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/IPokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FightingPokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java" />
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java" />
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/Electric/ElectricPokemonTest.java" />
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/Fighting/FightingPokemonTest.java" />
@@ -207,7 +227,6 @@
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantPokemonTest.java" />
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/Psychic/PsychicPokemonTest.java" />
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/IPokemon.java" />
       </list>
     </option>
   </component>
@@ -215,7 +234,7 @@
     <option name="x" value="22" />
     <option name="y" value="23" />
     <option name="width" value="1378" />
-    <option name="height" value="786" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -225,7 +244,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -351,6 +369,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,7 +381,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556118749592" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556288744139" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -463,6 +482,8 @@
       <updated>1555858274745</updated>
       <workItem from="1556054022667" duration="273000" />
       <workItem from="1556054344165" duration="309000" />
+      <workItem from="1556119010303" duration="58000" />
+      <workItem from="1556120048344" duration="221000" />
     </task>
     <task id="LOCAL-00001" summary="beginning">
       <created>1555858616845</created>
@@ -548,49 +569,56 @@
       <option name="project" value="LOCAL" />
       <updated>1556115195947</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="test">
+      <created>1556118783318</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556118783319</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 17h 57m 21s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 15m 25s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 22h 35m 58s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 17m 16s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 49m 22s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 17m 56s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 50m 38s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 20m 07s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 51m 16s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 20m 28s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 51m 35s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 21m 25s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 52m 24s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 22m 31s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 52m 45s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 23m 42s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.23 at 23h 53m 20s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 24m 34s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_cc3002-tarea1 - 2019.04.24 at 11h 12m 47s.xml">
+    <history-entry file="All_in_cc3002-tarea1 - 2019.04.26 at 11h 24m 57s.xml">
       <configuration name="All in cc3002-tarea1" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="789000" />
+    <option name="totallyTimeSpent" value="1068000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="23" width="1378" height="786" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29341316" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29715568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -600,13 +628,13 @@
       <window_info id="simpleUML" order="7" weight="0.3298969" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.497006" visible="true" weight="0.3299712" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49625748" visible="true" weight="0.3299712" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39913544" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.502994" side_tool="true" visible="true" weight="0.3299712" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5037425" side_tool="true" visible="true" weight="0.3299712" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49852726" weight="0.3299712" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49852726" weight="0.3299712" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -665,19 +693,10 @@
     <MESSAGE value="Modifying attack system &amp; class + tests" />
     <MESSAGE value="last check up" />
     <MESSAGE value="changed entrenador for player" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed entrenador for player" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterEnergyTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantEnergyTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -746,47 +765,6 @@
     <entry file="uml://MODULES/mdl-cc3002-tarea1" />
     <entry file="file://$PROJECT_DIR$/Tarea1" />
     <entry file="uml://JavaScript-modules-diagram//Users/adelebourgeix/Documents/DCC/Metodologias/T1/cc3002-tarea1" />
-    <entry file="uml://JAVA/cc3002.tarea1" />
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/IPokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicEnergy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -809,16 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="62" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FightingPokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="85" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,16 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/ICard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -874,80 +832,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java">
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/AEnergy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Electric/ElectricPokemonTest.java">
+    <entry file="uml://JAVA/cc3002.tarea1.Player" />
+    <entry file="uml://JAVA/cc3002.tarea1" />
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/IPokemon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="43" column="49" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Fighting/FightingPokemonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Fire/FirePokemonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantPokemonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Psychic/PsychicPokemonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        <state relative-caret-position="151">
+          <caret line="97" column="54" lean-forward="true" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -956,25 +853,152 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="22" column="41" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="22" selection-end-column="41" />
+        <state relative-caret-position="173">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3901#3902#0" expanded="true" />
+            <element signature="e#3948#3949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/AEnergy.java">
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="23" />
+        <state relative-caret-position="295">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FightingPokemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Electric/ElectricPokemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterPokemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="-522">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-935">
+          <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Electric/ElectricPokemonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="106" column="3" selection-start-line="106" selection-start-column="3" selection-end-line="110" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Fighting/FightingPokemonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Fire/FirePokemonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Plant/PlantPokemonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="107" column="22" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#961#962#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Psychic/PsychicPokemonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/cc3002/tarea1/Water/WaterPokemonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="109" column="22" selection-start-line="109" selection-start-column="22" selection-end-line="109" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

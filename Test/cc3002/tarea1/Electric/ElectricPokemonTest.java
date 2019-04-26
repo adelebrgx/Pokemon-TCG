@@ -103,4 +103,10 @@ public class ElectricPokemonTest {
         assertEquals(2, Blue.getBank().size());
 
     }
+
+    @Test
+    public void hurtAnotherPokemon(){
+        raichu.hurt(pikachu, discharge);
+        assertEquals(40, pikachu.getHP());
+    }
 }

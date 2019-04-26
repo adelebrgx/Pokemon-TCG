@@ -102,4 +102,9 @@ public class PsychicPokemonTest {
         assertEquals(2, Blue.getBank().size());
 
     }
+    @Test
+    public void hurtAnotherPokemon(){
+        kadabra.hurt(abra, shadowbowl);
+        assertEquals(0, abra.getHP());
+    }
 }

@@ -104,4 +104,9 @@ public class FirePokemonTest {
         assertEquals(2, Blue.getBank().size());
 
     }
+    @Test
+    public void hurtAnotherPokemon(){
+        charmeleon.hurt(charmander, flamethrower);
+        assertEquals(20, charmander.getHP());
+    }
 }

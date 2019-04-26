@@ -32,22 +32,7 @@ public class PsychicPokemon extends APokemon {
     public String type(){
         return "Psychic";
     }
-    @Override
-    public void receiveFireAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receiveWaterAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receivePlantAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receiveElectricAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
+
     @Override
     public void receiveFightingAttack(Attack anAttack){
         this.receiveResistantAttack(anAttack);

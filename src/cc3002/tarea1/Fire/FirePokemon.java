@@ -31,28 +31,10 @@ public class FirePokemon extends APokemon {
     public String type(){
         return "Fire";
     }
-    @Override
-    public void receiveFireAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
+
     @Override
     public void receiveWaterAttack(Attack anAttack){
         this.receiveWeaknessAttack(anAttack);
     }
-    @Override
-    public void receivePlantAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receiveElectricAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receiveFightingAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receivePsychicAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
+
 }

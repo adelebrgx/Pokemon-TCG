@@ -104,6 +104,11 @@ public class WaterPokemonTest {
         assertEquals(2, Blue.getBank().size());
 
     }
+    @Test
+    public void hurtAnotherPokemon(){
+        watortle.hurt(squirtle, bubble);
+        assertEquals(30, squirtle.getHP());
+    }
 
 
 }

@@ -105,4 +105,9 @@ public class FightingPokemonTest {
         assertEquals(2, Blue.getBank().size());
 
     }
+    @Test
+    public void hurtAnotherPokemon(){
+        primeape.hurt(mankey, karatechop);
+        assertEquals(30, mankey.getHP());
+    }
 }

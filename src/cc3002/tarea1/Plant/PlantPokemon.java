@@ -38,20 +38,5 @@ public class PlantPokemon extends APokemon {
     public void receiveWaterAttack(Attack anAttack){
         this.receiveResistantAttack(anAttack);
     }
-    @Override
-    public void receivePlantAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receiveElectricAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receiveFightingAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
-    @Override
-    public void receivePsychicAttack(Attack anAttack){
-        this.receiveNormalAttack(anAttack);
-    }
+
 }

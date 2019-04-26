@@ -102,4 +102,9 @@ public class PlantPokemonTest {
         assertEquals(2, Blue.getBank().size());
 
     }
+    @Test
+    public void hurtAnotherPokemon(){
+        ivysaur.hurt(bulbasaur, tackle);
+        assertEquals(20, bulbasaur.getHP());
+    }
 }
