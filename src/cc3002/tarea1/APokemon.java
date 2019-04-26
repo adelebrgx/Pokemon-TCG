@@ -90,16 +90,17 @@ public abstract class APokemon implements IPokemon  {
         }
     }
 
+    @Override
     public void receiveFireAttack(Attack anAttack){this.receiveNormalAttack(anAttack);}
-
+    @Override
     public void receiveWaterAttack(Attack anAttack){this.receiveNormalAttack(anAttack);}
-
+    @Override
     public void receivePlantAttack(Attack anAttack){this.receiveNormalAttack(anAttack);}
-
+    @Override
     public void receiveElectricAttack(Attack anAttack){this.receiveNormalAttack(anAttack);}
-
+    @Override
     public void receiveFightingAttack(Attack anAttack){this.receiveNormalAttack(anAttack);}
-
+    @Override
     public void receivePsychicAttack(Attack anAttack){this.receiveNormalAttack(anAttack);}
 
 
