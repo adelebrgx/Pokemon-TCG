@@ -48,6 +48,10 @@ A player in implemented within the class Player. A player is described by his/he
 All the functionnalities a player can perform are implemented in the class and will allow us to implement the game further on. 
 Amongst all the actions the player can perform, he/she can draw a card, put a Pokemon in his bank, send a Pokemon to a battlefield, attack the opponent's Pokemon, or play a Card : that's to say put a new Pokemon in his Pokemon bank or assign an energy to the Pokemon he/she sent to the battlefield. 
 
+## Tests
+
+Each class method is tested in the method of a test file. Each method of the test file tests different scenarios and considers different border cases. 
+
 ## Built with 
 
 * **JDK Version 8** project built with Java
