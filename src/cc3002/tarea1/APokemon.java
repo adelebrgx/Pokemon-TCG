@@ -123,4 +123,42 @@ public abstract class APokemon implements IPokemon  {
     public void beingPlayedBy(Player inAction){
         inAction.addPokemontoBank(this);
     }
+
+    @Override
+    public void addElectricEnergy(ElectricEnergy en){
+        this.receiveEnergy(en);
+    }
+
+    @Override
+    public void addFightingEnergy(FightingEnergy en){
+        this.receiveEnergy(en);
+    }
+
+    @Override
+    public void addFireEnergy(FireEnergy en){
+        this.receiveEnergy(en);
+    }
+
+    @Override
+    public void addPsychicEnergy(PsychicEnergy en){
+        this.receiveEnergy(en);
+    }
+
+    @Override
+    public void addPlantEnergy(PlantEnergy en){
+        this.receiveEnergy(en);
+    }
+
+    @Override
+    public void addWaterEnergy(WaterEnergy en){
+        this.receiveEnergy(en);
+    }
+
+    @Override
+    public void receiveEnergy(IEnergy en){
+        int numberAlreadyAssociated=EnergiesAssociated.get(en.type());
+        numberAlreadyAssociated+=1;
+        EnergiesAssociated.remove(en.type());
+        EnergiesAssociated.put(en.type(),numberAlreadyAssociated);}
+
 }

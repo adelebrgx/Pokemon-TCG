@@ -21,16 +21,5 @@ public abstract class AEnergy implements IEnergy{
         return this.name;
     }
 
-    public void beingPlayedBy(Player inAction){
-        if (inAction.getBank().size()==0){
-            System.out.println("There is no Pokemon to apply this energy to");
-        }
-        else{
-        IPokemon selectedPokemon= inAction.getSelectedPokemon();
-        HashMap<String, Integer> EnergiesAssociated=selectedPokemon.getEnergiesAssociated();
-        int numberAlreadyAssociated=EnergiesAssociated.get(this.type());
-        numberAlreadyAssociated+=1;
-        EnergiesAssociated.remove(this.type());
-        EnergiesAssociated.put(this.type(),numberAlreadyAssociated);}
-    }
+
 }
