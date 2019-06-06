@@ -2,6 +2,10 @@ package cc3002.tarea1;
 
 import java.util.HashMap;
 
+/**
+ * Interface which represents the game's abilities
+ * @author Adèle Bourgeix
+ */
 public interface IHability {
 
     String getName();

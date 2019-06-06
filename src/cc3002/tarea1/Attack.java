@@ -3,7 +3,7 @@ package cc3002.tarea1;
 import java.util.HashMap;
 
 /**
- * Class used to describe the behavior of an attack one pokemon posess
+ * Class used to describe the behavior of an attack one pokemon posess which is a special type of ability
  * @author Adèle Bourgeix
  */
 public class Attack extends AAbility {

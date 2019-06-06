@@ -2,6 +2,10 @@ package cc3002.tarea1;
 
 import java.util.HashMap;
 
+/**
+ * Abstract class representing the game's abilities which implements the IAbility interface
+ * @author Adèle Bourgeix
+ */
 public abstract class AAbility implements IHability{
     private String name;
     private String description;
