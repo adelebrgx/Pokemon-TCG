@@ -46,4 +46,8 @@ public abstract class AAbility implements IHability{
     public void setEnergyCost(String energy, int quantity){
         this.cost.put(energy,quantity);
     }
+
+    public void beingActivated(Player first, Player following){
+        System.out.println("hability being activated");
+    }
 }

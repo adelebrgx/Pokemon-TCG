@@ -28,6 +28,38 @@ public class Attack extends AAbility {
         return this.baseDamage;
     }
 
+    @Override
+    public void beingActivated(Player first, Player following){
+        if (!first.getSelectedPokemon().getAttacksList().contains(this)) {
+            System.out.println("Pokemon cannot use attack he doesn't posess");
+        } else {
+            //compare energies
+            HashMap<String,Integer> map= this.getCosts();
+            boolean canAttack=true;
+            for (String key:map.keySet()) {
+                int energy=map.get(key);
+                int quantity= first.getSelectedPokemon().getEnergiesAssociated().get(key);
+                if(energy!=quantity){
+                    canAttack=false;
+                    break;
+                }
+            }
+            if(canAttack){
+                first.getSelectedPokemon().hurt(following.getSelectedPokemon(), this);
+                if (!following.getSelectedPokemon().isAlive()){
+                    IPokemon lost=following.getBank().get(0);
+                    following.getBank().remove(0);
+                    following.getLostCards().add(lost);
+                    IPokemon newPokemoninGame=following.getBank().get(0);
+                    following.selectPokemon(newPokemoninGame);
+                }
+            }
+            else{
+                System.out.println("The pokemon doesn't posess enough energy to use this attack");
+            }
+        }
+    }
+
 
 
 

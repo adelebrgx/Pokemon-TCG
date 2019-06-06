@@ -24,12 +24,12 @@ public class Player {
 
     public Player(String name){
         this.name=name;
-        hand= new ArrayList<ICard>(6);
-        pokemonBank=new ArrayList<IPokemon>(6);
+        hand= new ArrayList<>(6);
+        pokemonBank=new ArrayList<>(6);
         selectedPokemon= null;
-        lostCards =new ArrayList<ICard>();
-        cardStack=new ArrayList<ICard>();
-        primeCards=new ArrayList<ICard>();
+        lostCards =new ArrayList<>();
+        cardStack=new ArrayList<>(60);
+        primeCards=new ArrayList<>(6);
 
     }
 
@@ -132,7 +132,7 @@ public class Player {
 
     /**
      * Getter to the player's name
-     * @return
+     * @return a String which is the player's name
      */
     public String getName(){
         return this.name;
@@ -140,15 +140,15 @@ public class Player {
 
     /**
      * Getter to the number of cards in the player's hand
-     * @return
+     * @return an integer which is the size of the player's hand
      */
     public int getHandSize(){
         return this.hand.size();
     }
 
     /**
-     * Getter to the Pokemon, the player put in the battlefield
-     * @return
+     * Getter to the Pokemon the player put in the battlefield
+     * @return a Pokemon which is in the battlefields
      */
     public IPokemon getSelectedPokemon(){
         return this.selectedPokemon;
@@ -156,7 +156,7 @@ public class Player {
 
     /**
      * Getter to the Pokemons the player put in his bank
-     * @return
+     * @return a list of pokemons the player put in his bank
      */
     public List<IPokemon> getBank(){
         return this.pokemonBank;
@@ -164,18 +164,34 @@ public class Player {
 
     /**
      * Getter to the cards in the player's hand
-     * @return
+     * @return a list of cards in the  player's hand
      */
     public List<ICard> getHand(){
         return this.hand;
     }
 
+    /**
+     * A getter to the player's deck of cards
+     * @return a list of cards which is it's deck of cards
+     */
     public List<ICard> getStack(){
         return this.cardStack;
     }
 
+    /**
+     * A getter to the player's prime cards
+     * @return a list of the player's prime cards
+     */
     public List<ICard> getPrimeCards(){
         return this.primeCards;
+    }
+
+    /**
+     * A getter to the cards put aside by the player for some reason (defeated Pokemon...)
+     * @return a list of cards which are the player's lost cards
+     */
+    public List<ICard> getLostCards(){
+        return this.lostCards;
     }
 
     /** A player can play an Energy Card on his selected Pokemon or add a Pokemon Card to his Pokemon bank
@@ -190,38 +206,11 @@ public class Player {
 
     /**
      * A player uses one of his selected pokemon's attack to play it against the pokemon of his opponent. The attack can only be performed if the Pokemon posesses it and has enough energy to use it.
-     * @param anAttack attack used by the player
+     * @param anAbility ability used by the player
      * @param following the opponent of the player who uses the attack
      */
-    public void useAttack(Attack anAttack, Player following) {
-        if (!this.getSelectedPokemon().getAttacksList().contains(anAttack)) {
-            System.out.println("Pokemon cannot use attack he doesn't posess");
-        } else {
-            //compare energies
-            HashMap<String,Integer> map= anAttack.getCosts();
-            boolean canAttack=true;
-            for (String key:map.keySet()) {
-                int energy=map.get(key);
-                int quantity= this.getSelectedPokemon().getEnergiesAssociated().get(key);
-                if(energy!=quantity){
-                    canAttack=false;
-                    break;
-                }
-            }
-            if(canAttack==true){
-                this.getSelectedPokemon().hurt(following.getSelectedPokemon(), anAttack);
-                if (!following.getSelectedPokemon().isAlive()){
-                    IPokemon lost=following.pokemonBank.get(0);
-                    following.getBank().remove(0);
-                    following.lostCards.add(lost);
-                    IPokemon newPokemoninGame=following.getBank().get(0);
-                    following.selectPokemon(newPokemoninGame);
-                }
-            }
-            else{
-                System.out.println("The pokemon doesn't posess enough energy to use this attack");
-            }
-        }
+    public void useHability(IHability anAbility, Player following) {
+        anAbility.beingActivated(this,following);
     }
 
 }

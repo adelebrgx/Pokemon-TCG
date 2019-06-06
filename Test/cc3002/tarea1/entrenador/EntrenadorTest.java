@@ -37,7 +37,7 @@ public class EntrenadorTest {
 
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
     Red= new Player("Red");
     Blue= new Player("Blue");
     deckSet=new ArrayList<>();
@@ -175,12 +175,12 @@ public class EntrenadorTest {
         Red.playCard(fire);
         Red.playCard(plant);
         charmander.setAttack(torpedo);
-        Red.useAttack(torpedo,Blue);
+        Red.useHability(torpedo,Blue);
         assertEquals(20,Blue.getSelectedPokemon().getHP());
-        Red.useAttack(torpedo,Blue);
+        Red.useHability(torpedo,Blue);
         assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
         torpedo.setEnergyCost("Fire",1);
-        Red.useAttack(torpedo,Blue);
+        Red.useHability(torpedo,Blue);
         assertEquals(50,Blue.getSelectedPokemon().getHP());
 
     }

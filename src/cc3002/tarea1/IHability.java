@@ -8,4 +8,5 @@ public interface IHability {
     HashMap<String, Integer> getCosts();
     int quantityOneEnergy(IEnergy energy);
     void setEnergyCost(String energy, int quantity);
+    void beingActivated(Player frist, Player following);
 }
