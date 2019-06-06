@@ -22,7 +22,7 @@ public class Attack extends AAbility {
 
 
     /** Getter for the number of points lost by the pokemon which will receive this attack
-     * @return
+     * @return an integer which represents the base damage of an attack
      */
     public int getBaseDamage() {
         return this.baseDamage;

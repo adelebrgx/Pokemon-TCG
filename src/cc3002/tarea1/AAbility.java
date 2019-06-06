@@ -17,7 +17,7 @@ public abstract class AAbility implements IHability{
         this.cost= new HashMap<>(4);
     }
     /** Getter for the name of the attack
-     * @return
+     * @return string which the attack's name
      */
     public String getName(){
         return this.name;
@@ -25,7 +25,7 @@ public abstract class AAbility implements IHability{
 
 
     /** Method which returns the energies a Pokemon must posess to perform an attack
-     * @return
+     * @return return HashMap with the type and quantity of energies needed
      */
     public HashMap<String, Integer> getCosts(){
         return this.cost;
@@ -33,7 +33,7 @@ public abstract class AAbility implements IHability{
 
     /** Returns the quantity of one type of energy owned by a pokemon
      * @param energy energy looked for among the pokemon's energies associated
-     * @return
+     * @return Quantity needed of one type of energy
      */
     public int quantityOneEnergy(IEnergy energy){
         return this.cost.get(energy.type());
