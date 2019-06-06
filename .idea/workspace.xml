@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1144ba69-b292-43a9-a281-b8bf7ffbd00a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cc3002/tarea1/IHability.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/AEnergy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/AEnergy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/ICard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/ICard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/Attack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/Attack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cc3002/tarea1/IHability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cc3002/tarea1/IHability.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -82,20 +77,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/IHability.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="135">
+              <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+            <state relative-caret-position="342">
+              <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Attack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -169,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fire/FireAttack.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Water/WaterAttack.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/ACard.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fighting/FigthingEnergy.java" />
@@ -193,7 +196,6 @@
         <option value="$PROJECT_DIR$/bgl.puml" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Entrenador.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/IEnergy.java" />
-        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Attack.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Psychic/PsychicPokemon.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Fire/FirePokemon.java" />
@@ -220,6 +222,8 @@
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/Player.java" />
         <option value="$PROJECT_DIR$/Test/cc3002/tarea1/entrenador/EntrenadorTest.java" />
         <option value="$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/Attack.java" />
+        <option value="$PROJECT_DIR$/src/cc3002/tarea1/IHability.java" />
       </list>
     </option>
   </component>
@@ -373,7 +377,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559850142160" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559850584097" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -598,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559700441994</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="modified Player class to add him : prime cards, stack, list of cards set aside and methods to initialize">
+      <created>1559850260124</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1559850260126</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -649,7 +660,7 @@
     <frame x="0" y="23" width="1440" height="826" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3204578" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3204578" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -727,7 +738,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="added tests to improve coverage" />
     <MESSAGE value="fixed tarea1 errrors" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed tarea1 errrors" />
+    <MESSAGE value="modified Player class to add him : prime cards, stack, list of cards set aside and methods to initialize" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified Player class to add him : prime cards, stack, list of cards set aside and methods to initialize" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantAttack.java" />
@@ -767,13 +779,6 @@
     <entry file="uml://MODULES/mdl-cc3002-tarea1" />
     <entry file="file://$PROJECT_DIR$/Tarea1" />
     <entry file="uml://JavaScript-modules-diagram//Users/adelebourgeix/Documents/DCC/Metodologias/T1/cc3002-tarea1" />
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Attack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://JAVA/cc3002.tarea1.Player" />
     <entry file="uml://JAVA/cc3002.tarea1" />
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Plant/PlantPokemon.java">
@@ -932,13 +937,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/ICard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/APokemon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -1053,6 +1051,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/Attack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/ICard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1073,17 +1085,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/IHability.java">
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+        <state relative-caret-position="342">
+          <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/AAbility.java">
+    <entry file="file://$PROJECT_DIR$/src/cc3002/tarea1/IHability.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="51" selection-start-line="2" selection-start-column="51" selection-end-line="2" selection-end-column="51" />
+        <state relative-caret-position="135">
+          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
         </state>
       </provider>
     </entry>
