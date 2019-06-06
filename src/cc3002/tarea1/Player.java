@@ -1,5 +1,6 @@
 package cc3002.tarea1;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +13,9 @@ public class Player {
     private List<ICard> hand;
     private List<IPokemon> pokemonBank;
     private IPokemon selectedPokemon;
-    private List<IPokemon> pokemonLost;
+    private List<ICard> lostCards;
+    private List<ICard> cardStack;
+    private List<ICard> primeCards;
 
     /**
      * Trainer's constructor
@@ -24,9 +27,56 @@ public class Player {
         hand= new ArrayList<ICard>(6);
         pokemonBank=new ArrayList<IPokemon>(6);
         selectedPokemon= null;
-        pokemonLost=new ArrayList<IPokemon>();
+        lostCards =new ArrayList<ICard>();
+        cardStack=new ArrayList<ICard>();
+        primeCards=new ArrayList<ICard>();
 
     }
+
+    /**
+     * Initiate the player's deck of cards using a set of existing cards and shuffling them to simulate hazard
+     * @param list the set of cards to be shuffled
+     */
+    public void initiateDeck(List<ICard> list){
+        shuffleCards(60,this.cardStack,list);
+
+    }
+
+    /**
+     * Initiate the player's prime cards using a set of existing cards and shuffling them to simulate hazard
+     * @param list the set of cards to be shuffled
+     */
+    public void initiatePrimeCards(List<ICard> list){
+        shuffleCards(6,this.primeCards,list);
+
+    }
+
+    /**
+     * Shuffle function which allows to shuffle a set of cards to fill a stack (avoid code duplication)
+     * @param x size of the stack to be filled
+     * @param list stack to be filled
+     * @param shuffled set of cards to be shuffled
+     */
+    public void shuffleCards(int x, List<ICard> list, List<ICard> shuffled){
+        int countSet= shuffled.size();
+        System.out.println(countSet);
+        int countleft=60;
+        while (list.size()!=x){
+            Collections.shuffle(shuffled);
+            if (countleft>=countSet){
+                for (int i=0; i<countSet; i++){
+                    list.add(shuffled.get(i));
+                }
+                countleft-=countSet;
+            }
+            else{
+                for (int i=0;i<countleft;i++ ){
+                    list.add(shuffled.get(i));
+                }
+            }
+        }
+    }
+
 
     /**
      * A player can add one Pokemon from his hand to his Pokemon bank
@@ -120,6 +170,14 @@ public class Player {
         return this.hand;
     }
 
+    public List<ICard> getStack(){
+        return this.cardStack;
+    }
+
+    public List<ICard> getPrimeCards(){
+        return this.primeCards;
+    }
+
     /** A player can play an Energy Card on his selected Pokemon or add a Pokemon Card to his Pokemon bank
      * @param aCard Energy or Pokemon card played by the player
      */
@@ -155,7 +213,7 @@ public class Player {
                 if (!following.getSelectedPokemon().isAlive()){
                     IPokemon lost=following.pokemonBank.get(0);
                     following.getBank().remove(0);
-                    following.pokemonLost.add(lost);
+                    following.lostCards.add(lost);
                     IPokemon newPokemoninGame=following.getBank().get(0);
                     following.selectPokemon(newPokemoninGame);
                 }

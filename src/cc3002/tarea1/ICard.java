@@ -10,4 +10,5 @@ public interface ICard {
      * @param inAction player which plays the card
      */
     public void beingPlayedBy(Player inAction);
+    public String getTitle();
 }

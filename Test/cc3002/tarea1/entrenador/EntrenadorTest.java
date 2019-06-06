@@ -1,12 +1,9 @@
 package cc3002.tarea1.entrenador;
 
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.Player;
+import cc3002.tarea1.*;
 import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Fire.FirePokemon;
-import cc3002.tarea1.IEnergy;
-import cc3002.tarea1.IPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
 import cc3002.tarea1.Psychic.PsychicPokemon;
 import cc3002.tarea1.Water.WaterEnergy;
@@ -36,12 +33,14 @@ public class EntrenadorTest {
     private IEnergy fire;
     private IEnergy fighting;
     private Attack torpedo;
+    private ArrayList<ICard> deckSet;
 
 
     @Before
     public void setUp() throws Exception {
     Red= new Player("Red");
     Blue= new Player("Blue");
+    deckSet=new ArrayList<>();
 
     charmander=new FirePokemon("Charmander",4,50,new ArrayList<>());
     squirtle= new WaterPokemon("Squirtle", 7, 50,new ArrayList<>());
@@ -103,6 +102,26 @@ public class EntrenadorTest {
 
         assertEquals("Charmander",Red.getSelectedPokemon().getName());
         assertEquals("Squirtle",Red.getBank().get(1).getName() );
+
+    }
+
+    @Test
+    public void initiateDeckTest(){
+        deckSet.add(charmander);
+        deckSet.add(pikachu);
+        deckSet.add(fire);
+        Red.initiateDeck(deckSet);
+        assertEquals(60,Red.getStack().size());
+
+    }
+
+    @Test
+    public void initiatePrimeCardsTest(){
+        deckSet.add(charmander);
+        deckSet.add(pikachu);
+        deckSet.add(fire);
+        Red.initiatePrimeCards(deckSet);
+        assertEquals(6,Red.getPrimeCards().size());
 
     }
     @Test

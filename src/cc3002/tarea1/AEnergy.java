@@ -17,6 +17,9 @@ public abstract class AEnergy implements IEnergy{
         this.name=name;
     }
 
+    public String getTitle(){
+        return this.name;
+    }
     public String getName(){
         return this.name;
     }

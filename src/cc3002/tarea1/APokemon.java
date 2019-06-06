@@ -43,6 +43,10 @@ public abstract class APokemon implements IPokemon  {
     }
 
     @Override
+    public String getTitle(){
+        return this.name;
+    }
+    @Override
     public String getName(){
         return this.name;
     }
