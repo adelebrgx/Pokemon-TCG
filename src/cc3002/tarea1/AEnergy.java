@@ -8,18 +8,19 @@ import java.util.HashMap;
  */
 public abstract class AEnergy implements IEnergy{
 
-    private String name;
+    protected String name;
 
     /** Creates a new energy
-     * @param someName name given to the energy card
      */
-    public AEnergy(String someName){
-        this.name=name;
+    public AEnergy(){
     }
 
+    @Override
     public String getTitle(){
         return this.name;
     }
+
+    @Override
     public String getName(){
         return this.name;
     }

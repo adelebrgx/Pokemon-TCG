@@ -12,7 +12,7 @@ public class ElectricEnergy extends AEnergy {
     /**
      * Creates an energy of type water given it the name "Electric"
      */
-    public ElectricEnergy(){super("Electric");}
+    public ElectricEnergy(){this.name="Electric";}
 
     @Override
     public String type(){

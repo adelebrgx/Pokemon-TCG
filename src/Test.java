@@ -1,7 +1,9 @@
 import cc3002.tarea1.Attack;
+import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Fire.FirePokemon;
 import cc3002.tarea1.ICard;
+import cc3002.tarea1.IEnergy;
 import cc3002.tarea1.Player;
 import cc3002.tarea1.Water.WaterEnergy;
 
@@ -17,12 +19,13 @@ public class Test {
         ICard Charmander= new FirePokemon("charmander",3,50,new ArrayList<>());
         ICard charmeleon= new FirePokemon("charmeleon",3,50,new ArrayList<>());
         ICard squirtle= new FirePokemon("squirtle",3,50,new ArrayList<>());
-
+        IEnergy water = new FightingEnergy();
 
         List<ICard> list=new ArrayList<>();
         list.add(Charmander);
         list.add(charmeleon);
         list.add(squirtle);
+        System.out.println(water.getTitle());
 
 
         first.initiateDeck(list);

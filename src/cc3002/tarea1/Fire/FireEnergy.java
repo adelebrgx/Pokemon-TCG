@@ -12,7 +12,7 @@ public class FireEnergy extends AEnergy {
     /**
      * Creates an energy of type water given it the name "Fire"
      */
-    public FireEnergy(){super("Fire");}
+    public FireEnergy(){this.name="Fire";}
 
     @Override
     public String type(){

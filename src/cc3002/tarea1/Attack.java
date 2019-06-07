@@ -6,8 +6,9 @@ import java.util.HashMap;
  * Class used to describe the behavior of an attack one pokemon posess which is a special type of ability
  * @author Adèle Bourgeix
  */
-public class Attack extends AAbility {
+public abstract class Attack extends AAbility {
     private int baseDamage;
+
 
 
     /**Constructor of an attack, giving it a name, a number of points taken to the player's opponent's pokemon and a short description of the attack
@@ -18,6 +19,7 @@ public class Attack extends AAbility {
     public Attack(String aName, int abaseDamage, String aDescription){
         super(aName,aDescription);
         this.baseDamage=abaseDamage;
+
     }
 
 

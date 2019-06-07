@@ -10,5 +10,10 @@ public interface ICard {
      * @param inAction player which plays the card
      */
     public void beingPlayedBy(Player inAction);
+
+    /**
+     * Returns the title of a card according to its type
+     * @return a string which is the card's name
+     */
     public String getTitle();
 }
