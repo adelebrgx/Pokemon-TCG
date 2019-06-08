@@ -16,10 +16,10 @@ public class WaterEnergyTest {
     private IPokemon squirtle;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         water= new WaterEnergy();
         Blue=new Player("Blue");
-        squirtle=new WaterPokemon("Squirtle",7,70,new ArrayList<>());
+        squirtle=new BasicWaterPokemon("Squirtle",7,70,new ArrayList<>());
     }
 
     @Test

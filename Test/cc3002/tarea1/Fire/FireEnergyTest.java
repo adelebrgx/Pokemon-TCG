@@ -16,10 +16,10 @@ public class FireEnergyTest {
     private IPokemon charmander;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         fire= new FireEnergy();
         Blue= new Player("Blue");
-        charmander=new FirePokemon("Charmander",4,50,new ArrayList<>());
+        charmander=new BasicFirePokemon("Charmander",4,50,new ArrayList<>());
 
     }
 

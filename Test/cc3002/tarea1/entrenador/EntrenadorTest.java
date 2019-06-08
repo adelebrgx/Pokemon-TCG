@@ -1,16 +1,22 @@
 package cc3002.tarea1.entrenador;
 
 import cc3002.tarea1.*;
+import cc3002.tarea1.Electric.BasicElectricPokemon;
+import cc3002.tarea1.Fighting.BasicFightingPokemon;
 import cc3002.tarea1.Fighting.FightingEnergy;
+import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.FireEnergy;
-import cc3002.tarea1.Fire.FirePokemon;
+import cc3002.tarea1.Fire.AFirePokemon;
+import cc3002.tarea1.Plant.BasicPlantPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
-import cc3002.tarea1.Psychic.PsychicPokemon;
+import cc3002.tarea1.Psychic.APsychicPokemon;
+import cc3002.tarea1.Psychic.BasicPsychicPokemon;
+import cc3002.tarea1.Water.BasicWaterPokemon;
 import cc3002.tarea1.Water.WaterEnergy;
-import cc3002.tarea1.Water.WaterPokemon;
-import cc3002.tarea1.Plant.PlantPokemon;
-import cc3002.tarea1.Fighting.FightingPokemon;
-import cc3002.tarea1.Electric.ElectricPokemon;
+import cc3002.tarea1.Water.AWaterPokemon;
+import cc3002.tarea1.Plant.APlantPokemon;
+import cc3002.tarea1.Fighting.AFightingPokemon;
+import cc3002.tarea1.Electric.AElectricPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,19 +48,19 @@ public class EntrenadorTest {
     Blue= new Player("Blue");
     deckSet=new ArrayList<>();
 
-    charmander=new FirePokemon("Charmander",4,50,new ArrayList<>());
-    squirtle= new WaterPokemon("Squirtle", 7, 50,new ArrayList<>());
-    abra= new PsychicPokemon("Abra", 7, 50,new ArrayList<>());
-    bulbasaur=new PlantPokemon("Bulbasaur",1,50,new ArrayList<>());
-    mankey=new FightingPokemon("Mankey",56,60,new ArrayList<>());
-    pikachu=new ElectricPokemon("Pikachu",25,70,new ArrayList<>());
+    charmander=new BasicFirePokemon("Charmander",4,50,new ArrayList<>());
+    squirtle= new BasicWaterPokemon("Squirtle", 7, 50,new ArrayList<>());
+    abra= new BasicPsychicPokemon("Abra", 7, 50,new ArrayList<>());
+    bulbasaur=new BasicPlantPokemon("Bulbasaur",1,50,new ArrayList<>());
+    mankey=new BasicFightingPokemon("Mankey",56,60,new ArrayList<>());
+    pikachu=new BasicElectricPokemon("Pikachu",25,70,new ArrayList<>());
 
     plant= new PlantEnergy();
     fire=new FireEnergy();
     water=new WaterEnergy();
     fighting=new FightingEnergy();
 
-    torpedo= new Attack("Torpedo", 30, "a Whip Attack");
+    torpedo= new BasicAttack("Torpedo", 30, "a Whip Attack");
     }
 
     @Test

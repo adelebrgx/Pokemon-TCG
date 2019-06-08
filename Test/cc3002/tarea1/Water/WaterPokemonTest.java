@@ -1,10 +1,8 @@
 package cc3002.tarea1.Water;
 
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.Player;
+import cc3002.tarea1.*;
 import org.junit.Before;
 import org.junit.Test;
-import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,16 +22,16 @@ public class WaterPokemonTest {
     private Player Blue;
 
     @Before
-    public void setUp() throws Exception {
-        shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
-        tackle=new Attack("Tackle",30,"Attack of pokemon type: plant");
-        flamethrower=new Attack("Flame Thrower",30,"Attack of pokemon type: fire");
-        thundershock=new Attack("Thundershock",35,"Attack of pokemon type: electric");
-        karatechop=new Attack("Karate Chop",30,"Attack of pokemon type: fighting");
-        aquajet=new Attack("Aqua Jet", 30, "Attack of pokemon type: water");
-        bubble = new Attack("Bubble", 40,"Attack of pokemon type: water");
-        squirtle=new WaterPokemon("Squirtle",7,70,new ArrayList<>());
-        watortle=new WaterPokemon("Watortle", 8, 85, new ArrayList<>(Arrays.asList(bubble)) );
+    public void setUp() {
+        shadowbowl=new BasicAttack("Shadow Bowl",40,"Attack of pokemon type: psychic");
+        tackle=new BasicAttack("Tackle",30,"Attack of pokemon type: plant");
+        flamethrower=new BasicAttack("Flame Thrower",30,"Attack of pokemon type: fire");
+        thundershock=new BasicAttack("Thundershock",35,"Attack of pokemon type: electric");
+        karatechop=new BasicAttack("Karate Chop",30,"Attack of pokemon type: fighting");
+        aquajet=new BasicAttack("Aqua Jet", 30, "Attack of pokemon type: water");
+        bubble = new BasicAttack("Bubble", 40,"Attack of pokemon type: water");
+        squirtle=new BasicWaterPokemon("Squirtle",7,70,new ArrayList<>());
+        watortle=new Phase1WaterPokemon("Watortle", 8, 85, new ArrayList<>(Arrays.asList(bubble)) );
         Blue=new Player("Blue");
     }
 

@@ -15,12 +15,13 @@ import java.util.List;
  * Pokemon Abstract class which extends the Pokemon interface
  * @author Adèle Bourgeix
  */
-public abstract class APokemon implements IPokemon  {
+public abstract class APokemon extends ACard implements IPokemon  {
     private String name;
     private int pokedexID;
     private int hp;
     public HashMap<String, Integer> EnergiesAssociated;
     private ArrayList<Attack> attackList;
+    private IObjectCard objectCardAssociated;
 
     /** A Pokemon is created: a name is given to it, it's assigned an index of the Pokedex, some hp and a set of attacks it'll be allowed to perform.
      * @param someName name given to the pokemon
@@ -29,23 +30,22 @@ public abstract class APokemon implements IPokemon  {
      * @param attacks attacks pokemon can perform
      */
     public APokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> attacks){
+        super(someName);
         this.name=someName;
         this.pokedexID=somePokedexID;
         this.hp=someHP;
         this.attackList= attacks;
-        this.EnergiesAssociated= new HashMap<String, Integer>();
+        this.EnergiesAssociated= new HashMap<>();
         this.EnergiesAssociated.put(new WaterEnergy().type(),0);
         this.EnergiesAssociated.put(new FireEnergy().type(),0);
         this.EnergiesAssociated.put(new PlantEnergy().type(),0);
         this.EnergiesAssociated.put(new FightingEnergy().type(),0);
         this.EnergiesAssociated.put(new ElectricEnergy().type(),0);
         this.EnergiesAssociated.put(new PsychicEnergy().type(),0);
+        this.objectCardAssociated=null;
     }
 
-    @Override
-    public String getTitle(){
-        return this.name;
-    }
+
     @Override
     public String getName(){
         return this.name;

@@ -1,7 +1,5 @@
 package cc3002.tarea1.Plant;
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.Player;
-import cc3002.tarea1.IPokemon;
+import cc3002.tarea1.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,16 +21,16 @@ public class PlantPokemonTest {
     private Attack vinewhip;
     private Player Blue;
     @Before
-    public void setUp() throws Exception {
-        shadowbowl=new Attack("Shadow Bowl",40,"Attack of type pokemon: psychic");
-        tackle=new Attack("Tackle",30,"Attack of type pokemon: plant");
-        vinewhip=new Attack("Vine Whip",35,"Attack of type pokemon: plant");
-        flamethrower=new Attack("Flame Thrower",30,"Attack of type pokemon: fire");
-        thundershock=new Attack("Thundershock",35,"Attack of type pokemon: electric");
-        karatechop=new Attack("Karate Chop",30,"Attack of type pokemon: fighting");
-        aquajet=new Attack("Aqua Jet",30,"Attack of type pokemon: water");
-        bulbasaur=new PlantPokemon("Bulbasaur",1,50,new ArrayList<>());
-        ivysaur=new PlantPokemon("Ivysaur",2,70,new ArrayList<>(Arrays.asList(tackle)));
+    public void setUp() {
+        shadowbowl=new BasicAttack("Shadow Bowl",40,"Attack of type pokemon: psychic");
+        tackle=new BasicAttack("Tackle",30,"Attack of type pokemon: plant");
+        vinewhip=new BasicAttack("Vine Whip",35,"Attack of type pokemon: plant");
+        flamethrower=new BasicAttack("Flame Thrower",30,"Attack of type pokemon: fire");
+        thundershock=new BasicAttack("Thundershock",35,"Attack of type pokemon: electric");
+        karatechop=new BasicAttack("Karate Chop",30,"Attack of type pokemon: fighting");
+        aquajet=new BasicAttack("Aqua Jet",30,"Attack of type pokemon: water");
+        bulbasaur=new BasicPlantPokemon("Bulbasaur",1,50,new ArrayList<>());
+        ivysaur=new Phase1PlantPokemon("Ivysaur",2,70,new ArrayList<>(Arrays.asList(tackle)));
         Blue=new Player("Blue");
     }
 

@@ -17,10 +17,10 @@ public class PsychicEnergyTest {
     private IPokemon abra;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         psychic= new PsychicEnergy();
         Blue=new Player("Blue");
-        abra= abra=new PsychicPokemon("Abra",63,50, new ArrayList<>());
+        abra=new BasicPsychicPokemon("Abra",63,50, new ArrayList<>());
     }
 
 
@@ -31,6 +31,7 @@ public class PsychicEnergyTest {
     }
     @Test
     public void EnergyPlayedTest(){
+
         Blue.drawCard(abra);
         Blue.selectPokemon(abra);
         psychic.beingPlayedBy(Blue);

@@ -1,13 +1,13 @@
 package cc3002.tarea1.Fighting;
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.Player;
-import cc3002.tarea1.IPokemon;
+import cc3002.tarea1.*;
 
+import cc3002.tarea1.Electric.BasicElectricPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,18 +22,21 @@ public class FightingPokemonTest {
     private Attack shadowbowl;
     private Attack lowkick;
     private Player Blue;
+    private List<ICard> deck;
+
     @Before
-    public void setUp() throws Exception {
-        shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
-        tackle=new Attack("Tackle",30,"Attack of pokemon type: plant");
-        flamethrower=new Attack("Flame Thrower",30,"Attack of pokemon type: fire");
-        thundershock=new Attack("Thundershock",35,"Attack of pokemon type: electric");
-        karatechop=new Attack("Karate Chop",30,"Attack of pokemon type: fighting");
-        aquajet=new Attack("Aqua Jet",30,"Attack of pokemon type: water");
-        lowkick=new Attack("Low Kick",40,"Attack of pokemon type: fighting");
-        mankey=new FightingPokemon("Mankey",56,60,new ArrayList<>());
-        primeape=new FightingPokemon("Primeape", 57, 100,new ArrayList<>(Arrays.asList(karatechop)));
+    public void setUp()  {
+        shadowbowl=new BasicAttack("Shadow Bowl",40,"Attack of pokemon type: psychic");
+        tackle=new BasicAttack("Tackle",30,"Attack of pokemon type: plant");
+        flamethrower=new BasicAttack("Flame Thrower",30,"Attack of pokemon type: fire");
+        thundershock=new BasicAttack("Thundershock",35,"Attack of pokemon type: electric");
+        karatechop=new BasicAttack("Karate Chop",30,"Attack of pokemon type: fighting");
+        aquajet=new BasicAttack("Aqua Jet",30,"Attack of pokemon type: water");
+        lowkick=new BasicAttack("Low Kick",40,"Attack of pokemon type: fighting");
+        mankey=new BasicFightingPokemon("Mankey",56,60,new ArrayList<>());
+        primeape=new Phase1FightingPokemon("Primeape", 57, 100,new ArrayList<>(Arrays.asList(karatechop)));
         Blue=new Player("Blue");
+        deck=new ArrayList<>();
     }
 
     @Test

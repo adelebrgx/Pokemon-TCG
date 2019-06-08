@@ -123,8 +123,23 @@ public class Player {
     }
 
     /**
-     * Player draws card from stack
-     * @param card Card from stack
+     * Player can draw a card from his/her deck
+     */
+    public void drawCard(){
+        if(cardStack.size()==0){
+            System.out.println("The stack of the player is empty");
+        }
+        else{
+            ICard newCard= this.cardStack.get(0);
+            this.hand.add(newCard);
+            cardStack.remove(newCard);
+        }
+
+    }
+
+    /**
+     * method to draw one card to make easier testing, will not be used to implement the game
+     * @param card the card which will be drawn for the test
      */
     public void drawCard(ICard card){
         this.hand.add(card);

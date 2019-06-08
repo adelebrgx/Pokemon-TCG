@@ -17,10 +17,10 @@ public class PlantEnergyTest {
     private IPokemon bulbasaur;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         plant= new PlantEnergy();
         Blue= new Player("Blue");
-        bulbasaur=new PlantPokemon("Bulbasaur",1,50,new ArrayList<>());
+        bulbasaur=new BasicPlantPokemon("Bulbasaur",1,50,new ArrayList<>());
 
     }
 

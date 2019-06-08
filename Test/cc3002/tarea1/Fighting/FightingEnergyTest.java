@@ -16,10 +16,10 @@ public class FightingEnergyTest {
     private IPokemon mankey;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         fighting= new FightingEnergy();
         Blue=new Player("Blue");
-        mankey=new FightingPokemon("Mankey",56,60,new ArrayList<>());
+        mankey=new BasicFightingPokemon("Mankey",56,60,new ArrayList<>());
 
     }
 

@@ -5,10 +5,10 @@ import cc3002.tarea1.*;
 import java.util.ArrayList;
 
 /**
- * Class which extends the notion of Pokemon to a Pokemon of type water
+ * Abstract class which extends the notion of Pokemon to a Pokemon of type water
  * @author Adèle Bourgeix
  */
-public class WaterPokemon extends APokemon {
+public abstract class AWaterPokemon extends APokemon {
 
 
     /** Constructor of a water type pokemon
@@ -17,7 +17,7 @@ public class WaterPokemon extends APokemon {
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
      * @param someAttacks attacks pokemon can perform
      */
-    public WaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
+    public AWaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
         super(someName, somePokedexID, someHP, someAttacks);
     }
 

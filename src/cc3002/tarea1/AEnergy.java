@@ -6,23 +6,14 @@ import java.util.HashMap;
  * Abstract class which implements the IEnergy interface and extends the concept of energy card
  * @author Adèle Bourgeix
  */
-public abstract class AEnergy implements IEnergy{
+public abstract class AEnergy extends ACard implements IEnergy {
 
-    protected String name;
 
     /** Creates a new energy
      */
-    public AEnergy(){
-    }
+    public AEnergy(String name){
+        super(name);
 
-    @Override
-    public String getTitle(){
-        return this.name;
-    }
-
-    @Override
-    public String getName(){
-        return this.name;
     }
 
 

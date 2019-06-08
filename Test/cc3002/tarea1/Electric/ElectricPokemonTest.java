@@ -1,7 +1,5 @@
 package cc3002.tarea1.Electric;
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.Player;
-import cc3002.tarea1.IPokemon;
+import cc3002.tarea1.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,18 +19,21 @@ public class ElectricPokemonTest {
     private Attack shadowbowl;
     private Attack discharge;
     private Player Blue;
+
+
     @Before
-    public void setUp() throws Exception {
-        shadowbowl=new Attack("Shadow Bowl",40,"Attack of pokemon type: psychic");
-        tackle=new Attack("Tackle",30,"Attack of pokemon type: plant");
-        flamethrower=new Attack("Flame Thrower",30,"Attack of pokemon type: fire");
-        thundershock=new Attack("Thundershock",35,"Attack of pokemon type: electric");
-        discharge=new Attack("Discharge",50,"Attack of pokemon type: electric");
-        karatechop=new Attack("Karate Chop",30,"Attack of pokemon type: fighting");
-        aquajet=new Attack("Aqua Jet",30,"Attack of pokemon type: water");
-        pikachu=new ElectricPokemon("Pikachu",25,90,new ArrayList<>());
-        raichu=new ElectricPokemon("Raichu", 26, 110, new ArrayList<>(Arrays.asList(discharge)));
+    public void setUp(){
+        shadowbowl=new BasicAttack("Shadow Bowl",40,"Attack of pokemon type: psychic");
+        tackle=new BasicAttack("Tackle",30,"Attack of pokemon type: plant");
+        flamethrower=new BasicAttack("Flame Thrower",30,"Attack of pokemon type: fire");
+        thundershock=new BasicAttack("Thundershock",35,"Attack of pokemon type: electric");
+        discharge=new BasicAttack("Discharge",50,"Attack of pokemon type: electric");
+        karatechop=new BasicAttack("Karate Chop",30,"Attack of pokemon type: fighting");
+        aquajet=new BasicAttack("Aqua Jet",30,"Attack of pokemon type: water");
+        pikachu=new BasicElectricPokemon("Pikachu",25,90,new ArrayList<>());
+        raichu=new Phase1ElectricPokemon("Raichu", 26, 110, new ArrayList<>(Arrays.asList(discharge)));
         Blue=new Player("Blue");
+
     }
 
     @Test
@@ -95,6 +96,7 @@ public class ElectricPokemonTest {
 
     @Test
     public void PokemonPlayedTest(){
+
         Blue.drawCard(pikachu);
         Blue.drawCard(pikachu);
         pikachu.beingPlayedBy(Blue);

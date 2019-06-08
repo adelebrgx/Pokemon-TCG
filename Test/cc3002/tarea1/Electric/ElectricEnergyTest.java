@@ -16,10 +16,10 @@ public class ElectricEnergyTest {
     private IPokemon pikachu;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         electric= new ElectricEnergy();
         Blue=new Player("Blue");
-        pikachu=new ElectricPokemon("Pikachu",25,90,new ArrayList<>());
+        pikachu=new BasicElectricPokemon("Pikachu",25,90,new ArrayList<>());
 
     }
 

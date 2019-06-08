@@ -15,7 +15,7 @@ public class WaterEnergy extends AEnergy {
     /**
      * Creates an energy of type water given it the name "Water"
      */
-    public WaterEnergy(){this.name="Water";}
+    public WaterEnergy(){super("Water");}
 
     @Override
     public String type(){
