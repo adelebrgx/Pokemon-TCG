@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class PlantPokemonTest {
     private IPokemon bulbasaur;
     private IPokemon ivysaur;
+    private IPokemon venusaur;
     private Attack aquajet;
     private Attack thundershock;
     private Attack karatechop;
@@ -31,6 +32,7 @@ public class PlantPokemonTest {
         aquajet=new BasicAttack("Aqua Jet",30,"Attack of type pokemon: water");
         bulbasaur=new BasicPlantPokemon("Bulbasaur",1,50,new ArrayList<>());
         ivysaur=new Phase1PlantPokemon("Ivysaur",2,70,new ArrayList<>(Arrays.asList(tackle)));
+        venusaur=new Phase2PlantPokemon("Venusaur",3, 95, new ArrayList<>());
         Blue=new Player("Blue");
     }
 
@@ -90,19 +92,71 @@ public class PlantPokemonTest {
         bulbasaur.receivePsychicAttack(shadowbowl);
         assertEquals(10, bulbasaur.getHP());
     }
-    @Test
-    public void PokemonPlayedTest(){
-        Blue.drawCard(bulbasaur);
-        Blue.drawCard(bulbasaur);
-        bulbasaur.beingPlayedBy(Blue);
-        bulbasaur.beingPlayedBy(Blue);
-        assertEquals("Bulbasaur", Blue.getSelectedPokemon().getName());
-        assertEquals(2, Blue.getBank().size());
 
-    }
     @Test
     public void hurtAnotherPokemon(){
         ivysaur.hurt(bulbasaur, tackle);
         assertEquals(20, bulbasaur.getHP());
+    }
+
+    @Test
+    public void firstEvolutionTestSucceded(){
+        Blue.drawCard(bulbasaur);
+        Blue.drawCard(ivysaur);
+        bulbasaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(bulbasaur, Blue.getSelectedPokemon());
+        ivysaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(ivysaur, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+
+
+    }
+
+
+    @Test
+    public void firstEvolutionTestFailed(){
+        Blue.drawCard(bulbasaur);
+        Blue.drawCard(ivysaur);
+        ivysaur.beingPlayedBy(Blue);
+        assertEquals(0, Blue.getBank().size());
+        assertEquals(0, Blue.getLostCards().size());
+
+
+
+    }
+
+    @Test
+    public void secondEvolutionTestSucceeded(){
+        Blue.drawCard(bulbasaur);
+        Blue.drawCard(ivysaur);
+        Blue.drawCard(venusaur);
+        bulbasaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(bulbasaur, Blue.getSelectedPokemon());
+        ivysaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(ivysaur, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+        venusaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(venusaur, Blue.getSelectedPokemon());
+        assertEquals(2, Blue.getLostCards().size());
+    }
+
+
+    @Test
+    public void secondEvolutionTestFailed(){
+        Blue.drawCard(bulbasaur);
+        Blue.drawCard(ivysaur);
+        Blue.drawCard(venusaur);
+        bulbasaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(bulbasaur, Blue.getSelectedPokemon());
+        venusaur.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(bulbasaur, Blue.getSelectedPokemon());
+        assertEquals(0, Blue.getLostCards().size());
     }
 }

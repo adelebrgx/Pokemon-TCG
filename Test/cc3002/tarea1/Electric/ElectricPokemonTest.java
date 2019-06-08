@@ -9,6 +9,7 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class ElectricPokemonTest {
+    private IPokemon pichu;
     private IPokemon pikachu;
     private IPokemon raichu;
     private Attack aquajet;
@@ -30,8 +31,9 @@ public class ElectricPokemonTest {
         discharge=new BasicAttack("Discharge",50,"Attack of pokemon type: electric");
         karatechop=new BasicAttack("Karate Chop",30,"Attack of pokemon type: fighting");
         aquajet=new BasicAttack("Aqua Jet",30,"Attack of pokemon type: water");
-        pikachu=new BasicElectricPokemon("Pikachu",25,90,new ArrayList<>());
-        raichu=new Phase1ElectricPokemon("Raichu", 26, 110, new ArrayList<>(Arrays.asList(discharge)));
+        pichu=new BasicElectricPokemon("Pichu", 24, 40, new ArrayList<>());
+        pikachu=new Phase1ElectricPokemon("Pikachu",25,90,new ArrayList<>());
+        raichu=new Phase2ElectricPokemon("Raichu", 26, 110, new ArrayList<>(Arrays.asList(discharge)));
         Blue=new Player("Blue");
 
     }
@@ -94,21 +96,71 @@ public class ElectricPokemonTest {
         assertEquals(50, pikachu.getHP());
     }
 
-    @Test
-    public void PokemonPlayedTest(){
-
-        Blue.drawCard(pikachu);
-        Blue.drawCard(pikachu);
-        pikachu.beingPlayedBy(Blue);
-        pikachu.beingPlayedBy(Blue);
-        assertEquals("Pikachu", Blue.getSelectedPokemon().getName());
-        assertEquals(2, Blue.getBank().size());
-
-    }
 
     @Test
     public void hurtAnotherPokemon(){
         raichu.hurt(pikachu, discharge);
         assertEquals(40, pikachu.getHP());
+    }
+
+    @Test
+    public void firstEvolutionTestSucceded(){
+        Blue.drawCard(pichu);
+        Blue.drawCard(pikachu);
+        pichu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(pichu, Blue.getSelectedPokemon());
+        pikachu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(pikachu, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+
+
+    }
+
+
+    @Test
+    public void firstEvolutionTestFailed(){
+        Blue.drawCard(pichu);
+        Blue.drawCard(pikachu);
+        pikachu.beingPlayedBy(Blue);
+        assertEquals(0, Blue.getBank().size());
+        assertEquals(0, Blue.getLostCards().size());
+
+
+
+    }
+
+    @Test
+    public void secondEvolutionTestSucceeded(){
+        Blue.drawCard(pichu);
+        Blue.drawCard(pikachu);
+        Blue.drawCard(raichu);
+        pichu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(pichu, Blue.getSelectedPokemon());
+        pikachu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(pikachu, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+        raichu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(raichu, Blue.getSelectedPokemon());
+        assertEquals(2, Blue.getLostCards().size());
+    }
+
+
+    @Test
+    public void secondEvolutionTestFailed(){
+        Blue.drawCard(pichu);
+        Blue.drawCard(pikachu);
+        Blue.drawCard(raichu);
+        pichu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(pichu, Blue.getSelectedPokemon());
+        raichu.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(pichu, Blue.getSelectedPokemon());
+        assertEquals(0, Blue.getLostCards().size());
     }
 }

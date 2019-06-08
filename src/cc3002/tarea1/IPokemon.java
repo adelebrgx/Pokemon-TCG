@@ -168,4 +168,11 @@ public interface IPokemon extends ICard{
      */
     void receiveEnergy(IEnergy en);
 
+    /**
+     * Allows to check if subevolution already is on the field and if the pokemon can be played, avoids code duplication
+     * @param player Player whose Pokemons we're gonna check
+     * @return a boolean which is true if the player posesses the subevolution
+     */
+    boolean checkEvolution(Player player);
+
 }

@@ -17,4 +17,6 @@ public abstract class AEnergy extends ACard implements IEnergy {
     }
 
 
+
+
 }

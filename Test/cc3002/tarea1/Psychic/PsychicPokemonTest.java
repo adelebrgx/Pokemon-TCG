@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class PsychicPokemonTest {
     private IPokemon   abra;
     private IPokemon kadabra;
+    private IPokemon alakazam;
     private Attack aquajet;
     private Attack thundershock;
     private Attack karatechop;
@@ -30,6 +31,7 @@ public class PsychicPokemonTest {
         aquajet=new BasicAttack("Aqua Jet",30,"Attack of pokemon type: water");
         abra=new BasicPsychicPokemon("Abra",63,50, new ArrayList<>());
         kadabra=new Phase1PsychicPokemon("Kadabra",64,80, new ArrayList<>(Arrays.asList(shadowbowl)));
+        alakazam=new Phase2PsychicPokemon("Alakazam",65,90, new ArrayList<>());
         Blue=new Player("Blue");
 
     }
@@ -90,19 +92,74 @@ public class PsychicPokemonTest {
         assertEquals(0, abra.getHP());
     }
 
-    @Test
-    public void PokemonPlayedTest(){
-        Blue.drawCard(abra);
-        Blue.drawCard(abra);
-        abra.beingPlayedBy(Blue);
-        abra.beingPlayedBy(Blue);
-        assertEquals("Abra", Blue.getSelectedPokemon().getName());
-        assertEquals(2, Blue.getBank().size());
 
-    }
     @Test
     public void hurtAnotherPokemon(){
         kadabra.hurt(abra, shadowbowl);
         assertEquals(0, abra.getHP());
     }
+
+    @Test
+    public void firstEvolutionTestSucceded(){
+        Blue.drawCard(abra);
+        Blue.drawCard(kadabra);
+        abra.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(abra, Blue.getSelectedPokemon());
+        kadabra.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(kadabra, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+
+
+    }
+
+
+    @Test
+    public void firstEvolutionTestFailed(){
+        Blue.drawCard(abra);
+        Blue.drawCard(kadabra);
+        kadabra.beingPlayedBy(Blue);
+        assertEquals(0, Blue.getBank().size());
+        assertEquals(0, Blue.getLostCards().size());
+
+
+
+    }
+
+    @Test
+    public void secondEvolutionTestSucceeded(){
+        Blue.drawCard(abra);
+        Blue.drawCard(kadabra);
+        Blue.drawCard(alakazam);
+        abra.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(abra, Blue.getSelectedPokemon());
+        kadabra.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(kadabra, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+        alakazam.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(alakazam, Blue.getSelectedPokemon());
+        assertEquals(2, Blue.getLostCards().size());
+    }
+
+
+    @Test
+    public void secondEvolutionTestFailed(){
+        Blue.drawCard(abra);
+        Blue.drawCard(kadabra);
+        Blue.drawCard(alakazam);
+        abra.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(abra, Blue.getSelectedPokemon());
+        alakazam.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(abra, Blue.getSelectedPokemon());
+        assertEquals(0, Blue.getLostCards().size());
+    }
+
+
+
 }

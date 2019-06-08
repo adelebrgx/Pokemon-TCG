@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 public class WaterPokemonTest {
     private IPokemon squirtle;
     private IPokemon watortle;
+    private IPokemon blastoise;
     private Attack bubble;
     private Attack aquajet;
     private Attack thundershock;
@@ -32,11 +33,12 @@ public class WaterPokemonTest {
         bubble = new BasicAttack("Bubble", 40,"Attack of pokemon type: water");
         squirtle=new BasicWaterPokemon("Squirtle",7,70,new ArrayList<>());
         watortle=new Phase1WaterPokemon("Watortle", 8, 85, new ArrayList<>(Arrays.asList(bubble)) );
+        blastoise=new Phase2WaterPokemon("Blastoise",9,90,new ArrayList<>());
         Blue=new Player("Blue");
     }
 
     @Test
-    public void SimplePokemonTest(){
+    public void BasicPokemonTest(){
 
         assertEquals("Squirtle", squirtle.getName());
         assertEquals(7, squirtle.getPokedexID());
@@ -44,6 +46,10 @@ public class WaterPokemonTest {
         assertEquals(new ArrayList<>(), squirtle.getAttacksList());
         assertEquals("Water", squirtle.type());
     }
+
+
+
+
     @Test
     public void selectAttackTest(){
 
@@ -93,20 +99,70 @@ public class WaterPokemonTest {
         assertEquals(30, squirtle.getHP());
     }
     @Test
-    public void PokemonPlayedTest(){
-        Blue.drawCard(squirtle);
-        Blue.drawCard(squirtle);
-        squirtle.beingPlayedBy(Blue);
-        squirtle.beingPlayedBy(Blue);
-        assertEquals("Squirtle", Blue.getSelectedPokemon().getName());
-        assertEquals(2, Blue.getBank().size());
-
-    }
-    @Test
     public void hurtAnotherPokemon(){
         watortle.hurt(squirtle, bubble);
         assertEquals(30, squirtle.getHP());
     }
 
+    @Test
+    public void firstEvolutionTestSucceded(){
+        Blue.drawCard(squirtle);
+        Blue.drawCard(watortle);
+        squirtle.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(squirtle, Blue.getSelectedPokemon());
+        watortle.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(watortle, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+
+
+    }
+
+
+    @Test
+    public void firstEvolutionTestFailed(){
+        Blue.drawCard(squirtle);
+        Blue.drawCard(watortle);
+        watortle.beingPlayedBy(Blue);
+        assertEquals(0, Blue.getBank().size());
+        assertEquals(0, Blue.getLostCards().size());
+
+
+
+    }
+
+    @Test
+    public void secondEvolutionTestSucceeded(){
+        Blue.drawCard(squirtle);
+        Blue.drawCard(watortle);
+        Blue.drawCard(blastoise);
+        squirtle.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(squirtle, Blue.getSelectedPokemon());
+        watortle.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(watortle, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+        blastoise.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(blastoise, Blue.getSelectedPokemon());
+        assertEquals(2, Blue.getLostCards().size());
+    }
+
+
+    @Test
+    public void secondEvolutionTestFailed(){
+        Blue.drawCard(squirtle);
+        Blue.drawCard(watortle);
+        Blue.drawCard(blastoise);
+        squirtle.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(squirtle, Blue.getSelectedPokemon());
+        blastoise.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(squirtle, Blue.getSelectedPokemon());
+        assertEquals(0, Blue.getLostCards().size());
+    }
 
 }

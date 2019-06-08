@@ -14,4 +14,6 @@ public class BasicPsychicPokemon extends APsychicPokemon implements IBasicPokemo
     public BasicPsychicPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
         super(someName, somePokedexID, someHP, someAttacks);
     }
+
+
 }

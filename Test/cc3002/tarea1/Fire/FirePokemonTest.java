@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 public class FirePokemonTest {
     private IPokemon charmander;
     private IPokemon charmeleon;
+    private IPokemon charizard;
     private Attack aquajet;
     private Attack thundershock;
     private Attack karatechop;
@@ -33,6 +34,7 @@ public class FirePokemonTest {
         firepunch=new BasicAttack("Fire Punch",40,"Attack of pokemon type: fire");
         charmander=new BasicFirePokemon("Charmander",4,50,new ArrayList<>());
         charmeleon=new Phase1FirePokemon("Charmeleon",5,70,new ArrayList<>(Arrays.asList(flamethrower)));
+        charizard=new Phase2FirePokemon("Charizard", 6, 90, new ArrayList<>());
         Blue=new Player("Blue");
 
     }
@@ -95,19 +97,73 @@ public class FirePokemonTest {
         assertEquals(10, charmander.getHP());
     }
 
-    @Test
-    public void PokemonPlayedTest(){
-        Blue.drawCard(charmander);
-        Blue.drawCard(charmander);
-        charmander.beingPlayedBy(Blue);
-        charmander.beingPlayedBy(Blue);
-        assertEquals("Charmander", Blue.getSelectedPokemon().getName());
-        assertEquals(2, Blue.getBank().size());
 
-    }
     @Test
     public void hurtAnotherPokemon(){
         charmeleon.hurt(charmander, flamethrower);
         assertEquals(20, charmander.getHP());
     }
+
+    @Test
+    public void firstEvolutionTestSucceded(){
+        Blue.drawCard(charmander);
+        Blue.drawCard(charmeleon);
+        charmander.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charmander, Blue.getSelectedPokemon());
+        charmeleon.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charmeleon, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+
+
+    }
+
+
+    @Test
+    public void firstEvolutionTestFailed(){
+        Blue.drawCard(charmander);
+        Blue.drawCard(charmeleon);
+        charmeleon.beingPlayedBy(Blue);
+        assertEquals(0, Blue.getBank().size());
+        assertEquals(0, Blue.getLostCards().size());
+
+
+
+    }
+
+    @Test
+    public void secondEvolutionTestSucceeded(){
+        Blue.drawCard(charmander);
+        Blue.drawCard(charmeleon);
+        Blue.drawCard(charizard);
+        charmander.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charmander, Blue.getSelectedPokemon());
+        charmeleon.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charmeleon, Blue.getSelectedPokemon());
+        assertEquals(1, Blue.getLostCards().size());
+        charizard.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charizard, Blue.getSelectedPokemon());
+        assertEquals(2, Blue.getLostCards().size());
+    }
+
+
+    @Test
+    public void secondEvolutionTestFailed(){
+        Blue.drawCard(charmander);
+        Blue.drawCard(charmeleon);
+        Blue.drawCard(charizard);
+        charmander.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charmander, Blue.getSelectedPokemon());
+        charizard.beingPlayedBy(Blue);
+        assertEquals(1, Blue.getBank().size());
+        assertEquals(charmander, Blue.getSelectedPokemon());
+        assertEquals(0, Blue.getLostCards().size());
+    }
+
+
 }

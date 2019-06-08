@@ -16,4 +16,6 @@ public interface ICard {
      * @return a string which is the card's name
      */
     public String getTitle();
+
+
 }

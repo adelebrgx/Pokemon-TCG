@@ -165,4 +165,33 @@ public abstract class APokemon extends ACard implements IPokemon  {
         EnergiesAssociated.remove(en.type());
         EnergiesAssociated.put(en.type(),numberAlreadyAssociated);}
 
+
+
+    @Override
+     public boolean checkEvolution(Player player)   {
+        List<IPokemon> list= player.getBank();
+        boolean v=false;
+        for (IPokemon pokemon: list){
+        if (pokemon.getPokedexID()==this.getPokedexID()-1){
+            v=true;
+            player.getBank().remove(pokemon);
+            HashMap<String,Integer> energies= pokemon.getEnergiesAssociated();
+            HashMap<String,Integer> hisEnergies= this.getEnergiesAssociated();
+            for (String key: hisEnergies.keySet()){
+                int quantity= energies.get(key);
+                int originalquantity=hisEnergies.get(key);
+                hisEnergies.put(key,originalquantity+quantity);
+                energies.remove(key);
+                energies.put(key,0);
+
+            }
+            player.getBank().add(this);
+            player.getLostCards().add(pokemon);
+            player.selectPokemon(player.getBank().get(0));
+            break;
+        }
+        }
+         return v;
+     }
+
 }
