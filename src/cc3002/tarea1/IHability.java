@@ -36,4 +36,6 @@ public interface IHability {
      * @param following the other player involved if other player is involved
      */
     void beingActivated(Player first, Player following);
+
+    void affect(IPokemon pokemon);
 }

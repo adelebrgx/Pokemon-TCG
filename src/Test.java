@@ -18,6 +18,7 @@ public class Test {
     {
 
         Player first = new Player("first");
+        Player second=new Player("");
         IPokemon Charmander= new BasicFirePokemon("charmander",3,50,new ArrayList<>());
         IPokemon charmeleon= new Phase1FirePokemon( "charmeleon",4,50,new ArrayList<>());
         ICard salmander= new Phase2FirePokemon("salmander", 5, 60, new ArrayList<>());
@@ -29,6 +30,7 @@ public class Test {
         ICard two= new TrainingCenter("p","p", 10);
         ICard three= new TrainingCenter("p","p", 30);
         ICard four= new TrainingCenter("p","p", 30);
+        ElectricShock es= new ElectricShock("",20,"",30);
 
         //System.out.println(first.getHand().size());
 
@@ -43,50 +45,22 @@ public class Test {
         first.drawCard(salmander);
         first.drawCard(watortle);
         first.drawCard(tortoise);
+        charmeleon.setAttack(es);
+        second.drawCard(squirtle);
 
 
         first.playCard(Charmander);
         first.playCard(squirtle);
         first.playCard(charmeleon);
         first.playCard(watortle);
+        second.playCard(squirtle);
 
-        System.out.println(charmeleon.getHP());
-        System.out.println(watortle.getHP());
-        //ArrayList list= new ArrayList();
-        //list.add(charmeleon);
-
-        //first.initiateDeck(list);
-
-        //System.out.println(first.getStack().size());
-
-        first.playCard(two);
-        System.out.println(charmeleon.getHP());
-        System.out.println(watortle.getHP());
-        first.playCard(three);
-        System.out.println(charmeleon.getHP());
-        System.out.println(watortle.getHP());
-
-        first.playCard(tortoise);
-        first.playCard(four);
         System.out.println(first.getBank());
-        System.out.println(charmeleon.getHP());
-        System.out.println(tortoise.getHP());
+        System.out.println(first.getSelectedPokemon().getAttacksList());
 
-
-
-
-        //first.playCard(charmeleon);
-        //first.playCard(salmander);
-        //System.out.println(first.getBank().get(0));
-        //System.out.println(first.getBank().get(1));
-        //first.playCard(water);
-        //System.out.println(first.getSelectedPokemon());
-        //System.out.println(Charmander.getQuantityofAnEnergy(water));
-        //System.out.println(charmeleon.getQuantityofAnEnergy(water));
-        //System.out.println(first.getSelectedPokemon().getQuantityofAnEnergy(water));
-
-        //first.playCard(one);
-        //System.out.println(first.getHand().size());
+        System.out.println(second.getSelectedPokemon().getHP());
+        first.useHability(es,second);
+        System.out.println(second.getSelectedPokemon().getHP());
 
 
 

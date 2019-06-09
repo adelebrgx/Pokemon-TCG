@@ -46,4 +46,8 @@ public abstract class AAbility implements IHability{
     public void beingActivated(Player first, Player following){
         System.out.println("hability being activated");
     }
+
+    @Override
+    public void affect(IPokemon pokemon){}
+
 }

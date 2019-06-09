@@ -181,6 +181,8 @@ public interface IPokemon extends ICard{
      */
     boolean checkEvolution(Player player);
 
-    public void isBeingInspected(IStateCard card);
+    void isBeingInspected(IStateCard card);
+
+    void beingAffectedBy(IHability hability);
 
 }

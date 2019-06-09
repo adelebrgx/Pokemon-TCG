@@ -162,17 +162,18 @@ public class EntrenadorTest {
         assertEquals("Squirtle",Blue.getSelectedPokemon().getName());
         assertEquals(50,Blue.getSelectedPokemon().getHP());
 
-        //energies are being assigned directly to Pokemon otherwise whe cannot control what will be the player's input at playing the energy card
+        //energies are being assigned directly to Pokemon because we cannot control what will be the player's input at playing the energy card
+        charmander.receiveEnergy(fire);
+        charmander.receiveEnergy(fire);
         charmander.receiveEnergy(fire);
         charmander.receiveEnergy(fire);
         charmander.receiveEnergy(plant);
-
+        charmander.receiveEnergy(plant);
         charmander.setAttack(torpedo);
         Red.useHability(torpedo,Blue);
         assertEquals(20,Blue.getSelectedPokemon().getHP());
         Red.useHability(torpedo,Blue);
         assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
-        torpedo.setEnergyCost("Fire",1);
         Red.useHability(torpedo,Blue);
         assertEquals(50,Blue.getSelectedPokemon().getHP());
 

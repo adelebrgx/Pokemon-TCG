@@ -9,4 +9,6 @@ import cc3002.tarea1.Attack;
 public class BasicAttack extends Attack {
 
     public BasicAttack(String aName, int baseDamage,String aDescription){super(aName, baseDamage, aDescription);}
+
+
 }

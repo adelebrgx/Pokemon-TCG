@@ -199,4 +199,9 @@ public abstract class APokemon extends ACard implements IPokemon  {
          return v;
      }
 
+     @Override
+     public void beingAffectedBy(IHability hability){
+        hability.affect(this);
+     }
+
 }

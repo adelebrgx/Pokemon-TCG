@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Class used to describe the behavior of an attack one pokemon posess which is a special type of ability
  * @author Adèle Bourgeix
  */
-public abstract class Attack extends AAbility {
+public abstract class Attack extends AAbility{
     private int baseDamage;
 
 
@@ -35,17 +35,7 @@ public abstract class Attack extends AAbility {
         if (!first.getSelectedPokemon().getAttacksList().contains(this)) {
             System.out.println("Pokemon cannot use attack he doesn't posess");
         } else {
-            //compare energies
-            HashMap<String,Integer> map= this.getCosts();
-            boolean canAttack=true;
-            for (String key:map.keySet()) {
-                int energy=map.get(key);
-                int quantity= first.getSelectedPokemon().getEnergiesAssociated().get(key);
-                if(energy!=quantity){
-                    canAttack=false;
-                    break;
-                }
-            }
+            boolean canAttack=canBeUsed(first);
             if(canAttack){
                 first.getSelectedPokemon().hurt(following.getSelectedPokemon(), this);
                 if (!following.getSelectedPokemon().isAlive()){
@@ -61,6 +51,31 @@ public abstract class Attack extends AAbility {
             }
         }
     }
+
+
+    public boolean canBeUsed(Player player){
+        //compare energies
+        HashMap<String,Integer> map= this.getCosts();
+        boolean canAttack=true;
+        for (String key:map.keySet()) {
+            int energy=map.get(key);
+            int quantity= player.getSelectedPokemon().getEnergiesAssociated().get(key);
+            if(energy>quantity){
+                canAttack=false;
+                break;
+            }
+        }
+        if (canAttack){
+            for (String key:map.keySet()) {
+                int energy=map.get(key);
+                int quantity= player.getSelectedPokemon().getEnergiesAssociated().get(key);
+                player.getSelectedPokemon().getEnergiesAssociated().remove(key);
+                player.getSelectedPokemon().getEnergiesAssociated().put(key,quantity-energy);
+            }
+        }
+        return canAttack;
+    }
+
 
 
 
