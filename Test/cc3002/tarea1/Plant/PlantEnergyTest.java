@@ -29,12 +29,5 @@ public class PlantEnergyTest {
         assertEquals("Plant", plant.type());
 
     }
-    @Test
-    public void EnergyPlayedTest(){
-        Blue.drawCard(bulbasaur);
-        Blue.selectPokemon(bulbasaur);
-        plant.beingPlayedBy(Blue);
-        assertEquals(1, Blue.getSelectedPokemon().getQuantityofAnEnergy(plant));
 
-    }
 }

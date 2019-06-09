@@ -28,12 +28,5 @@ public class FightingEnergyTest {
         assertEquals("Fighting",fighting.type());
 
     }
-    @Test
-    public void EnergyPlayedTest(){
-        Blue.drawCard(mankey);
-        Blue.selectPokemon(mankey);
-        fighting.beingPlayedBy(Blue);
-        assertEquals(1, Blue.getSelectedPokemon().getQuantityofAnEnergy(fighting));
 
-    }
 }

@@ -29,13 +29,5 @@ public class PsychicEnergyTest {
         assertEquals("Psychic",psychic.type());
 
     }
-    @Test
-    public void EnergyPlayedTest(){
 
-        Blue.drawCard(abra);
-        Blue.selectPokemon(abra);
-        psychic.beingPlayedBy(Blue);
-        assertEquals(1, Blue.getSelectedPokemon().getQuantityofAnEnergy(psychic));
-
-    }
 }

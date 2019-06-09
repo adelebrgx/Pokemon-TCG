@@ -29,16 +29,25 @@ public class Test {
 
         Charmander.receiveEnergy(water);
         first.drawCard(Charmander);
+        first.drawCard(squirtle);
+        first.drawCard(water);
         first.drawCard(charmeleon);
         first.drawCard(salmander);
         first.playCard(Charmander);
-        first.playCard(charmeleon);
-        first.playCard(salmander);
-        System.out.println(first.getBank().size());
-        System.out.println(first.getSelectedPokemon());
+        first.playCard(squirtle);
+        //first.playCard(charmeleon);
+        //first.playCard(salmander);
+        System.out.println(first.getBank().get(0));
+        System.out.println(first.getBank().get(1));
+        first.playCard(water);
+        //System.out.println(first.getSelectedPokemon());
         System.out.println(Charmander.getQuantityofAnEnergy(water));
-        System.out.println(charmeleon.getQuantityofAnEnergy(water));
-        System.out.println(first.getSelectedPokemon().getQuantityofAnEnergy(water));
+        //System.out.println(charmeleon.getQuantityofAnEnergy(water));
+        //System.out.println(first.getSelectedPokemon().getQuantityofAnEnergy(water));
+
+
+
+
 
 
 

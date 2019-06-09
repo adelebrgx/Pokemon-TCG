@@ -1,6 +1,7 @@
 package cc3002.tarea1;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * Abstract class which implements the IEnergy interface and extends the concept of energy card
@@ -15,7 +16,6 @@ public abstract class AEnergy extends ACard implements IEnergy {
         super(name);
 
     }
-
 
 
 

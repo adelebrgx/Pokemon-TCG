@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Class which represents a Pokemon player and all the actions he/she can perform
@@ -216,7 +217,10 @@ public class Player {
         if(!hand.contains(aCard)){
             System.out.println("The player cannot play a card which is not in his hand");
         }
-        aCard.beingPlayedBy(this);
+        else{
+            aCard.beingPlayedBy(this);
+        }
+
     }
 
     /**
@@ -227,6 +231,41 @@ public class Player {
     public void useHability(IHability anAbility, Player following) {
         anAbility.beingActivated(this,following);
     }
+
+    /**
+     * Allows recuperate this integer input from the user which represents the index of the pokemon, the player wants to assign the energy to
+     * @param energy the energy which will be assigned
+     * @return integer input which is -1 if there's no Pokemon whith this index in the bank
+     */
+    public int submitIndex(IEnergy energy){
+        try (Scanner scanner = new Scanner(System.in)) {
+
+            System.out.println("Please enter the index of the pokemon you want to apply the energy to : ");
+            int index = scanner.nextInt(); // get integer
+
+            while (index>=6){
+                System.out.println("There is only 6 Pokemon in the bank");
+                System.out.println("Please choose and index between 0 and 5: ");
+                index = scanner.nextInt(); // get integer
+
+            }
+
+            if (this.getBank().size()<=index){
+                System.out.println("There's no Pokemon with this index in the player's bank of Pokemons");
+                index=-1;
+
+            }
+            else{
+                System.out.format("The energy's been applied to the pokemon number %d", index);
+            }
+            return index;
+        }
+
+    }
+
+
+
+
 
 
 

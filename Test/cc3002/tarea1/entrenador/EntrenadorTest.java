@@ -145,22 +145,6 @@ public class EntrenadorTest {
 
     }
 
-    @Test
-    public void playEnergyCardTest(){
-
-        Red.drawCard(charmander);
-        Red.drawCard(water);
-        Red.drawCard(fire);
-        Red.drawCard(plant);
-        Red.playCard(charmander);
-        Red.playCard(water);
-        Red.playCard(fire);
-
-
-        assertEquals(1, Red.getSelectedPokemon().getQuantityofAnEnergy(water));
-        assertEquals(1, Red.getSelectedPokemon().getQuantityofAnEnergy(fire));
-        assertEquals(0, Red.getSelectedPokemon().getQuantityofAnEnergy(plant));
-    }
 
     @Test
     public void attackTest(){
@@ -177,9 +161,12 @@ public class EntrenadorTest {
         Red.playCard(charmander);
         assertEquals("Squirtle",Blue.getSelectedPokemon().getName());
         assertEquals(50,Blue.getSelectedPokemon().getHP());
-        Red.playCard(fire);
-        Red.playCard(fire);
-        Red.playCard(plant);
+
+        //energies are being assigned directly to Pokemon otherwise whe cannot control what will be the player's input at playing the energy card
+        charmander.receiveEnergy(fire);
+        charmander.receiveEnergy(fire);
+        charmander.receiveEnergy(plant);
+
         charmander.setAttack(torpedo);
         Red.useHability(torpedo,Blue);
         assertEquals(20,Blue.getSelectedPokemon().getHP());

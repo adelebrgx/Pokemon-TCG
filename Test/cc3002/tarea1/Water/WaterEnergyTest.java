@@ -28,12 +28,4 @@ public class WaterEnergyTest {
 
     }
 
-    @Test
-    public void EnergyPlayedTest(){
-        Blue.drawCard(squirtle);
-        Blue.selectPokemon(squirtle);
-        water.beingPlayedBy(Blue);
-        assertEquals(1, Blue.getSelectedPokemon().getQuantityofAnEnergy(water));
-
-    }
 }

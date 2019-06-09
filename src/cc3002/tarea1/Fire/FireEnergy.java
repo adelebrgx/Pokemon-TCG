@@ -21,10 +21,11 @@ public class FireEnergy extends AEnergy {
 
     @Override
     public void beingPlayedBy(Player inAction) {
-        if (inAction.getBank().size() == 0) {
+        int index=inAction.submitIndex(this);
+        if (inAction.getBank().size() == 0 || index==-1) {
             System.out.println("There is no Pokemon to apply this energy to");
         } else {
-            inAction.getSelectedPokemon().addFireEnergy(this);
+            inAction.getBank().get(index).addFireEnergy(this);
         }
     }
 }

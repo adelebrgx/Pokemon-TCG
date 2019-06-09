@@ -23,10 +23,11 @@ public class WaterEnergy extends AEnergy {
     }
 
     public void beingPlayedBy(Player inAction) {
-        if (inAction.getBank().size() == 0) {
+        int index=inAction.submitIndex(this);
+        if (inAction.getBank().size() == 0 || index==-1) {
             System.out.println("There is no Pokemon to apply this energy to");
         } else {
-            inAction.getSelectedPokemon().addWaterEnergy(this);
+            inAction.getBank().get(index).addWaterEnergy(this);
         }
     }
 

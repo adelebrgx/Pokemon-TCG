@@ -16,4 +16,5 @@ public interface IEnergy extends ICard {
      * @param inAction player which plays the energy card during the game
      */
     void beingPlayedBy(Player inAction);
+    
 }
