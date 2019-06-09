@@ -85,6 +85,11 @@ public abstract class APokemon extends ACard implements IPokemon  {
     }
 
     @Override
+    public void setHP(int hp){
+        this.hp=hp;
+    }
+
+    @Override
     public void setAttack(Attack anAttack){
         if(this.attackList.size()>=4){
             System.out.println("Pokemon already has 4 attacks");

@@ -1,9 +1,6 @@
 package cc3002.tarea1.Fighting;
 
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.IPhase1Pokemon;
-import cc3002.tarea1.IPokemon;
-import cc3002.tarea1.Player;
+import cc3002.tarea1.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,5 +22,10 @@ public class Phase1FightingPokemon extends AFightingPokemon implements IPhase1Po
         if (result==false){
             System.out.println("there is no basic type to be replaced by the following Pokemon");
         }
+    }
+
+    @Override
+    public void isBeingInspected(IStateCard card){
+        card.inspectPhase1Pokemon(this);
     }
 }

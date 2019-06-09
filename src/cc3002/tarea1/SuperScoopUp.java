@@ -8,6 +8,8 @@ public class SuperScoopUp extends AObjectCard {
         super(aName, aDescription);
     }
 
+
+    @Override
     public void beingPlayedBy(Player player){
         Random random = new Random();
         int rand= random.nextInt(2);

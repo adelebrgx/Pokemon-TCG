@@ -97,7 +97,7 @@ public class EntrenadorTest {
         Red.drawCard(charmander);
         Red.drawCard(squirtle);
 
-        Red.selectPokemon(squirtle);
+        Red.addPokemontoBank(squirtle);
 
 
         assertEquals("Squirtle",Red.getBank().get(0).getName());

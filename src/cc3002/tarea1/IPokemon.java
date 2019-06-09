@@ -62,6 +62,12 @@ public interface IPokemon extends ICard{
      */
     boolean isAlive();
 
+    /**
+     * Method to assihgn hp to a Pokemon
+     * @param hp integer to be assigned
+     */
+    void setHP(int hp);
+
     /**Method to assign an attack to a Pokemon he'll be able to use in the game
      * @param anAttack attack given to the pokemon
      */
@@ -174,5 +180,7 @@ public interface IPokemon extends ICard{
      * @return a boolean which is true if the player posesses the subevolution
      */
     boolean checkEvolution(Player player);
+
+    public void isBeingInspected(IStateCard card);
 
 }

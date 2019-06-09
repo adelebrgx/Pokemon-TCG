@@ -6,6 +6,8 @@ import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.Phase1FirePokemon;
 import cc3002.tarea1.Fire.Phase2FirePokemon;
 import cc3002.tarea1.Water.BasicWaterPokemon;
+import cc3002.tarea1.Water.Phase1WaterPokemon;
+import cc3002.tarea1.Water.Phase2WaterPokemon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,26 +21,37 @@ public class Test {
         IPokemon Charmander= new BasicFirePokemon("charmander",3,50,new ArrayList<>());
         IPokemon charmeleon= new Phase1FirePokemon( "charmeleon",4,50,new ArrayList<>());
         ICard salmander= new Phase2FirePokemon("salmander", 5, 60, new ArrayList<>());
-        ICard squirtle= new BasicWaterPokemon("squirtle",3,50,new ArrayList<>());
+        ICard squirtle= new BasicWaterPokemon("squirtle",6,50,new ArrayList<>());
         IEnergy water = new FightingEnergy();
+        IPokemon watortle= new Phase1WaterPokemon("squirtle",7,90,new ArrayList<>());
+        IPokemon tortoise=new Phase2WaterPokemon("squirtle",8,90,new ArrayList<>());
         ICard one= new ProfessorCozmosDiscovery("p","p");
-        ICard two= new SuperScoopUp("p","p");
+        ICard two= new TrainingCenter("p","p", 10);
+        ICard three= new TrainingCenter("p","p", 30);
+        ICard four= new TrainingCenter("p","p", 30);
 
         //System.out.println(first.getHand().size());
 
         //Charmander.receiveEnergy(water);
         first.drawCard(two);
+        first.drawCard(three);
+        first.drawCard(four);
         first.drawCard(Charmander);
         first.drawCard(squirtle);
         first.drawCard(water);
         first.drawCard(charmeleon);
         first.drawCard(salmander);
-        System.out.println(first.getHand().size());
+        first.drawCard(watortle);
+        first.drawCard(tortoise);
+
+
         first.playCard(Charmander);
         first.playCard(squirtle);
-        System.out.println(first.getHand());
-        System.out.println(first.getBank().size());
+        first.playCard(charmeleon);
+        first.playCard(watortle);
 
+        System.out.println(charmeleon.getHP());
+        System.out.println(watortle.getHP());
         //ArrayList list= new ArrayList();
         //list.add(charmeleon);
 
@@ -47,9 +60,19 @@ public class Test {
         //System.out.println(first.getStack().size());
 
         first.playCard(two);
-        System.out.println(first.getBank().size());
-        System.out.println(first.getHand());
-        System.out.println(first.getLostCards());
+        System.out.println(charmeleon.getHP());
+        System.out.println(watortle.getHP());
+        first.playCard(three);
+        System.out.println(charmeleon.getHP());
+        System.out.println(watortle.getHP());
+
+        first.playCard(tortoise);
+        first.playCard(four);
+        System.out.println(first.getBank());
+        System.out.println(charmeleon.getHP());
+        System.out.println(tortoise.getHP());
+
+
 
 
         //first.playCard(charmeleon);

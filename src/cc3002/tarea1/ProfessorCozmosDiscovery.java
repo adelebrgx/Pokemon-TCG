@@ -6,6 +6,7 @@ public class ProfessorCozmosDiscovery extends ASupportCard {
 
     public ProfessorCozmosDiscovery(String aName, String aDescription){super(aName, aDescription);}
 
+    @Override
     public void beingPlayedBy(Player player){
         Random random = new Random();
         int rand= random.nextInt(2);

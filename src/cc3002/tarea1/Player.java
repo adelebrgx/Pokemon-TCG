@@ -106,7 +106,7 @@ public class Player {
      * @param aPokemon Pokemon that is going to be selected
      */
     public void selectPokemon(IPokemon aPokemon){
-        if(!hand.contains(aPokemon)){
+        if(!pokemonBank.contains(aPokemon)){
             System.out.println("Player does not posess this pokemon");
         }
         else if (this.pokemonBank.size()==0){

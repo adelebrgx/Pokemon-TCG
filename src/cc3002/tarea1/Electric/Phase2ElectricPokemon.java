@@ -1,13 +1,8 @@
 package cc3002.tarea1.Electric;
 
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.IPhase2Pokemon;
-import cc3002.tarea1.IPokemon;
-import cc3002.tarea1.Player;
+import cc3002.tarea1.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Class which represents phase2 electric pokemons
@@ -28,5 +23,10 @@ public class Phase2ElectricPokemon extends AElectricPokemon implements IPhase2Po
         if (result==false){
             System.out.println("there is no phase1 to be replaced by the following Pokemon");
         }
+    }
+
+    @Override
+    public void isBeingInspected(IStateCard card ){
+        card.inspectPhase2Pokemon(this);
     }
 }

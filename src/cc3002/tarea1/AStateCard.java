@@ -7,4 +7,6 @@ package cc3002.tarea1;
 public abstract class AStateCard extends ATrainerCard implements IStateCard {
 
     public AStateCard(String aName, String aDescription){super(aName,aDescription);}
+
+    public void inspectBasicPokemon(IBasicPokemon basic){}
 }

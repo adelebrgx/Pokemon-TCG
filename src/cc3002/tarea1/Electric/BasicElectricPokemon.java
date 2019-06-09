@@ -1,8 +1,6 @@
 package cc3002.tarea1.Electric;
 
-import cc3002.tarea1.AEnergy;
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.IBasicPokemon;
+import cc3002.tarea1.*;
 
 import java.util.ArrayList;
 
@@ -14,5 +12,10 @@ public class BasicElectricPokemon extends AElectricPokemon implements IBasicPoke
 
     public BasicElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
         super(someName, somePokedexID, someHP, someAttacks);
+    }
+
+    @Override
+    public void isBeingInspected(IStateCard card){
+        card.inspectBasicPokemon(this);
     }
 }

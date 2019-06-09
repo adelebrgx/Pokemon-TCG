@@ -23,4 +23,9 @@ public class Phase1WaterPokemon extends AWaterPokemon implements IPhase1Pokemon 
         }
 
     }
+
+    @Override
+    public void isBeingInspected(IStateCard card){
+        card.inspectPhase1Pokemon(this);
+    }
 }
