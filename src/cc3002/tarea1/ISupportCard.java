@@ -5,4 +5,5 @@ package cc3002.tarea1;
  * @author Adèle Bourgeix
  */
 public interface ISupportCard {
+
 }

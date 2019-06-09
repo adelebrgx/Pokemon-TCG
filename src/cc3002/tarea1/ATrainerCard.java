@@ -4,7 +4,7 @@ package cc3002.tarea1;
  * Abstract class representing trainer's cards and all the actions associated
  * @author Adèle Bourgeix
  */
-public abstract class ATrainerCard implements ITrainerCard{
+public abstract class ATrainerCard extends ACard implements ITrainerCard {
     private String name;
     private String description;
 
@@ -14,8 +14,8 @@ public abstract class ATrainerCard implements ITrainerCard{
      * @param aDescription description to the given card
      */
     public ATrainerCard(String aName, String aDescription){
-        this.name= name;
-        this.description=description;
+        super(aName);
+        this.description=aDescription;
     }
 
     /**
@@ -32,5 +32,9 @@ public abstract class ATrainerCard implements ITrainerCard{
      */
     public String getDescription(){
         return this.description;
+    }
+
+    public void beingPlayedBy(Player player){
+        player.eliminate(this);
     }
 }

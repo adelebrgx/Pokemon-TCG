@@ -7,4 +7,6 @@ package cc3002.tarea1;
 public abstract class AObjectCard extends ATrainerCard implements IObjectCard {
 
     public AObjectCard(String aName, String aDescription){super(aName,aDescription);}
+
+
 }

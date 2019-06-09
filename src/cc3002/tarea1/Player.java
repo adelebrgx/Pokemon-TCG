@@ -126,16 +126,17 @@ public class Player {
     /**
      * Player can draw a card from his/her deck
      */
-    public void drawCard(){
-        if(cardStack.size()==0){
-            System.out.println("The stack of the player is empty");
+    public void getCard(int i){
+        if(cardStack.size()==0 || cardStack.size()<i){
+            System.out.println("There aren't enough cards in the stack");
         }
         else{
-            ICard newCard= this.cardStack.get(0);
-            this.hand.add(newCard);
-            cardStack.remove(newCard);
+            for (int j=0; j<i; j++){
+                ICard newCard= this.cardStack.get(i);
+                this.hand.add(newCard);
+                cardStack.remove(newCard);
+            }
         }
-
     }
 
     /**
@@ -146,20 +147,15 @@ public class Player {
         this.hand.add(card);
     }
 
+    public void eliminate(ICard card){ this.lostCards.add(card);
+    }
+
     /**
      * Getter to the player's name
      * @return a String which is the player's name
      */
     public String getName(){
         return this.name;
-    }
-
-    /**
-     * Getter to the number of cards in the player's hand
-     * @return an integer which is the size of the player's hand
-     */
-    public int getHandSize(){
-        return this.hand.size();
     }
 
     /**
@@ -219,6 +215,7 @@ public class Player {
         }
         else{
             aCard.beingPlayedBy(this);
+            this.getHand().remove(aCard);
         }
 
     }
@@ -262,6 +259,7 @@ public class Player {
         }
 
     }
+
 
 
 

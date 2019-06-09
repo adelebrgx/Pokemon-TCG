@@ -7,4 +7,6 @@ package cc3002.tarea1;
 public abstract class ASupportCard extends ATrainerCard implements ISupportCard{
 
     public ASupportCard(String aName, String aDescription){super(aName, aDescription);}
+
+
 }
