@@ -2,6 +2,7 @@ package cc3002.tarea1.Psychic;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
+import cc3002.tarea1.IHability;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * Abstract class which extends the notion of Pokemon to a Pokemon of type water
  * @author Adèle Bourgeix
  */
-public abstract class APsychicPokemon extends APokemon {
+public abstract class APsychicPokemon extends APokemon implements IPsychicPokemon{
 
 
     /**Constructor of a psychic type pokemon
@@ -40,5 +41,10 @@ public abstract class APsychicPokemon extends APokemon {
     @Override
     public void receivePsychicAttack(Attack anAttack){
         this.receiveWeaknessAttack(anAttack);
+    }
+
+    @Override
+    public void receiveAbility(IHability hability){
+        hability.enablePsychicPokemon(this);
     }
 }

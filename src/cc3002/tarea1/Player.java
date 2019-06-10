@@ -1,7 +1,7 @@
 package cc3002.tarea1;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -222,11 +222,15 @@ public class Player {
 
     /**
      * A player uses one of his selected pokemon's attack to play it against the pokemon of his opponent. The attack can only be performed if the Pokemon posesses it and has enough energy to use it.
-     * @param anAbility ability used by the player
+     * @param anAttack ability used by the player
      * @param following the opponent of the player who uses the attack
      */
-    public void useHability(IHability anAbility, Player following) {
-        anAbility.beingActivated(this,following);
+    public void useAttack(IAttack anAttack, Player following) {
+        anAttack.isBeingActivated(this,following);
+    }
+
+    public void enableHability(IHability hability, IPokemon pokemon){
+        hability.isBeingEnabled(this, pokemon);
     }
 
     /**

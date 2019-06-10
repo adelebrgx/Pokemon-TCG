@@ -183,6 +183,9 @@ public interface IPokemon extends ICard{
 
     void isBeingInspected(IStateCard card);
 
-    void beingAffectedBy(IHability hability);
+    void isBeingAffectedBy(IAttack attack);
+
+    void receiveAbility(IHability hability);
+
 
 }

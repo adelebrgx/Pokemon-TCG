@@ -2,6 +2,7 @@ package cc3002.tarea1.Fighting;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
+import cc3002.tarea1.IHability;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * Abstract class which extends the notion of Pokemon to a Pokemon of fighting type
  * @author Adèle Bourgeix
  */
-public abstract class AFightingPokemon extends APokemon {
+public abstract class AFightingPokemon extends APokemon implements IFightingPokemon{
 
     /** Constructor of a fighting type pokemon
      * @param someName name given to the Pokemon
@@ -40,5 +41,10 @@ public abstract class AFightingPokemon extends APokemon {
     @Override
     public void receivePsychicAttack(Attack anAttack){
         this.receiveWeaknessAttack(anAttack);
+    }
+
+    @Override
+    public void receiveAbility(IHability hability){
+        hability.enableFightingPokemon(this);
     }
 }

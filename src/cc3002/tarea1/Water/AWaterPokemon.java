@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Abstract class which extends the notion of Pokemon to a Pokemon of type water
  * @author Adèle Bourgeix
  */
-public abstract class AWaterPokemon extends APokemon {
+public abstract class AWaterPokemon extends APokemon implements IWaterPokemon{
 
 
     /** Constructor of a water type pokemon
@@ -37,5 +37,11 @@ public abstract class AWaterPokemon extends APokemon {
     public void receiveElectricAttack(Attack anAttack){ this.receiveWeaknessAttack(anAttack);}
     @Override
     public void receiveFightingAttack(Attack anAttack){ this.receiveResistantAttack(anAttack); }
+
+    @Override
+    public void receiveAbility(IHability hability){
+        hability.enableWaterPokemon(this);
+    }
+
 
 }

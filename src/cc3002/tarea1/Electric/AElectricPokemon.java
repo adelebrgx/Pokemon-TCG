@@ -2,6 +2,7 @@ package cc3002.tarea1.Electric;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
+import cc3002.tarea1.IHability;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 /** Abstract class which extends the notion of Pokemon to a Pokemon of type electric
  * @author Adèle Bourgeix
  */
-public abstract class AElectricPokemon extends APokemon {
+public abstract class AElectricPokemon extends APokemon implements IElectricPokemon{
 
     /** Constructor of a electric type pokemon
      * @param someName name given to the Pokemon
@@ -34,6 +35,11 @@ public abstract class AElectricPokemon extends APokemon {
     @Override
     public void receiveFightingAttack(Attack anAttack){
         this.receiveWeaknessAttack(anAttack);
+    }
+
+    @Override
+    public void receiveAbility(IHability hability){
+        hability.enableElectricPokemon(this);
     }
 
 

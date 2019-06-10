@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Class used to describe the behavior of an attack one pokemon posess which is a special type of ability
  * @author Adèle Bourgeix
  */
-public abstract class Attack extends AAbility{
+public abstract class Attack extends AAbility implements IAttack{
     private int baseDamage;
 
 
@@ -31,7 +31,7 @@ public abstract class Attack extends AAbility{
     }
 
     @Override
-    public void beingActivated(Player first, Player following){
+    public void isBeingActivated(Player first, Player following){
         if (!first.getSelectedPokemon().getAttacksList().contains(this)) {
             System.out.println("Pokemon cannot use attack he doesn't posess");
         } else {

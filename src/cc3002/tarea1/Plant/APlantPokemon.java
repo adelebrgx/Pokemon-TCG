@@ -2,6 +2,7 @@ package cc3002.tarea1.Plant;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
+import cc3002.tarea1.IHability;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 /** Abstract class which extends the notion of Pokemon to a Pokemon of type plant
  * @author Adèle Bourgeix
  */
-public abstract class APlantPokemon extends APokemon {
+public abstract class APlantPokemon extends APokemon implements IPlantPokemon{
 
     /**Constructor of a plant type pokemon
      * @param someName name given to the Pokemon
@@ -38,5 +39,10 @@ public abstract class APlantPokemon extends APokemon {
     public void receiveWaterAttack(Attack anAttack){
         this.receiveResistantAttack(anAttack);
     }
+    @Override
+    public void receiveAbility(IHability hability){
+        hability.enablePlantPokemon(this);
+    }
+
 
 }

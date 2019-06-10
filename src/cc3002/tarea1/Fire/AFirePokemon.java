@@ -2,6 +2,7 @@ package cc3002.tarea1.Fire;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
+import cc3002.tarea1.IHability;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 /** Abstract class which extends the notion of Pokemon to a Pokemon of type fire
  * @author Adèle Bourgeix
  */
-public abstract class AFirePokemon extends APokemon {
+public abstract class AFirePokemon extends APokemon implements IFirePokemon{
 
     /**Constructor of a fire type pokemon
      * @param someName name given to the Pokemon
@@ -35,6 +36,11 @@ public abstract class AFirePokemon extends APokemon {
     @Override
     public void receiveWaterAttack(Attack anAttack){
         this.receiveWeaknessAttack(anAttack);
+    }
+
+    @Override
+    public void receiveAbility(IHability hability){
+        hability.enableFirePokemon(this);
     }
 
 }

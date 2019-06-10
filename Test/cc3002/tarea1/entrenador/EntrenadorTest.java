@@ -6,17 +6,11 @@ import cc3002.tarea1.Fighting.BasicFightingPokemon;
 import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.FireEnergy;
-import cc3002.tarea1.Fire.AFirePokemon;
 import cc3002.tarea1.Plant.BasicPlantPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
-import cc3002.tarea1.Psychic.APsychicPokemon;
 import cc3002.tarea1.Psychic.BasicPsychicPokemon;
 import cc3002.tarea1.Water.BasicWaterPokemon;
 import cc3002.tarea1.Water.WaterEnergy;
-import cc3002.tarea1.Water.AWaterPokemon;
-import cc3002.tarea1.Plant.APlantPokemon;
-import cc3002.tarea1.Fighting.AFightingPokemon;
-import cc3002.tarea1.Electric.AElectricPokemon;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -170,11 +164,11 @@ public class EntrenadorTest {
         charmander.receiveEnergy(plant);
         charmander.receiveEnergy(plant);
         charmander.setAttack(torpedo);
-        Red.useHability(torpedo,Blue);
+        Red.useAttack(torpedo,Blue);
         assertEquals(20,Blue.getSelectedPokemon().getHP());
-        Red.useHability(torpedo,Blue);
+        Red.useAttack(torpedo,Blue);
         assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
-        Red.useHability(torpedo,Blue);
+        Red.useAttack(torpedo,Blue);
         assertEquals(50,Blue.getSelectedPokemon().getHP());
 
     }

@@ -1,5 +1,12 @@
 package cc3002.tarea1;
 
+import cc3002.tarea1.Electric.IElectricPokemon;
+import cc3002.tarea1.Fighting.IFightingPokemon;
+import cc3002.tarea1.Fire.IFirePokemon;
+import cc3002.tarea1.Plant.IPlantPokemon;
+import cc3002.tarea1.Psychic.IPsychicPokemon;
+import cc3002.tarea1.Water.IWaterPokemon;
+
 import java.util.HashMap;
 
 /**
@@ -30,12 +37,15 @@ public interface IHability {
      */
     void setEnergyCost(String energy, int quantity);
 
-    /**
-     * What happens when a player activates an ability during the game, ambiguity is solved
-     * @param first the player activating the ability
-     * @param following the other player involved if other player is involved
-     */
-    void beingActivated(Player first, Player following);
-
     void affect(IPokemon pokemon);
+
+    void isBeingEnabled(Player p, IPokemon pokemon);
+
+
+    public void enableFirePokemon(IFirePokemon pokemon);
+    public void enableWaterPokemon(IWaterPokemon pokemon);
+    public void enablePlantPokemon(IPlantPokemon pokemon);
+    public void enableElectricPokemon(IElectricPokemon pokemon);
+    public void enablePsychicPokemon(IPsychicPokemon pokemon);
+    public void enableFightingPokemon(IFightingPokemon pokemon);
 }

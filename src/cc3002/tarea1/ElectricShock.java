@@ -11,9 +11,9 @@ public class ElectricShock extends Attack {
         this.x=x;}
 
     @Override
-    public void beingActivated(Player first, Player following){
+    public void isBeingActivated(Player first, Player following){
         IPokemon pokemon= following.getSelectedPokemon();
-        pokemon.beingAffectedBy(this);
+        pokemon.isBeingAffectedBy(this);
     }
 
 

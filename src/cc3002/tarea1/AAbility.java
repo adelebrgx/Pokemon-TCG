@@ -1,5 +1,12 @@
 package cc3002.tarea1;
 
+import cc3002.tarea1.Electric.IElectricPokemon;
+import cc3002.tarea1.Fighting.IFightingPokemon;
+import cc3002.tarea1.Fire.IFirePokemon;
+import cc3002.tarea1.Plant.IPlantPokemon;
+import cc3002.tarea1.Psychic.IPsychicPokemon;
+import cc3002.tarea1.Water.IWaterPokemon;
+
 import java.util.HashMap;
 
 /**
@@ -43,11 +50,27 @@ public abstract class AAbility implements IHability{
     }
 
     @Override
-    public void beingActivated(Player first, Player following){
-        System.out.println("hability being activated");
-    }
+    public void affect(IPokemon pokemon){}
 
     @Override
-    public void affect(IPokemon pokemon){}
+    public void isBeingEnabled(Player p, IPokemon pokemon){}
+
+    @Override
+    public void enableFirePokemon(IFirePokemon pokemon){}
+
+    @Override
+    public void enableWaterPokemon(IWaterPokemon pokemon){}
+
+    @Override
+    public void enablePlantPokemon(IPlantPokemon pokemon){}
+
+    @Override
+    public void enableElectricPokemon(IElectricPokemon pokemon){}
+
+    @Override
+    public void enablePsychicPokemon(IPsychicPokemon pokemon){}
+
+    @Override
+    public void enableFightingPokemon(IFightingPokemon pokemon){}
 
 }
