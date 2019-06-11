@@ -16,7 +16,7 @@ public class SuperScoopUp extends AObjectCard {
         if(rand==1){
             IPokemon pokemon= player.getBank().get(1);
             player.getBank().remove(1);
-            player.drawCard(pokemon);
+            player.takeCard(pokemon);
         }
         super.beingPlayedBy(player);
     }

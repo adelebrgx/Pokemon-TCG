@@ -1,7 +1,6 @@
 package cc3002.tarea1.Fighting;
 import cc3002.tarea1.*;
 
-import cc3002.tarea1.Fire.Phase2FirePokemon;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,6 +23,7 @@ public class FightingPokemonTest {
     private Attack lowkick;
     private Player Blue;
     private List<ICard> deck;
+    private TrainingCenter trainingCenter;
 
     @Before
     public void setUp()  {
@@ -39,6 +39,7 @@ public class FightingPokemonTest {
         infernape= new Phase2FightingPokemon("Infernape",392, 130, new ArrayList<>());
         Blue=new Player("Blue");
         deck=new ArrayList<>();
+        trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
     }
 
     @Test
@@ -109,8 +110,8 @@ public class FightingPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
-        Blue.drawCard(chimchar);
-        Blue.drawCard(monferno);
+        Blue.takeCard(chimchar);
+        Blue.takeCard(monferno);
         chimchar.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(chimchar, Blue.getSelectedPokemon());
@@ -125,8 +126,8 @@ public class FightingPokemonTest {
 
     @Test
     public void firstEvolutionTestFailed(){
-        Blue.drawCard(chimchar);
-        Blue.drawCard(monferno);
+        Blue.takeCard(chimchar);
+        Blue.takeCard(monferno);
         monferno.beingPlayedBy(Blue);
         assertEquals(0, Blue.getBank().size());
         assertEquals(0, Blue.getLostCards().size());
@@ -137,9 +138,9 @@ public class FightingPokemonTest {
 
     @Test
     public void secondEvolutionTestSucceeded(){
-        Blue.drawCard(chimchar);
-        Blue.drawCard(monferno);
-        Blue.drawCard(infernape);
+        Blue.takeCard(chimchar);
+        Blue.takeCard(monferno);
+        Blue.takeCard(infernape);
         chimchar.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(chimchar, Blue.getSelectedPokemon());
@@ -156,9 +157,9 @@ public class FightingPokemonTest {
 
     @Test
     public void secondEvolutionTestFailed(){
-        Blue.drawCard(chimchar);
-        Blue.drawCard(monferno);
-        Blue.drawCard(infernape);
+        Blue.takeCard(chimchar);
+        Blue.takeCard(monferno);
+        Blue.takeCard(infernape);
         chimchar.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(chimchar, Blue.getSelectedPokemon());
@@ -166,5 +167,15 @@ public class FightingPokemonTest {
         assertEquals(1, Blue.getBank().size());
         assertEquals(chimchar, Blue.getSelectedPokemon());
         assertEquals(0, Blue.getLostCards().size());
+    }
+
+    @Test
+    public void InspectionTest(){
+        chimchar.isBeingInspected(trainingCenter);
+        monferno.isBeingInspected(trainingCenter);
+        infernape.isBeingInspected(trainingCenter);
+        assertEquals(60,chimchar.getHP());
+        assertEquals(120,monferno.getHP());
+        assertEquals(150,infernape.getHP());
     }
 }

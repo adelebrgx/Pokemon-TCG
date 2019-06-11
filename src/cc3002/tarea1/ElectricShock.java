@@ -10,6 +10,13 @@ public class ElectricShock extends Attack {
         super(aName,aBaseDamage,aDescription);
         this.x=x;}
 
+
+
+
+
+
+
+
     @Override
     public void isBeingActivated(Player first, Player following){
         IPokemon pokemon= following.getSelectedPokemon();
@@ -26,6 +33,11 @@ public class ElectricShock extends Attack {
             int hp= pokemon.getHP()-x;
             pokemon.setHP(hp);
         }
+    }
+
+
+    public int getX(){
+        return this.x;
     }
 
 

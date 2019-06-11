@@ -1,9 +1,6 @@
 package cc3002.tarea1;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Class which represents a Pokemon player and all the actions he/she can perform
@@ -17,6 +14,10 @@ public class Player {
     private List<ICard> lostCards;
     private List<ICard> cardStack;
     private List<ICard> primeCards;
+    private PlayerState state;
+    private boolean isPlaying;
+    private boolean hasEndedTurn;
+    private Controller controller;
 
     /**
      * Trainer's constructor
@@ -31,7 +32,38 @@ public class Player {
         lostCards =new ArrayList<>();
         cardStack=new ArrayList<>(60);
         primeCards=new ArrayList<>(6);
+        state=new InitialState();
+        controller=new NullController();
 
+    }
+
+    public void assignController(Controller controller){
+        this.controller=controller;
+    }
+    public void setState(PlayerState aState) {
+        state.setPlayer(this);
+        state = aState;
+        controller.update(this);
+    }
+
+    public PlayerState getState(){
+        return this.state;
+    }
+
+    public void setPlaying(boolean bool){
+        isPlaying=bool;
+    }
+
+    public boolean getIsPlaying(){
+        return this.isPlaying;
+    }
+
+    public void setEndingTurn(boolean bool){
+        this.hasEndedTurn=bool;
+    }
+
+    public boolean getEndingTurn(){
+        return this.hasEndedTurn;
     }
 
     /**
@@ -107,8 +139,12 @@ public class Player {
      */
     public void selectPokemon(IPokemon aPokemon){
         if(!pokemonBank.contains(aPokemon)){
-            System.out.println("Player does not posess this pokemon");
+            if(!hand.contains(aPokemon)){
+                System.out.println("Player does not posess this pokemon");
+            }
+            addPokemontoBank(aPokemon);
         }
+
         else if (this.pokemonBank.size()==0){
             addPokemontoBank(aPokemon);
         }
@@ -143,9 +179,10 @@ public class Player {
      * method to draw one card to make easier testing, will not be used to implement the game
      * @param card the card which will be drawn for the test
      */
-    public void drawCard(ICard card){
+    public void takeCard(ICard card){
         this.hand.add(card);
     }
+
 
     public void eliminate(ICard card){ this.lostCards.add(card);
     }
@@ -210,13 +247,22 @@ public class Player {
      * @param aCard Energy or Pokemon card played by the player
      */
     public void playCard(ICard aCard){
-        if(!hand.contains(aCard)){
-            System.out.println("The player cannot play a card which is not in his hand");
+        if(isPlaying){
+            if(!hand.contains(aCard)){
+                System.out.println("The player cannot play a card which is not in his hand");
+            }
+            else if(!state.isInFirstState()){
+                System.out.println("The player needs to draw a card before beginning playing cards");
+            }
+            else{
+                aCard.beingPlayedBy(this);
+                this.getHand().remove(aCard);
+            }
         }
         else{
-            aCard.beingPlayedBy(this);
-            this.getHand().remove(aCard);
+            controller.error();
         }
+
 
     }
 
@@ -226,11 +272,80 @@ public class Player {
      * @param following the opponent of the player who uses the attack
      */
     public void useAttack(IAttack anAttack, Player following) {
-        anAttack.isBeingActivated(this,following);
+        if(isPlaying){
+            if(state.isInInitialState()){
+                System.out.println("The player hasn't drawn any card yet");
+            }
+            else if (state.isInFirstState()){
+                System.out.println("The player needs to declare he/she's done performing actions");
+            }
+            else{
+                anAttack.isBeingActivated(this,following);
+                state.attack(this);
+            }
+        }
+        else{
+            controller.error();
+        }
+
+
     }
 
     public void enableHability(IHability hability, IPokemon pokemon){
-        hability.isBeingEnabled(this, pokemon);
+        if(isPlaying){
+            if (state.isInFirstState()){
+                hability.isBeingEnabled(this, pokemon);
+            }
+            else if(state.isInInitialState()){
+                System.out.println("The player hasn't drawn any card yet");
+            }
+            else {
+                System.out.println("The player has already performed all attacks he could perform");
+            }
+        }
+        else{
+            controller.error();
+        }
+
+
+
+    }
+
+    public void drawCard(){
+        if(isPlaying){
+            if (!state.isInInitialState()){
+                System.out.println("You've already drawn a card ");
+            }
+            else{
+                this.hand.add(cardStack.get(0));
+                cardStack.remove(0);
+                state.drawCard(this);
+            }
+        }
+        else{
+            controller.error();
+        }
+
+    }
+
+    public void endActions(){
+        if(isPlaying){
+            state.endActions(this);
+        }
+        else {
+            controller.error();
+        }
+    }
+
+    public void endTurn(){
+        if(isPlaying){
+            state.endTurn(this);
+            this.hasEndedTurn=true;
+        }
+        else {
+            controller.error();
+        }
+
     }
 
     /**
@@ -263,6 +378,7 @@ public class Player {
         }
 
     }
+
 
 
 

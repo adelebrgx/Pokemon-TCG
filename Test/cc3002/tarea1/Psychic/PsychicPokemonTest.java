@@ -20,6 +20,7 @@ public class PsychicPokemonTest {
     private Attack shadowbowl;
     private Attack psyshock;
     private Player Blue;
+    private TrainingCenter trainingCenter;
     @Before
     public void setUp() {
         shadowbowl=new BasicAttack("Shadow Bowl",40,"Attack of pokemon type: psychic");
@@ -33,6 +34,7 @@ public class PsychicPokemonTest {
         kadabra=new Phase1PsychicPokemon("Kadabra",64,80, new ArrayList<>(Arrays.asList(shadowbowl)));
         alakazam=new Phase2PsychicPokemon("Alakazam",65,90, new ArrayList<>());
         Blue=new Player("Blue");
+        trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
 
     }
 
@@ -101,8 +103,8 @@ public class PsychicPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
-        Blue.drawCard(abra);
-        Blue.drawCard(kadabra);
+        Blue.takeCard(abra);
+        Blue.takeCard(kadabra);
         abra.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(abra, Blue.getSelectedPokemon());
@@ -117,8 +119,8 @@ public class PsychicPokemonTest {
 
     @Test
     public void firstEvolutionTestFailed(){
-        Blue.drawCard(abra);
-        Blue.drawCard(kadabra);
+        Blue.takeCard(abra);
+        Blue.takeCard(kadabra);
         kadabra.beingPlayedBy(Blue);
         assertEquals(0, Blue.getBank().size());
         assertEquals(0, Blue.getLostCards().size());
@@ -129,9 +131,9 @@ public class PsychicPokemonTest {
 
     @Test
     public void secondEvolutionTestSucceeded(){
-        Blue.drawCard(abra);
-        Blue.drawCard(kadabra);
-        Blue.drawCard(alakazam);
+        Blue.takeCard(abra);
+        Blue.takeCard(kadabra);
+        Blue.takeCard(alakazam);
         abra.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(abra, Blue.getSelectedPokemon());
@@ -148,9 +150,9 @@ public class PsychicPokemonTest {
 
     @Test
     public void secondEvolutionTestFailed(){
-        Blue.drawCard(abra);
-        Blue.drawCard(kadabra);
-        Blue.drawCard(alakazam);
+        Blue.takeCard(abra);
+        Blue.takeCard(kadabra);
+        Blue.takeCard(alakazam);
         abra.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(abra, Blue.getSelectedPokemon());
@@ -160,6 +162,15 @@ public class PsychicPokemonTest {
         assertEquals(0, Blue.getLostCards().size());
     }
 
+    @Test
+    public void InspectionTest(){
+        abra.isBeingInspected(trainingCenter);
+        kadabra.isBeingInspected(trainingCenter);
+        alakazam.isBeingInspected(trainingCenter);
+        assertEquals(50,abra.getHP());
+        assertEquals(100,kadabra.getHP());
+        assertEquals(110,alakazam.getHP());
+    }
 
 
 }

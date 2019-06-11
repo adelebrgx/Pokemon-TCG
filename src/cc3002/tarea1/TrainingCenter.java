@@ -12,6 +12,10 @@ public class TrainingCenter extends AStateCard {
         this.x=x;
     }
 
+    public int getX(){
+        return this.x;
+    }
+
     @Override
     public void beingPlayedBy(Player player) {
         List<IPokemon> list= player.getBank();

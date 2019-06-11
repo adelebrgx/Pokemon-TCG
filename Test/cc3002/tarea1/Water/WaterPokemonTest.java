@@ -21,6 +21,7 @@ public class WaterPokemonTest {
     private Attack tackle;
     private Attack shadowbowl;
     private Player Blue;
+    private TrainingCenter trainingCenter;
 
     @Before
     public void setUp() {
@@ -35,6 +36,7 @@ public class WaterPokemonTest {
         watortle=new Phase1WaterPokemon("Watortle", 8, 85, new ArrayList<>(Arrays.asList(bubble)) );
         blastoise=new Phase2WaterPokemon("Blastoise",9,90,new ArrayList<>());
         Blue=new Player("Blue");
+        trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
     }
 
     @Test
@@ -106,8 +108,8 @@ public class WaterPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
-        Blue.drawCard(squirtle);
-        Blue.drawCard(watortle);
+        Blue.takeCard(squirtle);
+        Blue.takeCard(watortle);
         squirtle.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(squirtle, Blue.getSelectedPokemon());
@@ -122,8 +124,8 @@ public class WaterPokemonTest {
 
     @Test
     public void firstEvolutionTestFailed(){
-        Blue.drawCard(squirtle);
-        Blue.drawCard(watortle);
+        Blue.takeCard(squirtle);
+        Blue.takeCard(watortle);
         watortle.beingPlayedBy(Blue);
         assertEquals(0, Blue.getBank().size());
         assertEquals(0, Blue.getLostCards().size());
@@ -134,9 +136,9 @@ public class WaterPokemonTest {
 
     @Test
     public void secondEvolutionTestSucceeded(){
-        Blue.drawCard(squirtle);
-        Blue.drawCard(watortle);
-        Blue.drawCard(blastoise);
+        Blue.takeCard(squirtle);
+        Blue.takeCard(watortle);
+        Blue.takeCard(blastoise);
         squirtle.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(squirtle, Blue.getSelectedPokemon());
@@ -153,9 +155,9 @@ public class WaterPokemonTest {
 
     @Test
     public void secondEvolutionTestFailed(){
-        Blue.drawCard(squirtle);
-        Blue.drawCard(watortle);
-        Blue.drawCard(blastoise);
+        Blue.takeCard(squirtle);
+        Blue.takeCard(watortle);
+        Blue.takeCard(blastoise);
         squirtle.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(squirtle, Blue.getSelectedPokemon());
@@ -164,5 +166,17 @@ public class WaterPokemonTest {
         assertEquals(squirtle, Blue.getSelectedPokemon());
         assertEquals(0, Blue.getLostCards().size());
     }
+
+
+    @Test
+    public void InspectionTest(){
+        squirtle.isBeingInspected(trainingCenter);
+        watortle.isBeingInspected(trainingCenter);
+        blastoise.isBeingInspected(trainingCenter);
+        assertEquals(70,squirtle.getHP());
+        assertEquals(105,watortle.getHP());
+        assertEquals(110,blastoise.getHP());
+    }
+
 
 }

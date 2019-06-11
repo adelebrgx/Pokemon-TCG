@@ -70,8 +70,8 @@ public class EntrenadorTest {
     public void addPokemontoBankTest(){
         Red.playCard(pikachu);
         assertEquals(0,Red.getBank().size());
-        Red.drawCard(charmander);
-        Red.drawCard(squirtle);
+        Red.takeCard(charmander);
+        Red.takeCard(squirtle);
 
         Red.addPokemontoBank(charmander);
         Red.addPokemontoBank(squirtle);
@@ -88,8 +88,8 @@ public class EntrenadorTest {
 
     @Test
     public void selectPokemonTest(){
-        Red.drawCard(charmander);
-        Red.drawCard(squirtle);
+        Red.takeCard(charmander);
+        Red.takeCard(squirtle);
 
         Red.addPokemontoBank(squirtle);
 
@@ -103,6 +103,13 @@ public class EntrenadorTest {
         assertEquals("Charmander",Red.getSelectedPokemon().getName());
         assertEquals("Squirtle",Red.getBank().get(1).getName() );
 
+    }
+
+    @Test
+    public void startwithSelect(){
+        Blue.takeCard(charmander);
+        Blue.selectPokemon(charmander);
+        assertEquals(charmander,Blue.getSelectedPokemon());
     }
 
     @Test
@@ -126,8 +133,12 @@ public class EntrenadorTest {
     }
     @Test
     public void playPokemonCardTest(){
-        Red.drawCard(charmander);
-        Red.drawCard(abra);
+        Red.takeCard(charmander);
+        Red.takeCard(abra);
+
+        Red.setState(new FirstState());
+        Red.setPlaying(true);
+
         Red.playCard(charmander);
 
         assertEquals("Charmander",Red.getSelectedPokemon().getName());
@@ -144,12 +155,18 @@ public class EntrenadorTest {
     public void attackTest(){
         torpedo.setEnergyCost("Fire", 2);
         torpedo.setEnergyCost("Plant",1);
-        Red.drawCard(charmander);
-        Red.drawCard(fire);
-        Red.drawCard(fire);
-        Red.drawCard(plant);
-        Blue.drawCard(squirtle);
-        Blue.drawCard(bulbasaur);
+        Red.takeCard(charmander);
+        Red.takeCard(fire);
+        Red.takeCard(fire);
+        Red.takeCard(plant);
+        Blue.takeCard(squirtle);
+        Blue.takeCard(bulbasaur);
+
+        Blue.setState(new FirstState());
+        Blue.setPlaying(true);
+        Red.setState(new FirstState());
+        Red.setPlaying(true);
+
         Blue.playCard(squirtle);
         Blue.playCard(bulbasaur);
         Red.playCard(charmander);
@@ -163,13 +180,45 @@ public class EntrenadorTest {
         charmander.receiveEnergy(fire);
         charmander.receiveEnergy(plant);
         charmander.receiveEnergy(plant);
-        charmander.setAttack(torpedo);
-        Red.useAttack(torpedo,Blue);
-        assertEquals(20,Blue.getSelectedPokemon().getHP());
-        Red.useAttack(torpedo,Blue);
-        assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
+
+        Red.endActions();
+        Blue.endActions();
+
         Red.useAttack(torpedo,Blue);
         assertEquals(50,Blue.getSelectedPokemon().getHP());
+        charmander.setAttack(torpedo);
+        Red.setState(new SecondState());
+        Red.useAttack(torpedo,Blue);
+        assertEquals(20,Blue.getSelectedPokemon().getHP());
+        Red.setState(new SecondState());
+        Red.useAttack(torpedo,Blue);
+        assertEquals("Bulbasaur",Blue.getSelectedPokemon().getName() );
+        Red.setState(new SecondState());
+        Red.useAttack(torpedo,Blue);
+        assertEquals(50,Blue.getSelectedPokemon().getHP());
+
+    }
+
+    @Test
+    public void EliminateCardTest(){
+        Blue.takeCard(squirtle);
+        assertEquals(1,Blue.getHand().size());
+        Blue.eliminate(squirtle);
+        assertEquals(1,Blue.getLostCards().size());
+    }
+
+    @Test
+    public void DrawXCardTest(){
+        Blue.getCard(2);
+        assertEquals(0, Blue.getHand().size());
+
+        deckSet.add(charmander);
+        deckSet.add(pikachu);
+        deckSet.add(fire);
+        Blue.initiateDeck(deckSet);
+
+        Blue.getCard(3);
+        assertEquals(3, Blue.getHand().size());
 
     }
 
