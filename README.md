@@ -36,18 +36,23 @@ Finally a Controller was added in the last iteration of the project. It sets the
 
 ### Card Entity
 
-The Card interface ICard is implemented by an abstract class ACard. A card can only be played and this action will be described within the entities Pokemon and Energy. 
+The Card interface ICard is implemented by an abstract class ACard. A card can only be played and this action will be described within the entities Pokemon, Energy, Object Cards, Trainer Cards, State Cards. 
 
 ### Pokemon Entity
 
 #### Attributes:
-```String name, int pokedexID, int hp, HashMap<String, Integer> EnergiesAssociated, ArrayList<Attack> attackList; ```
+```String name, int pokedexID, int hp, HashMap<String, Integer> EnergiesAssociated, ArrayList<IAbility> abilitiesList, IObjectCard objectCardAssociated; ```
 
-A Pokemon is implemented within the Abstract class APokemon which implements IPokemon. Basically a Pokemon is described with its name, its hp, its Pokedex ID, a list of attacks assigned to it and a list of energies is been given by its player. 
+A Pokemon is implemented within the Abstract class APokemon which implements IPokemon. Basically a Pokemon is described with its name, its hp, its Pokedex ID, a list of abilities assigned to it and a list of energies is been given by its player. 
 
+A Pokemon is also refered to by his phase (basic, phase1, phase2) and type (fire, plant, water, electric, psychic, fighting).
 Amongst the functionnalites which describe a pokemon, performing attacks and receiving attacks are implemented within the class. A Pokemon can also be assigned energies or attacks or being played by a player on the battlefield. 
 
-Each class FirePokemon, WaterPokemon, PlantPokemon, ElectricPokemon, PsychicPokemon and Fighting Pokemon implements the functionnalities specific to the type of a Pokemon. For example, the methods receive_Attack shows the effects of an attack of type _ on a Pokemon's HP given he's either resistant, weak or none of both to another type.
+Each abstract class AFirePokemon, AWaterPokemon, APlantPokemon, AElectricPokemon, APsychicPokemon and AFighting Pokemon implements the functionnalities specific to the type of a Pokemon. For example, the methods receive_Attack shows the effects of an attack of type _ on a Pokemon's HP given he's either resistant, weak or none of both to another type.
+
+When playing a pokemon card, if the Pokemon is Phase1 or Phase2, it is checked its subevolution is on the battlefield to be replaced. The energies of the subphase Pokemon are passed to the Pokemon which comes to replace it. 
+
+Finally one object card can be assigned to the Pokemon by the player. If another object card is played by the player it comes to replace the one already assigned to the selected pokemon.
 
 ### Energy Entity
 
