@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class ElectricPokemonTest {
@@ -21,6 +22,7 @@ public class ElectricPokemonTest {
     private Attack shadowbowl;
     private Attack discharge;
     private Player Blue;
+    private IEnergy electric;
 
 
     @Before
@@ -37,6 +39,7 @@ public class ElectricPokemonTest {
         raichu=new Phase2ElectricPokemon("Raichu", 26, 110, new ArrayList<>(Arrays.asList(discharge)));
         Blue=new Player("Blue");
         trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
+        electric= new ElectricEnergy();
 
     }
 
@@ -109,10 +112,17 @@ public class ElectricPokemonTest {
     public void firstEvolutionTestSucceded(){
         Blue.takeCard(pichu);
         Blue.takeCard(pikachu);
+        pichu.receiveEnergy(electric);
+        assertEquals(1, pichu.getQuantityofAnEnergy(electric));
+        assertEquals(0, pikachu.getQuantityofAnEnergy(electric));
         pichu.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(pichu, Blue.getSelectedPokemon());
         pikachu.beingPlayedBy(Blue);
+
+        //energies are being transfered
+        assertEquals(1, pikachu.getQuantityofAnEnergy(electric));
+        assertEquals(0, pichu.getQuantityofAnEnergy(electric));
         assertEquals(1, Blue.getBank().size());
         assertEquals(pikachu, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
@@ -139,12 +149,15 @@ public class ElectricPokemonTest {
         Blue.takeCard(pikachu);
         Blue.takeCard(raichu);
         pichu.beingPlayedBy(Blue);
+        pichu.receiveEnergy(electric);
         assertEquals(1, Blue.getBank().size());
         assertEquals(pichu, Blue.getSelectedPokemon());
         pikachu.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(pikachu, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
+
+
         raichu.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(raichu, Blue.getSelectedPokemon());
@@ -168,8 +181,11 @@ public class ElectricPokemonTest {
 
     @Test
     public void InspectionTest(){
+        pichu.isBeingInspected(trainingCenter);
         pikachu.isBeingInspected(trainingCenter);
         raichu.isBeingInspected(trainingCenter);
+        assertEquals(40, pichu.getHP());
+        // Training Center adds x HP to Pokemons of Phase1 and 2
         assertEquals(110,pikachu.getHP());
         assertEquals(130,raichu.getHP());
     }

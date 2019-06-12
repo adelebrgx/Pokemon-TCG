@@ -12,7 +12,7 @@ public class SuperScoopUp extends AObjectCard {
     /**
      * Constructor for the SuperScoopUp
      * @param aName name for the card
-     * @param aDescription description for the card
+     * @param aDescription
      */
     public SuperScoopUp(String aName, String aDescription){
         super(aName, aDescription);

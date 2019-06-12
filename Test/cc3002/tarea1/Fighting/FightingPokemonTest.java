@@ -24,6 +24,7 @@ public class FightingPokemonTest {
     private Player Blue;
     private List<ICard> deck;
     private TrainingCenter trainingCenter;
+    private IEnergy fighting;
 
     @Before
     public void setUp()  {
@@ -39,6 +40,7 @@ public class FightingPokemonTest {
         infernape= new Phase2FightingPokemon("Infernape",392, 130, new ArrayList<>());
         Blue=new Player("Blue");
         deck=new ArrayList<>();
+        fighting=new FightingEnergy();
         trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
     }
 
@@ -110,15 +112,22 @@ public class FightingPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
+        chimchar.receiveEnergy(fighting);
         Blue.takeCard(chimchar);
         Blue.takeCard(monferno);
         chimchar.beingPlayedBy(Blue);
+        assertEquals(1, chimchar.getQuantityofAnEnergy(fighting));
+        assertEquals(0, monferno.getQuantityofAnEnergy(fighting));
         assertEquals(1, Blue.getBank().size());
         assertEquals(chimchar, Blue.getSelectedPokemon());
         monferno.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(monferno, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
+
+        //energies are being transfered to monferno
+        assertEquals(0, chimchar.getQuantityofAnEnergy(fighting));
+        assertEquals(1, monferno.getQuantityofAnEnergy(fighting));
 
 
     }
@@ -175,6 +184,7 @@ public class FightingPokemonTest {
         monferno.isBeingInspected(trainingCenter);
         infernape.isBeingInspected(trainingCenter);
         assertEquals(60,chimchar.getHP());
+        // Training Center adds x HP to Pokemons of Phase1 and 2
         assertEquals(120,monferno.getHP());
         assertEquals(150,infernape.getHP());
     }

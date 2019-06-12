@@ -26,6 +26,17 @@ public abstract class ATrainerCard extends ACard implements ITrainerCard {
         return this.description;
     }
 
+
+    @Override
+    public void inspectBasicPokemon(IBasicPokemon basic){}
+
+    @Override
+    public void inspectPhase1Pokemon(IPhase1Pokemon phase1){}
+
+    @Override
+    public void inspectPhase2Pokemon(IPhase2Pokemon phase2){}
+
+
     public void beingPlayedBy(Player player){
         player.eliminate(this);
     }

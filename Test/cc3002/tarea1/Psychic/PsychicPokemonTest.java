@@ -20,6 +20,7 @@ public class PsychicPokemonTest {
     private Attack shadowbowl;
     private Attack psyshock;
     private Player Blue;
+    private IEnergy psychic;
     private TrainingCenter trainingCenter;
     @Before
     public void setUp() {
@@ -34,6 +35,7 @@ public class PsychicPokemonTest {
         kadabra=new Phase1PsychicPokemon("Kadabra",64,80, new ArrayList<>(Arrays.asList(shadowbowl)));
         alakazam=new Phase2PsychicPokemon("Alakazam",65,90, new ArrayList<>());
         Blue=new Player("Blue");
+        psychic=new PsychicEnergy();
         trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
 
     }
@@ -103,15 +105,25 @@ public class PsychicPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
+        abra.receiveEnergy(psychic);
         Blue.takeCard(abra);
         Blue.takeCard(kadabra);
         abra.beingPlayedBy(Blue);
+        assertEquals(1, abra.getQuantityofAnEnergy(psychic));
+        assertEquals(0, kadabra.getQuantityofAnEnergy(psychic));
+
         assertEquals(1, Blue.getBank().size());
         assertEquals(abra, Blue.getSelectedPokemon());
+
+
         kadabra.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(kadabra, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
+
+        // energies are being transfered to Kadabra
+        assertEquals(0, abra.getQuantityofAnEnergy(psychic));
+        assertEquals(1, kadabra.getQuantityofAnEnergy(psychic));
 
 
     }
@@ -119,6 +131,7 @@ public class PsychicPokemonTest {
 
     @Test
     public void firstEvolutionTestFailed(){
+
         Blue.takeCard(abra);
         Blue.takeCard(kadabra);
         kadabra.beingPlayedBy(Blue);
@@ -168,6 +181,7 @@ public class PsychicPokemonTest {
         kadabra.isBeingInspected(trainingCenter);
         alakazam.isBeingInspected(trainingCenter);
         assertEquals(50,abra.getHP());
+        // Training Center adds x HP to Pokemons of Phase1 and 2
         assertEquals(100,kadabra.getHP());
         assertEquals(110,alakazam.getHP());
     }

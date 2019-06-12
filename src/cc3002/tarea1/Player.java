@@ -521,8 +521,9 @@ public class Player {
 
     /**
      * Allows recuperate this integer input from the user which represents the index of the pokemon, the player wants to assign the energy to
+     * This method can not be tested because it requires to know the input of the player, but the energy can be assigned to the Pokemon directly and this is tested.
      * @param energy the energy which will be assigned
-     * @return integer input which is -1 if there's no Pokemon whith this index in the bank
+     * @return integer input which is -1 if there's no Pokemon with this index in the bank
      */
     public int submitIndex(IEnergy energy){
         try (Scanner scanner = new Scanner(System.in)) {

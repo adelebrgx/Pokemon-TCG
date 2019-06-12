@@ -15,12 +15,13 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class ProfessorCozmosDiscoveryTest {
-    private IPokemon squirtle;
-    private IPokemon watortle;
-    private IPokemon blastoise;
+    private IBasicPokemon squirtle;
+    private IPhase1Pokemon watortle;
+    private IPhase2Pokemon blastoise;
     private IPokemon charmander;
     private IPokemon charmeleon;
     private IPokemon pichu;
+
     private ProfessorCozmosDiscovery professorCozmosDiscovery;
 
 
@@ -36,6 +37,8 @@ public class ProfessorCozmosDiscoveryTest {
         pichu=new BasicElectricPokemon("Pichu", 60, 30, new ArrayList<>() );
         professorCozmosDiscovery=new ProfessorCozmosDiscovery("Professor Cozmos Discovery", "Throw a coin. If the result's tails draw 2 cards, otherwise draw three.");
         Blue=new Player("Blue");
+
+
     }
 
     @Test
@@ -71,6 +74,7 @@ public class ProfessorCozmosDiscoveryTest {
 
         assertEquals(true, result);
     }
+
 
 
 

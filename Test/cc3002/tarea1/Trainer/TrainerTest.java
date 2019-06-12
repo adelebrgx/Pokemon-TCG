@@ -153,8 +153,8 @@ public class TrainerTest {
 
     @Test
     public void attackTest(){
-        torpedo.setEnergyCost("Fire", 2);
-        torpedo.setEnergyCost("Plant",1);
+        torpedo.setEnergyCost(fire.type(), 2);
+        torpedo.setEnergyCost(plant.type(),1);
         Red.takeCard(charmander);
         Red.takeCard(fire);
         Red.takeCard(fire);

@@ -13,14 +13,6 @@ public abstract class AStateCard extends ATrainerCard implements IStateCard {
      */
     public AStateCard(String aName, String aDescription){super(aName,aDescription);}
 
-    @Override
-    public void inspectBasicPokemon(IBasicPokemon basic){}
-
-    @Override
-    public void inspectPhase1Pokemon(IPhase1Pokemon phase1){}
-
-    @Override
-    public void inspectPhase2Pokemon(IPhase2Pokemon phase2){}
 
     @Override
     public void beingPlayedBy(Player inAction){

@@ -22,6 +22,7 @@ public class WaterPokemonTest {
     private Attack shadowbowl;
     private Player Blue;
     private TrainingCenter trainingCenter;
+    private IEnergy water;
 
     @Before
     public void setUp() {
@@ -36,6 +37,7 @@ public class WaterPokemonTest {
         watortle=new Phase1WaterPokemon("Watortle", 8, 85, new ArrayList<>(Arrays.asList(bubble)) );
         blastoise=new Phase2WaterPokemon("Blastoise",9,90,new ArrayList<>());
         Blue=new Player("Blue");
+        water=new WaterEnergy();
         trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
     }
 
@@ -108,15 +110,25 @@ public class WaterPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
+        squirtle.receiveEnergy(water);
         Blue.takeCard(squirtle);
         Blue.takeCard(watortle);
         squirtle.beingPlayedBy(Blue);
+
+        assertEquals(1, squirtle.getQuantityofAnEnergy(water));
+        assertEquals(0, watortle.getQuantityofAnEnergy(water));
+
         assertEquals(1, Blue.getBank().size());
         assertEquals(squirtle, Blue.getSelectedPokemon());
+
         watortle.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(watortle, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
+
+        //energies are being transfered to Watortle
+        assertEquals(0, squirtle.getQuantityofAnEnergy(water));
+        assertEquals(1, watortle.getQuantityofAnEnergy(water));
 
 
     }
@@ -174,6 +186,8 @@ public class WaterPokemonTest {
         watortle.isBeingInspected(trainingCenter);
         blastoise.isBeingInspected(trainingCenter);
         assertEquals(70,squirtle.getHP());
+
+        // Training Center adds x HP to Pokemons of Phase1 and 2
         assertEquals(105,watortle.getHP());
         assertEquals(110,blastoise.getHP());
     }

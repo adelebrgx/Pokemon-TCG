@@ -21,6 +21,7 @@ public class PlantPokemonTest {
     private Attack shadowbowl;
     private Attack vinewhip;
     private Player Blue;
+    private IEnergy plant;
     private TrainingCenter trainingCenter;
     @Before
     public void setUp() {
@@ -35,6 +36,7 @@ public class PlantPokemonTest {
         ivysaur=new Phase1PlantPokemon("Ivysaur",2,70,new ArrayList<>(Arrays.asList(tackle)));
         venusaur=new Phase2PlantPokemon("Venusaur",3, 95, new ArrayList<>());
         Blue=new Player("Blue");
+        plant=new PlantEnergy();
         trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
     }
 
@@ -103,15 +105,24 @@ public class PlantPokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
+        bulbasaur.receiveEnergy(plant);
         Blue.takeCard(bulbasaur);
         Blue.takeCard(ivysaur);
         bulbasaur.beingPlayedBy(Blue);
+
+        assertEquals(1, bulbasaur.getQuantityofAnEnergy(plant));
+        assertEquals(0, ivysaur.getQuantityofAnEnergy(plant));
+
         assertEquals(1, Blue.getBank().size());
         assertEquals(bulbasaur, Blue.getSelectedPokemon());
         ivysaur.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(ivysaur, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
+
+        //energies are being transfered to  Ivysaur
+        assertEquals(0, bulbasaur.getQuantityofAnEnergy(plant));
+        assertEquals(1, ivysaur.getQuantityofAnEnergy(plant));
 
 
     }
@@ -167,6 +178,7 @@ public class PlantPokemonTest {
         bulbasaur.isBeingInspected(trainingCenter);
         ivysaur.isBeingInspected(trainingCenter);
         venusaur.isBeingInspected(trainingCenter);
+        // Training Center adds x HP to Pokemons of Phase1 and 2
         assertEquals(50,bulbasaur.getHP());
         assertEquals(90,ivysaur.getHP());
         assertEquals(115,venusaur.getHP());

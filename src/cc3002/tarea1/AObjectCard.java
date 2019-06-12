@@ -22,14 +22,6 @@ public abstract class AObjectCard extends ATrainerCard implements IObjectCard {
 
     }
 
-    @Override
-    public void inspectBasicPokemon(IBasicPokemon basic){}
-
-    @Override
-    public void inspectPhase1Pokemon(IPhase1Pokemon phase1){}
-
-    @Override
-    public void inspectPhase2Pokemon(IPhase2Pokemon phase2){}
 
 
 }

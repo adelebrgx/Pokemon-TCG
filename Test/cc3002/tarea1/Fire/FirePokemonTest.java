@@ -22,6 +22,7 @@ public class FirePokemonTest {
     private Attack firepunch;
     private Player Blue;
     private TrainingCenter trainingCenter;
+    private IEnergy fire;
 
 
     @Before
@@ -37,6 +38,7 @@ public class FirePokemonTest {
         charmeleon=new Phase1FirePokemon("Charmeleon",5,70,new ArrayList<>(Arrays.asList(flamethrower)));
         charizard=new Phase2FirePokemon("Charizard", 6, 90, new ArrayList<>());
         Blue=new Player("Blue");
+        fire=new FireEnergy();
         trainingCenter= new TrainingCenter("Training Center", "Each Pokemon Phase 1 or 2 receives +x HP", 20);
     }
 
@@ -107,15 +109,26 @@ public class FirePokemonTest {
 
     @Test
     public void firstEvolutionTestSucceded(){
+
+        charmander.receiveEnergy(fire);
         Blue.takeCard(charmander);
         Blue.takeCard(charmeleon);
         charmander.beingPlayedBy(Blue);
+
+        assertEquals(1, charmander.getQuantityofAnEnergy(fire));
+        assertEquals(0, charmeleon.getQuantityofAnEnergy(fire));
+
+
         assertEquals(1, Blue.getBank().size());
         assertEquals(charmander, Blue.getSelectedPokemon());
         charmeleon.beingPlayedBy(Blue);
         assertEquals(1, Blue.getBank().size());
         assertEquals(charmeleon, Blue.getSelectedPokemon());
         assertEquals(1, Blue.getLostCards().size());
+
+        //energies are being transfered to charmander
+        assertEquals(0, charmander.getQuantityofAnEnergy(fire));
+        assertEquals(1, charmeleon.getQuantityofAnEnergy(fire));
 
 
     }
@@ -172,6 +185,7 @@ public class FirePokemonTest {
         charmeleon.isBeingInspected(trainingCenter);
         charizard.isBeingInspected(trainingCenter);
         assertEquals(50,charmander.getHP());
+        // Training Center adds x HP to Pokemons of Phase1 and 2
         assertEquals(90,charmeleon.getHP());
         assertEquals(110,charizard.getHP());
     }

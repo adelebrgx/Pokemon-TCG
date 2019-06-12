@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class SuperScoopUpTest {
-    private IPokemon squirtle;
-    private IPokemon watortle;
-    private IPokemon blastoise;
+    private IBasicPokemon squirtle;
+    private IPhase1Pokemon watortle;
+    private IPhase2Pokemon blastoise;
     private IPokemon charmander;
     private IPokemon charmeleon;
     private IPokemon pichu;
@@ -93,7 +93,20 @@ public class SuperScoopUpTest {
         Blue.playCard(basic2);
         assertEquals(basic2, squirtle.getObjectCardAssociated());
 
+        basic.inspectBasicPokemon(squirtle);
+        basic.inspectPhase1Pokemon(watortle);
+        basic.inspectPhase2Pokemon(blastoise);
+
+        assertEquals(squirtle, Blue.getSelectedPokemon());
+        assertEquals(70, squirtle.getHP());
+        assertEquals(85, watortle.getHP());
+        assertEquals(90, blastoise.getHP());
+
+
+
     }
+
+
 
 
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Phase2WaterPokemon extends AWaterPokemon implements IPhase2Pokemon {
 
     /**
-     * Constructor for Phase2 Water Pokemons
+     * Constructor for Phase2 Water  Pokemons
      * @param someName a name
      * @param somePokedexID an ID
      * @param someHP an HP
