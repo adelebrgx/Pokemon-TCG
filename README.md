@@ -161,7 +161,9 @@ He then ends his turn.
 
 The controller implemented by the Controller class controls the state of the game. It has two players which it initiates at the beginning of the game, a isPlaying Player and a state card. 
 
-It 'observes' the changes in the player's state and once the player's atribute hasEndedTurn is set to True and the player's back to his/her initial state, it switches turn to the other player and reinitialize the first player's atributes. 
+It 'observes' the changes in the player's state and once the player's atribute hasEndedTurn is set to True and the player's back to his/her initial state, it switches turn to the other player and reinitialize the first player's atributes.
+
+A Null Controller class, which implements the Null Object Pattern, was created to assign a Null Controller to a Player to perform tests more easily. 
 
 
 #### Player's states 
