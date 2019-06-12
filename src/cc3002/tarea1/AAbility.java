@@ -13,7 +13,7 @@ import java.util.HashMap;
  * Abstract class representing the game's abilities which implements the IAbility interface
  * @author Adèle Bourgeix
  */
-public abstract class AAbility implements IHability{
+public abstract class AAbility implements IAbility {
     private String name;
     private String description;
     private HashMap<String, Integer> cost;
@@ -39,10 +39,6 @@ public abstract class AAbility implements IHability{
         return this.cost;
     }
 
-    @Override
-    public int quantityOneEnergy(IEnergy energy){
-        return this.cost.get(energy.type());
-    }
 
     @Override
     public void setEnergyCost(String energy, int quantity){
@@ -55,7 +51,7 @@ public abstract class AAbility implements IHability{
     @Override
     public void isBeingEnabled(Player p){
         if(!p.getSelectedPokemon().getAbilitiesList().contains(this)){
-            System.out.println("The player's selected pokemeon doesn't poseess this ability");
+            System.out.println("The player's selected pokemon doesn't poseess this ability");
         }
         else{
             System.out.println("Pokemon is receiving ability");
@@ -63,21 +59,27 @@ public abstract class AAbility implements IHability{
     }
 
     @Override
+    // for a simple ability nothing happens
     public void enableFirePokemon(IFirePokemon pokemon){}
 
     @Override
+    // for a simple ability nothing happens
     public void enableWaterPokemon(IWaterPokemon pokemon){}
 
     @Override
+    // for a simple ability nothing happens
     public void enablePlantPokemon(IPlantPokemon pokemon){}
 
     @Override
+    // for a simple ability nothing happens
     public void enableElectricPokemon(IElectricPokemon pokemon){}
 
     @Override
+    // for a simple ability nothing happens
     public void enablePsychicPokemon(IPsychicPokemon pokemon){}
 
     @Override
+    // for a simple ability nothing happens
     public void enableFightingPokemon(IFightingPokemon pokemon){}
 
 }

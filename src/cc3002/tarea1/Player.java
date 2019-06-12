@@ -40,50 +40,104 @@ public class Player {
 
     }
 
+    /**
+     * Assigning a controller to a player to control his/her actions
+     * @param controller which is being assigned
+     */
     public void assignController(Controller controller){
         this.controller=controller;
     }
+
+
+    /**
+     * Setting a state to the player. Used when performing a crucial action.
+     * @param aState state assigned to the player
+     */
     public void setState(PlayerState aState) {
         state.setPlayer(this);
         state = aState;
         controller.update(this);
     }
+
+    /**
+     * Returns the player's controller
+     * @return a controller
+     */
     public Controller getController(){
         return controller;
     }
 
 
+    /**
+     * getter to the player's state
+     * @return a state in which is the player
+     */
     public PlayerState getState(){
         return this.state;
     }
 
+    /**
+     * Gives permission to play to a player
+     * @param bool true if playing
+     */
     public void setPlaying(boolean bool){
         isPlaying=bool;
     }
 
+    /**
+     * Indicates if the player is playing or not
+     * @return true if yes
+     */
     public boolean getIsPlaying(){
         return this.isPlaying;
     }
 
+    /**
+     * When a player ends his/her turn
+     * @param bool true if ended
+     */
     public void setEndingTurn(boolean bool){
         this.hasEndedTurn=bool;
     }
 
+    /**
+     * indicates if the player's done his turn
+     * @return true if yes
+     */
     public boolean getEndingTurn(){
         return this.hasEndedTurn;
     }
 
+    /**
+     * When a player uses one ability during his turn
+     * @param bool true if used
+     */
+    public void setUsingAbility(boolean bool){
+        AbilityUsed=bool;}
+
+
+    /**
+     * Indicates if the player's used an ability during the turn (cannot use more than one during each turn)
+     * @return true if yes
+     */
     public boolean getUsingAbility(){
         return AbilityUsed;
     }
 
-    public void setUsingAbility(boolean bool){
-        AbilityUsed=bool;}
+
+    /**
+     * When a player play an energy card during his turn
+     * @param bool true if used
+     */
 
     public void setPlayingEnergy(boolean bool){
         EnergyPlayed=bool;
     }
 
+    /**
+     *  Indicates if the player's played an energy card during the turn (cannot use more than one during each turn)
+     * @return true if played
+     */
     public boolean getPlayingEnergy(){
         return EnergyPlayed;
     }
@@ -207,6 +261,10 @@ public class Player {
     }
 
 
+    /**
+     * When a card is put aside by the player for any reason
+     * @param card card being put aside
+     */
     public void eliminate(ICard card){
         this.hand.remove(card);
         this.lostCards.add(card);
@@ -316,7 +374,11 @@ public class Player {
 
     }
 
-    public void enableHability(IHability hability){
+    /**
+     * When a player enables ability of his selected pokemon
+     * @param ability being enabled
+     */
+    public void enableHability(IAbility ability){
         if(isPlaying){
             if (state.isInFirstState()){
                 if(AbilityUsed){
@@ -324,7 +386,7 @@ public class Player {
                 }
                 else {
                     AbilityUsed=true;
-                    hability.isBeingEnabled(this);
+                    ability.isBeingEnabled(this);
                 }
             }
             else if(state.isInInitialState()){
@@ -342,6 +404,9 @@ public class Player {
 
     }
 
+    /**
+     * Player draws card from his stack
+     */
     public void drawCard(){
         if(isPlaying){
             if (!state.isInInitialState()){
@@ -359,6 +424,9 @@ public class Player {
 
     }
 
+    /**
+     * Player declares he/she's done performing actions of type abilities/ playing cards/see cards
+     */
     public void endActions(){
         if(isPlaying){
             state.endActions(this);
@@ -368,6 +436,9 @@ public class Player {
         }
     }
 
+    /**
+     * Player ends his/her turn
+     */
     public void endTurn(){
         if(isPlaying){
             state.endTurn(this);
@@ -379,6 +450,10 @@ public class Player {
 
     }
 
+    /**
+     * Player can see his/her cards
+     * @return
+     */
     public List<ICard> seeCards(){
         if(isPlaying){
             if (state.isInFirstState()){
@@ -397,6 +472,10 @@ public class Player {
 
     }
 
+    /**
+     * Player can his Pokemons
+     * @return list of the player's Pokemons
+     */
     public  List<IPokemon> seeMyPokemons(){
         if(isPlaying){
             if(state.isInFirstState()){
@@ -416,6 +495,11 @@ public class Player {
 
     }
 
+    /**
+     * Player can see his opponent's Pokemon
+     * @param opponent Player's opponent
+     * @return list of the oppoent's Pokemons
+     */
     public List<IPokemon> seeOpponentPokemons(Player opponent){
         if(isPlaying){
             if(state.isInFirstState()){

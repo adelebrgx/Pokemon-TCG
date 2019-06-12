@@ -1,4 +1,4 @@
-package cc3002.tarea1.entrenador;
+package cc3002.tarea1.Trainer;
 
 import cc3002.tarea1.*;
 import cc3002.tarea1.Electric.BasicElectricPokemon;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class EntrenadorTest {
+public class TrainerTest {
 
     private Player Red;
     private Player Blue;

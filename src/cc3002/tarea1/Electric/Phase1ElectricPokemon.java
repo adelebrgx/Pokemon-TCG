@@ -3,16 +3,14 @@ package cc3002.tarea1.Electric;
 import cc3002.tarea1.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
- * Class which represents phase1 electric pokemons
+ * Class which represents phase1 electric pokemons. When it's being inspected, it notifies the Pokemon's phase1.
  * @author Adèle Bourgeix
  */
 public class Phase1ElectricPokemon extends AElectricPokemon implements IPhase1Pokemon {
 
-    public Phase1ElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public Phase1ElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
@@ -27,7 +25,7 @@ public class Phase1ElectricPokemon extends AElectricPokemon implements IPhase1Po
     }
 
     @Override
-    public void isBeingInspected(IStateCard card ){
+    public void isBeingInspected(ITrainerCard card ){
         card.inspectPhase1Pokemon(this);
     }
 }

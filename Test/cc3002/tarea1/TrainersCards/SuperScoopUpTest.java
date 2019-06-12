@@ -1,5 +1,6 @@
-package cc3002.tarea1;
+package cc3002.tarea1.TrainersCards;
 
+import cc3002.tarea1.*;
 import cc3002.tarea1.Electric.BasicElectricPokemon;
 import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.Phase1FirePokemon;
@@ -20,8 +21,10 @@ public class SuperScoopUpTest {
     private IPokemon charmander;
     private IPokemon charmeleon;
     private IPokemon pichu;
-    private IObjectCard someObjectCard;
+
     private SuperScoopUp superScoopUp;
+    private BasicObjectCard basic;
+    private BasicObjectCard basic2;
 
 
     private Player Blue;
@@ -36,6 +39,8 @@ public class SuperScoopUpTest {
         pichu=new BasicElectricPokemon("Pichu", 60, 30, new ArrayList<>() );
         superScoopUp=new SuperScoopUp("SuperScoopUp", "Throw a coin. If the result's heads, get one Pokemon in your Bank and all the cards associated back to yourd hand");
         Blue=new Player("Blue");
+        basic=new BasicObjectCard("Basic Card", "Basic Card which will testify the functionnalites of a normal object works");
+        basic2=new BasicObjectCard("Basic Card", "Basic Card which will testify the functionnalites of a normal object works");
     }
 
     @Test
@@ -47,6 +52,7 @@ public class SuperScoopUpTest {
     @Test
     public void SuperScoopUpFunctionnalitiesTest(){
 
+        squirtle.associateObjectCard(basic);
         Blue.takeCard(superScoopUp);
         Blue.takeCard(squirtle);
         Blue.takeCard(charmander);
@@ -69,6 +75,24 @@ public class SuperScoopUpTest {
         }
 
         assertEquals(true, result);
+    }
+
+    @Test
+    public void SuperScoopUpVsObjectCardSimple(){
+        squirtle.associateObjectCard(basic);
+        assertEquals(basic, squirtle.getObjectCardAssociated());
+
+        Blue.takeCard(squirtle);
+        Blue.takeCard(basic2);
+
+        Blue.setState(new FirstState());
+
+        Blue.setPlaying(true);
+        Blue.playCard(squirtle);
+
+        Blue.playCard(basic2);
+        assertEquals(basic2, squirtle.getObjectCardAssociated());
+
     }
 
 

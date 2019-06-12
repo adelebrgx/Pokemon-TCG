@@ -2,7 +2,7 @@ package cc3002.tarea1.Plant;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.IHability;
+import cc3002.tarea1.IAbility;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public abstract class APlantPokemon extends APokemon implements IPlantPokemon{
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
      * @param someAbilities abilities pokemon can perform
      */
-    public APlantPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public APlantPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
@@ -40,8 +40,8 @@ public abstract class APlantPokemon extends APokemon implements IPlantPokemon{
         this.receiveResistantAttack(anAttack);
     }
     @Override
-    public void receiveAbility(IHability hability){
-        hability.enablePlantPokemon(this);
+    public void receiveAbility(IAbility ability){
+        ability.enablePlantPokemon(this);
     }
 
 

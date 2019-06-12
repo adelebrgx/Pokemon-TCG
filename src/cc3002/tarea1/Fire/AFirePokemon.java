@@ -2,7 +2,7 @@ package cc3002.tarea1.Fire;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.IHability;
+import cc3002.tarea1.IAbility;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public abstract class AFirePokemon extends APokemon implements IFirePokemon{
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
      * @param someAbilities attacks pokemon can perform
      */
-    public AFirePokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public AFirePokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
@@ -39,8 +39,8 @@ public abstract class AFirePokemon extends APokemon implements IFirePokemon{
     }
 
     @Override
-    public void receiveAbility(IHability hability){
-        hability.enableFirePokemon(this);
+    public void receiveAbility(IAbility ability){
+        ability.enableFirePokemon(this);
     }
 
 }

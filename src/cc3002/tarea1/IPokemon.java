@@ -7,7 +7,6 @@ import cc3002.tarea1.Plant.PlantEnergy;
 import cc3002.tarea1.Psychic.PsychicEnergy;
 import cc3002.tarea1.Water.WaterEnergy;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -34,9 +33,23 @@ public interface IPokemon extends ICard{
      */
     int getPokedexID();
 
+    /**
+     * Getter to the Pokemon's abilities
+     * @return a list of abilities of the Pokemon
+     */
+    public List<IAbility> getAbilitiesList();
 
+
+    /**
+     * Getter to the Object Card which can be associated to the Pokemon
+     * @return a card of type object
+     */
     IObjectCard getObjectCardAssociated();
 
+    /**
+     * Allows associating an object card to the Pokemon
+     * @param card which is going to be associated
+     */
     void associateObjectCard(IObjectCard card);
 
     /**
@@ -63,10 +76,16 @@ public interface IPokemon extends ICard{
     boolean isAlive();
 
     /**
-     * Method to assihgn hp to a Pokemon
+     * Method to assign hp to a Pokemon
      * @param hp integer to be assigned
      */
     void setHP(int hp);
+
+    /**
+     * An ability/attack is being assigned to a Pokemon
+     * @param ability which is being assigned
+     */
+    void setAbility(IAbility ability);
 
 
     /** A Pokemon, once asked by the player, we'll be able to perform an attack over another pokemon, more precisely the one selected by its player's opponent
@@ -177,14 +196,27 @@ public interface IPokemon extends ICard{
      */
     boolean checkEvolution(Player player);
 
-    void isBeingInspected(IStateCard card);
+    /**
+     * What happens to a Pokemon when a trainers Card is being played. Because this card (may it be object, state, support) can have an affect over the Pokemon)
+     * @param card state card/visitor which will inspect the Pokemon
+     */
+    void isBeingInspected(ITrainerCard card);
 
+    /**
+     * When an attack is being performed. The Pokemon suffer a loss of HP.
+     * @param attack which the Pokemon is receiving.
+     */
     void isBeingAffectedBy(IAttack attack);
 
-    void receiveAbility(IHability hability);
+    /**
+     * When one of the Pokemon's abilities is being activated by the player
+     * @param ability which is being activated
+     */
+    void receiveAbility(IAbility ability);
 
-    public List<IHability> getAbilitiesList();
-    void setAbility(IHability ability);
+
+
+
 
 
 }

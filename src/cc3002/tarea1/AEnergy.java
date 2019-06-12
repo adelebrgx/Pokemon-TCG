@@ -10,7 +10,7 @@ import java.util.Scanner;
 public abstract class AEnergy extends ACard implements IEnergy {
 
 
-    /** Creates a new energy
+    /** Constructor to creates a new energy
      */
     public AEnergy(String name){
         super(name);

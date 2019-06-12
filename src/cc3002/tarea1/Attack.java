@@ -3,12 +3,12 @@ package cc3002.tarea1;
 import java.util.HashMap;
 
 /**
- * Class used to describe the behavior of an attack one pokemon posess which is a special type of ability
+ * Abstract class used to describe the behavior of an attack one pokemon posess which is a special type of ability
  * @author Adèle Bourgeix
  */
 public abstract class Attack extends AAbility implements IAttack{
-    private int baseDamage;
 
+    private int baseDamage;
 
 
     /**Constructor of an attack, giving it a name, a number of points taken to the player's opponent's pokemon and a short description of the attack
@@ -52,7 +52,7 @@ public abstract class Attack extends AAbility implements IAttack{
         }
     }
 
-
+    @Override
     public boolean canBeUsed(Player player){
         //compare energies
         HashMap<String,Integer> map= this.getCosts();

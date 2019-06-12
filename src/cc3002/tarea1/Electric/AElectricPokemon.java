@@ -2,7 +2,7 @@ package cc3002.tarea1.Electric;
 
 import cc3002.tarea1.APokemon;
 import cc3002.tarea1.Attack;
-import cc3002.tarea1.IHability;
+import cc3002.tarea1.IAbility;
 import cc3002.tarea1.IPokemon;
 
 import java.util.ArrayList;
@@ -16,9 +16,9 @@ public abstract class AElectricPokemon extends APokemon implements IElectricPoke
      * @param someName name given to the Pokemon
      * @param somePokedexID index of the Pokedex use to refer to it
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
-     * @param someAbilities attacks pokemon can perform
+     * @param someAbilities abilities the Pokemon posess
      */
-    public AElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public AElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
@@ -38,8 +38,8 @@ public abstract class AElectricPokemon extends APokemon implements IElectricPoke
     }
 
     @Override
-    public void receiveAbility(IHability hability){
-        hability.enableElectricPokemon(this);
+    public void receiveAbility(IAbility ability){
+        ability.enableElectricPokemon(this);
     }
 
 

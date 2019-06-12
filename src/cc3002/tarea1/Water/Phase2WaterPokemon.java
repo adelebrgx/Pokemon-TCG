@@ -3,18 +3,16 @@ package cc3002.tarea1.Water;
 import cc3002.tarea1.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
- * Class which represents phase2 water pokemons
+ * Class which represents phase2 water pokemons. When it's being inspected, it notifies the Pokemon's phase2.
  * @author Adèle Bourgeix
  */
 
 
 public class Phase2WaterPokemon extends AWaterPokemon implements IPhase2Pokemon {
 
-    public Phase2WaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public Phase2WaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
@@ -28,7 +26,7 @@ public class Phase2WaterPokemon extends AWaterPokemon implements IPhase2Pokemon 
     }
 
     @Override
-    public void isBeingInspected(IStateCard card){
+    public void isBeingInspected(ITrainerCard card){
         card.inspectPhase2Pokemon(this);
     }
 }

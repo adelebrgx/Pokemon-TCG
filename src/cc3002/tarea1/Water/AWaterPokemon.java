@@ -17,7 +17,7 @@ public abstract class AWaterPokemon extends APokemon implements IWaterPokemon{
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
      * @param someAbilities attacks pokemon can perform
      */
-    public AWaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public AWaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
@@ -39,8 +39,8 @@ public abstract class AWaterPokemon extends APokemon implements IWaterPokemon{
     public void receiveFightingAttack(Attack anAttack){ this.receiveResistantAttack(anAttack); }
 
     @Override
-    public void receiveAbility(IHability hability){
-        hability.enableWaterPokemon(this);
+    public void receiveAbility(IAbility ability){
+        ability.enableWaterPokemon(this);
     }
 
 

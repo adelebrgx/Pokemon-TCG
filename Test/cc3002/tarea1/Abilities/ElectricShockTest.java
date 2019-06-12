@@ -1,20 +1,24 @@
-package cc3002.tarea1;
+package cc3002.tarea1.Abilities;
 
 import cc3002.tarea1.Electric.BasicElectricPokemon;
 import cc3002.tarea1.Electric.ElectricEnergy;
 import cc3002.tarea1.Electric.IElectricPokemon;
+import cc3002.tarea1.ElectricShock;
 import cc3002.tarea1.Fighting.BasicFightingPokemon;
 import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fighting.IFightingPokemon;
 import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Fire.IFirePokemon;
+import cc3002.tarea1.FirstState;
 import cc3002.tarea1.Plant.BasicPlantPokemon;
 import cc3002.tarea1.Plant.IPlantPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
+import cc3002.tarea1.Player;
 import cc3002.tarea1.Psychic.BasicPsychicPokemon;
 import cc3002.tarea1.Psychic.IPsychicPokemon;
 import cc3002.tarea1.Psychic.PsychicEnergy;
+import cc3002.tarea1.SecondState;
 import cc3002.tarea1.Water.BasicWaterPokemon;
 import cc3002.tarea1.Water.IWaterPokemon;
 import cc3002.tarea1.Water.WaterEnergy;

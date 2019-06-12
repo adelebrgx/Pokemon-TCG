@@ -20,7 +20,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
     private int pokedexID;
     private int hp;
     public HashMap<String, Integer> EnergiesAssociated;
-    private ArrayList<IHability> abilitiesList;
+    private ArrayList<IAbility> abilitiesList;
     private IObjectCard objectCardAssociated;
 
     /** A Pokemon is created: a name is given to it, it's assigned an index of the Pokedex, some hp and a set of attacks it'll be allowed to perform.
@@ -29,7 +29,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
      * @param attacks attacks pokemon can perform
      */
-    public APokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> attacks){
+    public APokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> attacks){
         super(someName);
         this.name=someName;
         this.pokedexID=somePokedexID;
@@ -70,7 +70,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
     }
 
     @Override
-    public List<IHability> getAbilitiesList(){
+    public List<IAbility> getAbilitiesList(){
         return this.abilitiesList;
     }
 
@@ -100,7 +100,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
     }
 
     @Override
-    public void setAbility(IHability ability){
+    public void setAbility(IAbility ability){
         if(this.abilitiesList.size()>=4){
             System.out.println("Pokemon already has 4 attacks");
         }

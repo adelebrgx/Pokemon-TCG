@@ -2,8 +2,18 @@ package cc3002.tarea1;
 
 import java.util.Random;
 
+/**
+ * Class which implements Object Card Card SuperScoopUp using a Visitor pattern to visit the player.
+ * @author Adèle Bourgeix
+ */
+
 public class SuperScoopUp extends AObjectCard {
 
+    /**
+     * Constructor for the SuperScoopUp
+     * @param aName name for the card
+     * @param aDescription description for the card
+     */
     public SuperScoopUp(String aName, String aDescription){
         super(aName, aDescription);
     }

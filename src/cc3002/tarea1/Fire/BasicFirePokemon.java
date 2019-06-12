@@ -1,24 +1,21 @@
 package cc3002.tarea1.Fire;
 
-import cc3002.tarea1.Attack;
-import cc3002.tarea1.IBasicPokemon;
-import cc3002.tarea1.IHability;
-import cc3002.tarea1.IStateCard;
+import cc3002.tarea1.*;
 
 import java.util.ArrayList;
 
 /**
- * Class which represents basic fire pokemons
+ * Class which represents basic fire pokemons. When it's being inspected, it notifies the Pokemon's basic.
  * @author Adèle Bourgeix
  */
 public class BasicFirePokemon extends AFirePokemon implements IBasicPokemon {
 
-    public BasicFirePokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+    public BasicFirePokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
 
     @Override
-    public void isBeingInspected(IStateCard card){
+    public void isBeingInspected(ITrainerCard card){
         card.inspectBasicPokemon(this);
     }
 }

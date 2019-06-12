@@ -1,5 +1,6 @@
-package cc3002.tarea1;
+package cc3002.tarea1.Abilities;
 
+import cc3002.tarea1.*;
 import cc3002.tarea1.Electric.BasicElectricPokemon;
 import cc3002.tarea1.Electric.ElectricEnergy;
 import cc3002.tarea1.Electric.IElectricPokemon;
@@ -39,9 +40,9 @@ public class EnergyBurnTest {
     private FireEnergy fire;
     private ElectricEnergy electric;
     private PsychicEnergy psychic;
-    private IHability fake;
+    private IAbility fake;
 
-    private IHability electricShock;
+    private IAbility electricShock;
     private EnergyBurn energyBurn;
 
 
@@ -66,6 +67,7 @@ public class EnergyBurnTest {
         electric=new ElectricEnergy();
         psychic=new PsychicEnergy();
 
+        fake=new BasicAbility("Basic Ability", "An ability to demonstrate simple abilities functionnalities");
         electricShock= new ElectricShock("Electric Shock", 0, "Throw a coin. If it's tails, the opponent's selected Pokemon receives x damage",30);
     }
 
@@ -227,6 +229,29 @@ public class EnergyBurnTest {
         assertEquals(0, bulbasaur.getQuantityofAnEnergy(plant));
         assertEquals(0, squirtle.getQuantityofAnEnergy(water));
         assertEquals(0, abra.getQuantityofAnEnergy(psychic));
+
+
+        Blue.takeCard(squirtle);
+        Blue.selectPokemon(squirtle);
+
+
+        fake.isBeingEnabled(Blue);
+
+        assertEquals(50, squirtle.getHP());
+        assertEquals(0, squirtle.getQuantityofAnEnergy(water));
+
+        squirtle.setAbility(fake);
+
+        fake.isBeingEnabled(Blue);
+
+        assertEquals(50, squirtle.getHP());
+        assertEquals(0, squirtle.getQuantityofAnEnergy(water));
+
+        fake.affect(squirtle);
+        assertEquals(50, squirtle.getHP());
+
+
+
 
     }
 

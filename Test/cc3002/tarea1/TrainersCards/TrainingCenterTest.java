@@ -1,5 +1,6 @@
-package cc3002.tarea1;
+package cc3002.tarea1.TrainersCards;
 
+import cc3002.tarea1.*;
 import cc3002.tarea1.Electric.BasicElectricPokemon;
 import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.Phase1FirePokemon;
