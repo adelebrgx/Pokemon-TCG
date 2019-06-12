@@ -10,6 +10,13 @@ import java.util.ArrayList;
  */
 public class Phase1FightingPokemon extends AFightingPokemon implements IPhase1Pokemon {
 
+    /**
+     * Constructor for Phase1 Fighting Pokemons
+     * @param someName a name
+     * @param somePokedexID an ID
+     * @param someHP an HP
+     * @param someAbilities abilities
+     */
     public Phase1FightingPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }

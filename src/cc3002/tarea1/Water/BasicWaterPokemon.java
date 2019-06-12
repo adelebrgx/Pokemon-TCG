@@ -11,6 +11,13 @@ import java.util.ArrayList;
 
 public class BasicWaterPokemon extends AWaterPokemon implements IBasicPokemon {
 
+    /**
+     * Constructor for Basic Water Pokemons
+     * @param someName a name
+     * @param somePokedexID an ID
+     * @param someHP an HP
+     * @param someAbilities abilities
+     */
     public BasicWaterPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }

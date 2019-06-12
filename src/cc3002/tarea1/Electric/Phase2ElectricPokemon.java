@@ -11,6 +11,13 @@ import java.util.ArrayList;
 
 public class Phase2ElectricPokemon extends AElectricPokemon implements IPhase2Pokemon {
 
+    /**
+     * Constructor for Phase2 Electric Pokemons
+     * @param someName a name
+     * @param somePokedexID an ID
+     * @param someHP an HP
+     * @param someAbilities abilities
+     */
     public Phase2ElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }

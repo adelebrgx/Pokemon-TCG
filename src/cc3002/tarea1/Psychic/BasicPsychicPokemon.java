@@ -10,6 +10,14 @@ import java.util.ArrayList;
  */
 public class BasicPsychicPokemon extends APsychicPokemon implements IBasicPokemon {
 
+
+    /**
+     * Constructor for Basic Psychic Pokemons
+     * @param someName a name
+     * @param somePokedexID an ID
+     * @param someHP an HP
+     * @param someAbilities abilities
+     */
     public BasicPsychicPokemon(String someName, int somePokedexID, int someHP, ArrayList<IAbility> someAbilities) {
         super(someName, somePokedexID, someHP, someAbilities);
     }
