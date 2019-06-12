@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class Phase2ElectricPokemon extends AElectricPokemon implements IPhase2Pokemon {
 
-    public Phase2ElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
-        super(someName, somePokedexID, someHP, someAttacks);
+    public Phase2ElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+        super(someName, somePokedexID, someHP, someAbilities);
     }
 
 

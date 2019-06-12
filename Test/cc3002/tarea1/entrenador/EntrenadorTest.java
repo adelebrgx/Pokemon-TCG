@@ -186,7 +186,7 @@ public class EntrenadorTest {
 
         Red.useAttack(torpedo,Blue);
         assertEquals(50,Blue.getSelectedPokemon().getHP());
-        charmander.setAttack(torpedo);
+        charmander.setAbility(torpedo);
         Red.setState(new SecondState());
         Red.useAttack(torpedo,Blue);
         assertEquals(20,Blue.getSelectedPokemon().getHP());

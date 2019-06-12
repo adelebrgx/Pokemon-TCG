@@ -25,7 +25,18 @@ public class FightingEnergy extends AEnergy {
         if (inAction.getBank().size() == 0 || index==-1) {
             System.out.println("There is no Pokemon to apply this energy to");
         } else {
-            inAction.getBank().get(index).addFightingEnergy(this);
+            if(inAction.getPlayingEnergy()){
+                System.out.println("One energy has already been used");
+            }
+            else {
+                if(inAction.getPlayingEnergy()){
+                    System.out.println("One energy has already been used");
+                }
+                else {
+                    inAction.getBank().get(index).addFightingEnergy(this);
+                    inAction.setPlayingEnergy(true);
+                }
+            }
         }
     }
 }

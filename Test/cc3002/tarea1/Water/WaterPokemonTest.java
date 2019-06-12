@@ -45,7 +45,7 @@ public class WaterPokemonTest {
         assertEquals("Squirtle", squirtle.getName());
         assertEquals(7, squirtle.getPokedexID());
         assertEquals(70,squirtle.getHP());
-        assertEquals(new ArrayList<>(), squirtle.getAttacksList());
+        assertEquals(new ArrayList<>(), squirtle.getAbilitiesList());
         assertEquals("Water", squirtle.type());
     }
 
@@ -55,13 +55,13 @@ public class WaterPokemonTest {
     @Test
     public void selectAttackTest(){
 
-        assertEquals("Bubble", watortle.getAttacksList().get(0).getName());
-        watortle.setAttack(aquajet);
-        squirtle.setAttack(aquajet);
-        assertEquals("Aqua Jet", watortle.getAttacksList().get(1).getName());
-        assertEquals("Aqua Jet", squirtle.getAttacksList().get(0).getName());
-        assertEquals(2, watortle.getAttacksList().size());
-        assertEquals(1, squirtle.getAttacksList().size());
+        assertEquals("Bubble", watortle.getAbilitiesList().get(0).getName());
+        watortle.setAbility(aquajet);
+        squirtle.setAbility(aquajet);
+        assertEquals("Aqua Jet", watortle.getAbilitiesList().get(1).getName());
+        assertEquals("Aqua Jet", squirtle.getAbilitiesList().get(0).getName());
+        assertEquals(2, watortle.getAbilitiesList().size());
+        assertEquals(1, squirtle.getAbilitiesList().size());
 
     }
     @Test

@@ -20,6 +20,7 @@ public class SuperScoopUpTest {
     private IPokemon charmander;
     private IPokemon charmeleon;
     private IPokemon pichu;
+    private IObjectCard someObjectCard;
     private SuperScoopUp superScoopUp;
 
 

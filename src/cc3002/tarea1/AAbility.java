@@ -53,7 +53,14 @@ public abstract class AAbility implements IHability{
     public void affect(IPokemon pokemon){}
 
     @Override
-    public void isBeingEnabled(Player p, IPokemon pokemon){}
+    public void isBeingEnabled(Player p){
+        if(!p.getSelectedPokemon().getAbilitiesList().contains(this)){
+            System.out.println("The player's selected pokemeon doesn't poseess this ability");
+        }
+        else{
+            System.out.println("Pokemon is receiving ability");
+        }
+    }
 
     @Override
     public void enableFirePokemon(IFirePokemon pokemon){}

@@ -9,4 +9,13 @@ public abstract class AStateCard extends ATrainerCard implements IStateCard {
     public AStateCard(String aName, String aDescription){super(aName,aDescription);}
 
     public void inspectBasicPokemon(IBasicPokemon basic){}
+
+    @Override
+    public void beingPlayedBy(Player inAction){
+        if(inAction.getController().getStateCard()!=null){
+            inAction.eliminate(this);
+        }
+        inAction.getController().setStateCard(this);
+
+    }
 }

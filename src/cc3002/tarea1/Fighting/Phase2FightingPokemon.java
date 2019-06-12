@@ -14,8 +14,8 @@ import java.util.List;
 
 public class Phase2FightingPokemon extends AFightingPokemon implements IPhase2Pokemon {
 
-    public Phase2FightingPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
-        super(someName, somePokedexID, someHP, someAttacks);
+    public Phase2FightingPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+        super(someName, somePokedexID, someHP,someAbilities);
     }
 
     @Override

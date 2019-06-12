@@ -26,7 +26,13 @@ public class PsychicEnergy extends AEnergy {
         if (inAction.getBank().size() == 0 || index==-1) {
             System.out.println("There is no Pokemon to apply this energy to");
         } else {
-            inAction.getBank().get(index).addPsychicEnergy(this);
+            if(inAction.getPlayingEnergy()){
+                System.out.println("One energy has already been used");
+            }
+            else {
+                inAction.getBank().get(index).addPsychicEnergy(this);
+                inAction.setPlayingEnergy(true);
+            }
         }
     }
 }

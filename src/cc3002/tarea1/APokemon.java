@@ -20,7 +20,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
     private int pokedexID;
     private int hp;
     public HashMap<String, Integer> EnergiesAssociated;
-    private ArrayList<Attack> attackList;
+    private ArrayList<IHability> abilitiesList;
     private IObjectCard objectCardAssociated;
 
     /** A Pokemon is created: a name is given to it, it's assigned an index of the Pokedex, some hp and a set of attacks it'll be allowed to perform.
@@ -29,12 +29,12 @@ public abstract class APokemon extends ACard implements IPokemon  {
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
      * @param attacks attacks pokemon can perform
      */
-    public APokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> attacks){
+    public APokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> attacks){
         super(someName);
         this.name=someName;
         this.pokedexID=somePokedexID;
         this.hp=someHP;
-        this.attackList= attacks;
+        this.abilitiesList= attacks;
         this.EnergiesAssociated= new HashMap<>();
         this.EnergiesAssociated.put(new WaterEnergy().type(),0);
         this.EnergiesAssociated.put(new FireEnergy().type(),0);
@@ -50,6 +50,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
     public String getName(){
         return this.name;
     }
+
     @Override
     public int getHP(){
         return this.hp;
@@ -58,10 +59,21 @@ public abstract class APokemon extends ACard implements IPokemon  {
     public int getPokedexID(){
         return this.pokedexID;
     }
-
-    public List<Attack> getAttackList(){
-        return this.attackList;
+    @Override
+    public IObjectCard getObjectCardAssociated(){
+        return this.objectCardAssociated;
     }
+
+    @Override
+    public void associateObjectCard(IObjectCard card){
+        this.objectCardAssociated=card;
+    }
+
+    @Override
+    public List<IHability> getAbilitiesList(){
+        return this.abilitiesList;
+    }
+
     @Override
     public HashMap<String, Integer> getEnergiesAssociated(){
         return this.EnergiesAssociated;
@@ -71,10 +83,8 @@ public abstract class APokemon extends ACard implements IPokemon  {
         return this.EnergiesAssociated.get(energy.type());
     }
 
-    @Override
-    public ArrayList<Attack> getAttacksList(){
-        return this.attackList;
-    }
+
+
     @Override
     public boolean isAlive(){
         if(this.hp<=0){
@@ -90,12 +100,12 @@ public abstract class APokemon extends ACard implements IPokemon  {
     }
 
     @Override
-    public void setAttack(Attack anAttack){
-        if(this.attackList.size()>=4){
+    public void setAbility(IHability ability){
+        if(this.abilitiesList.size()>=4){
             System.out.println("Pokemon already has 4 attacks");
         }
         else{
-            this.attackList.add(anAttack);
+            this.abilitiesList.add(ability);
         }
     }
 

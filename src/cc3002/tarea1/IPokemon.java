@@ -9,6 +9,7 @@ import cc3002.tarea1.Water.WaterEnergy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Interface which represents the Pokemon behavior.
@@ -33,11 +34,10 @@ public interface IPokemon extends ICard{
      */
     int getPokedexID();
 
-    /**
-     * Getter to a Pokemon's list of attacks
-     * @return a list of Pokemon's attacks
-     */
-    ArrayList<Attack> getAttacksList();
+
+    IObjectCard getObjectCardAssociated();
+
+    void associateObjectCard(IObjectCard card);
 
     /**
      * Getter to a Pokemon's type: fire, water, plant, psychic, fighting, electric
@@ -68,10 +68,6 @@ public interface IPokemon extends ICard{
      */
     void setHP(int hp);
 
-    /**Method to assign an attack to a Pokemon he'll be able to use in the game
-     * @param anAttack attack given to the pokemon
-     */
-    void setAttack(Attack anAttack);
 
     /** A Pokemon, once asked by the player, we'll be able to perform an attack over another pokemon, more precisely the one selected by its player's opponent
      * @param pokemon pokemon which receives the attack
@@ -186,6 +182,9 @@ public interface IPokemon extends ICard{
     void isBeingAffectedBy(IAttack attack);
 
     void receiveAbility(IHability hability);
+
+    public List<IHability> getAbilitiesList();
+    void setAbility(IHability ability);
 
 
 }

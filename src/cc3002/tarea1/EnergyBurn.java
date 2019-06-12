@@ -24,9 +24,15 @@ public class EnergyBurn extends AAbility {
 
 
     @Override
-    public void isBeingEnabled(Player p, IPokemon pokemon){
+    public void isBeingEnabled(Player p){
+        IPokemon pokemon= p.getSelectedPokemon();
+        if(!pokemon.getAbilitiesList().contains(this)){
+            System.out.println("Pokemon cannot use EnergyBurn because he doesn't posess it");
+        }
+        else {
+            pokemon.receiveAbility(this);
+        }
 
-        pokemon.receiveAbility(this);
     }
 
     public void enableFirePokemon(IFirePokemon pokemon){

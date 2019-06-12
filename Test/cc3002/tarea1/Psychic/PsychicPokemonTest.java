@@ -48,13 +48,13 @@ public class PsychicPokemonTest {
     @Test
     public void selectAttackTest(){
 
-        assertEquals("Shadow Bowl", kadabra.getAttacksList().get(0).getName());
-        kadabra.setAttack(psyshock);
-        abra.setAttack(psyshock);
-        assertEquals("Psyshock", kadabra.getAttacksList().get(1).getName());
-        assertEquals("Psyshock", abra.getAttacksList().get(0).getName());
-        assertEquals(2, kadabra.getAttacksList().size());
-        assertEquals(1, abra.getAttacksList().size());
+        assertEquals("Shadow Bowl", kadabra.getAbilitiesList().get(0).getName());
+        kadabra.setAbility(psyshock);
+        abra.setAbility(psyshock);
+        assertEquals("Psyshock", kadabra.getAbilitiesList().get(1).getName());
+        assertEquals("Psyshock", abra.getAbilitiesList().get(0).getName());
+        assertEquals(2, kadabra.getAbilitiesList().size());
+        assertEquals(1, abra.getAbilitiesList().size());
 
     }
     @Test

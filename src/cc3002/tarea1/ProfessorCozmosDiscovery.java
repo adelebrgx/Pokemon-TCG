@@ -16,5 +16,6 @@ public class ProfessorCozmosDiscovery extends ASupportCard {
         else{
                 player.getCard(2);
         }
+        super.beingPlayedBy(player);
     }
 }

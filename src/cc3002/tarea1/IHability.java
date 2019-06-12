@@ -39,7 +39,7 @@ public interface IHability {
 
     void affect(IPokemon pokemon);
 
-    void isBeingEnabled(Player p, IPokemon pokemon);
+    void isBeingEnabled(Player p);
 
 
     public void enableFirePokemon(IFirePokemon pokemon);

@@ -2,15 +2,21 @@ package cc3002.tarea1;
 
 import cc3002.tarea1.Electric.BasicElectricPokemon;
 import cc3002.tarea1.Electric.ElectricEnergy;
+import cc3002.tarea1.Electric.IElectricPokemon;
 import cc3002.tarea1.Fighting.BasicFightingPokemon;
 import cc3002.tarea1.Fighting.FightingEnergy;
+import cc3002.tarea1.Fighting.IFightingPokemon;
 import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.FireEnergy;
+import cc3002.tarea1.Fire.IFirePokemon;
 import cc3002.tarea1.Plant.BasicPlantPokemon;
+import cc3002.tarea1.Plant.IPlantPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
 import cc3002.tarea1.Psychic.BasicPsychicPokemon;
+import cc3002.tarea1.Psychic.IPsychicPokemon;
 import cc3002.tarea1.Psychic.PsychicEnergy;
 import cc3002.tarea1.Water.BasicWaterPokemon;
+import cc3002.tarea1.Water.IWaterPokemon;
 import cc3002.tarea1.Water.WaterEnergy;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,19 +27,21 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class EnergyBurnTest {
-    private IPokemon charmander;
-    private IPokemon squirtle;
-    private IPokemon pikachu;
-    private IPokemon abra;
-    private IPokemon bulbasaur;
-    private IPokemon mankey;
+    private IFirePokemon charmander;
+    private IWaterPokemon squirtle;
+    private IElectricPokemon pikachu;
+    private IPsychicPokemon abra;
+    private IPlantPokemon bulbasaur;
+    private IFightingPokemon mankey;
     private PlantEnergy plant;
     private FightingEnergy fighting;
     private WaterEnergy water;
     private FireEnergy fire;
     private ElectricEnergy electric;
     private PsychicEnergy psychic;
+    private IHability fake;
 
+    private IHability electricShock;
     private EnergyBurn energyBurn;
 
 
@@ -57,6 +65,8 @@ public class EnergyBurnTest {
         fire= new FireEnergy();
         electric=new ElectricEnergy();
         psychic=new PsychicEnergy();
+
+        electricShock= new ElectricShock("Electric Shock", 0, "Throw a coin. If it's tails, the opponent's selected Pokemon receives x damage",30);
     }
 
     @Test
@@ -68,7 +78,7 @@ public class EnergyBurnTest {
 
     @Test
     public void EnergyBurnFirePokemonFunctionnalities(){
-        assertEquals(true, Blue.getState().isInInitialState());
+        charmander.setAbility(energyBurn);
         charmander.receiveEnergy(fighting);
         charmander.receiveEnergy(water);
         charmander.receiveEnergy(plant);
@@ -76,9 +86,10 @@ public class EnergyBurnTest {
 
         Blue.takeCard(charmander);
         Blue.setPlaying(true);
+        Blue.setState(new FirstState());
         Blue.playCard(charmander);
         Blue.setState(new FirstState());
-        Blue.enableHability(energyBurn,charmander);
+        Blue.enableHability(energyBurn);
 
         assertEquals(4, charmander.getQuantityofAnEnergy(fire));
 
@@ -87,6 +98,7 @@ public class EnergyBurnTest {
 
     @Test
     public void EnergyBurnWaterPokemonFunctionnalities(){
+        squirtle.setAbility(energyBurn);
         squirtle.receiveEnergy(fighting);
         squirtle.receiveEnergy(fire);
         squirtle.receiveEnergy(plant);
@@ -94,9 +106,10 @@ public class EnergyBurnTest {
 
         Blue.takeCard(squirtle);
         Blue.setPlaying(true);
+        Blue.setState(new FirstState());
         Blue.playCard(squirtle);
         Blue.setState(new FirstState());
-        Blue.enableHability(energyBurn,squirtle);
+        Blue.enableHability(energyBurn);
 
         assertEquals(4, squirtle.getQuantityofAnEnergy(water));
 
@@ -105,6 +118,8 @@ public class EnergyBurnTest {
 
     @Test
     public void EnergyBurnPlantPokemonFunctionnalities(){
+        bulbasaur.setAbility(energyBurn);
+        assertEquals(energyBurn, bulbasaur.getAbilitiesList().get(0));
         bulbasaur.receiveEnergy(fighting);
         bulbasaur.receiveEnergy(fire);
         bulbasaur.receiveEnergy(water);
@@ -112,9 +127,11 @@ public class EnergyBurnTest {
 
         Blue.takeCard( bulbasaur);
         Blue.setPlaying(true);
-        Blue.playCard( bulbasaur);
         Blue.setState(new FirstState());
-        Blue.enableHability(energyBurn, bulbasaur);
+        Blue.playCard( bulbasaur);
+
+
+        Blue.enableHability(energyBurn);
 
         assertEquals(4, bulbasaur.getQuantityofAnEnergy(plant));
 
@@ -123,6 +140,7 @@ public class EnergyBurnTest {
 
     @Test
     public void EnergyBurnElectricPokemonFunctionnalities(){
+        pikachu.setAbility(energyBurn);
         pikachu.receiveEnergy(fighting);
         pikachu.receiveEnergy(fire);
         pikachu.receiveEnergy(plant);
@@ -130,9 +148,10 @@ public class EnergyBurnTest {
 
         Blue.takeCard(pikachu);
         Blue.setPlaying(true);
+        Blue.setState(new FirstState());
         Blue.playCard(pikachu);
         Blue.setState(new FirstState());
-        Blue.enableHability(energyBurn,pikachu);
+        Blue.enableHability(energyBurn);
 
         assertEquals(4, pikachu.getQuantityofAnEnergy(electric));
 
@@ -141,6 +160,7 @@ public class EnergyBurnTest {
 
     @Test
     public void EnergyBurnPsychicPokemonFunctionnalities(){
+        abra.setAbility(energyBurn);
         abra.receiveEnergy(fighting);
         abra.receiveEnergy(fire);
         abra.receiveEnergy(plant);
@@ -148,9 +168,10 @@ public class EnergyBurnTest {
 
         Blue.takeCard(abra);
         Blue.setPlaying(true);
+        Blue.setState(new FirstState());
         Blue.playCard(abra);
         Blue.setState(new FirstState());
-        Blue.enableHability(energyBurn,abra);
+        Blue.enableHability(energyBurn);
 
         assertEquals(4, abra.getQuantityofAnEnergy(psychic));
 
@@ -159,6 +180,7 @@ public class EnergyBurnTest {
 
     @Test
     public void EnergyBurnFightingPokemonFunctionnalities(){
+
         mankey.receiveEnergy(fighting);
         mankey.receiveEnergy(fire);
         mankey.receiveEnergy(plant);
@@ -166,15 +188,48 @@ public class EnergyBurnTest {
 
         Blue.takeCard(mankey);
         Blue.setPlaying(true);
+        Blue.setState(new FirstState());
         Blue.playCard(mankey);
         Blue.setState(new FirstState());
 
-        Blue.enableHability(energyBurn,mankey);
+        Blue.enableHability(energyBurn);
+
+        assertEquals(1, mankey.getQuantityofAnEnergy(fighting));
+
+        Blue.setUsingAbility(false);
+        mankey.setAbility(energyBurn);
+        Blue.enableHability(energyBurn);
 
         assertEquals(4, mankey.getQuantityofAnEnergy(fighting));
 
 
     }
+
+    @Test
+    public void simpleHabilityTest(){
+        assertEquals(0, pikachu.getQuantityofAnEnergy(electric));
+        assertEquals(0, mankey.getQuantityofAnEnergy(fighting));
+        assertEquals(0, charmander.getQuantityofAnEnergy(fire));
+        assertEquals(0, bulbasaur.getQuantityofAnEnergy(plant));
+        assertEquals(0, squirtle.getQuantityofAnEnergy(water));
+        assertEquals(0, abra.getQuantityofAnEnergy(psychic));
+
+        electricShock.enableElectricPokemon(pikachu);
+        electricShock.enableFightingPokemon(mankey);
+        electricShock.enableFirePokemon(charmander);
+        electricShock.enablePlantPokemon(bulbasaur);
+        electricShock.enableWaterPokemon(squirtle);
+        electricShock.enablePsychicPokemon(abra);
+
+        assertEquals(0, pikachu.getQuantityofAnEnergy(electric));
+        assertEquals(0, mankey.getQuantityofAnEnergy(fighting));
+        assertEquals(0, charmander.getQuantityofAnEnergy(fire));
+        assertEquals(0, bulbasaur.getQuantityofAnEnergy(plant));
+        assertEquals(0, squirtle.getQuantityofAnEnergy(water));
+        assertEquals(0, abra.getQuantityofAnEnergy(psychic));
+
+    }
+
 
 
 

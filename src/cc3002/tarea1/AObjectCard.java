@@ -8,5 +8,13 @@ public abstract class AObjectCard extends ATrainerCard implements IObjectCard {
 
     public AObjectCard(String aName, String aDescription){super(aName,aDescription);}
 
+    public void beingPlayedBy(Player player){
+        if(player.getSelectedPokemon().getObjectCardAssociated()!=null){
+            player.getLostCards().add(this);
+        }
+        player.getSelectedPokemon().associateObjectCard(this);
+
+    }
+
 
 }

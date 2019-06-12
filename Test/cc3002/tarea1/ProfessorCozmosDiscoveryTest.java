@@ -40,6 +40,7 @@ public class ProfessorCozmosDiscoveryTest {
     @Test
     public void BasicProfessorTest(){
 
+        assertEquals("Professor Cozmos Discovery",professorCozmosDiscovery.getTitle());
         assertEquals("Throw a coin. If the result's tails draw 2 cards, otherwise draw three.", professorCozmosDiscovery.getDescription());
     }
 

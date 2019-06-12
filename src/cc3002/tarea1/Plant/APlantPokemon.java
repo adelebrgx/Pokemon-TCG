@@ -16,10 +16,10 @@ public abstract class APlantPokemon extends APokemon implements IPlantPokemon{
      * @param someName name given to the Pokemon
      * @param somePokedexID index of the Pokedex use to refer to it
      * @param someHP HP which shows if the pokemon can remain on the battlefield to fight
-     * @param someAttacks attacks pokemon can perform
+     * @param someAbilities abilities pokemon can perform
      */
-    public APlantPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
-        super(someName, somePokedexID, someHP, someAttacks);
+    public APlantPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+        super(someName, somePokedexID, someHP, someAbilities);
     }
 
     @Override

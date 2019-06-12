@@ -14,8 +14,8 @@ import java.util.List;
 
 public class Phase2PsychicPokemon extends APsychicPokemon implements IPhase2Pokemon {
 
-    public Phase2PsychicPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
-        super(someName, somePokedexID, someHP, someAttacks);
+    public Phase2PsychicPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+        super(someName, somePokedexID, someHP, someAbilities);
     }
     @Override
     public void beingPlayedBy(Player player){

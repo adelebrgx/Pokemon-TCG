@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,6 +27,7 @@ public class TrainerStateTest {
     private BasicAttack bubble;
     private IPokemon charmander;
     private IPokemon abra;
+    private EnergyBurn energyBurn;
 
     @Before
     public void setUp() {
@@ -39,9 +41,10 @@ public class TrainerStateTest {
         list.add(fire);
         list.add(water);
         charmander=new BasicFirePokemon("Charmander",4,50,new ArrayList<>());
-        bubble = new BasicAttack("Bubble", 100,"Attack of pokemon type: water");
+        bubble = new BasicAttack("Bubble", 10,"Attack of pokemon type: water");
         squirtle=new BasicWaterPokemon("Squirtle",7,70,new ArrayList<>());
         abra=new BasicPsychicPokemon("Abra",63,50, new ArrayList<>());
+        energyBurn= new EnergyBurn("","");
 
     }
 
@@ -84,37 +87,100 @@ public class TrainerStateTest {
     @Test
     public void AttackTest(){
 
+        Blue.takeCard(charmander);
+        Blue.selectPokemon(charmander);
+
+        squirtle.setAbility(bubble);
+        Red.takeCard(squirtle);
+        Red.selectPokemon(squirtle);
+
+
 
         Red.initiateDeck(list);
         Red.setPlaying(true);
-        Red.drawCard();
+        Red.setState(new InitialState());
+        assertEquals(true, Red.getIsPlaying());
+        assertEquals(true, Red.getState().isInInitialState());
 
-        Red.takeCard(charmander);
-        Red.takeCard(abra);
-
-        Red.playCard(charmander);
-        Red.playCard(abra);
         Red.endActions();
+        assertEquals(true, Red.getState().isInInitialState());
+
         Red.endTurn();
+        assertEquals(true, Red.getState().isInInitialState());
+
+        squirtle.setAbility(energyBurn);
+        Red.enableHability(energyBurn);
+        assertEquals(true, Red.getState().isInInitialState());
+
+        List<IPokemon> list= Red.seeMyPokemons();
+        assertEquals(0, list.size());
+
+        List<IPokemon> list2= Red.seeOpponentPokemons(Blue);
+        assertEquals(0, list.size());
+
+        List<ICard> list3=Red.seeCards();
+        assertEquals(0, list.size());
+
+        Red.useAttack(bubble,Blue);
+        assertEquals(true,Red.getState().isInInitialState());
+
+        Red.drawCard();
+        assertEquals(true, Red.getIsPlaying());
+        assertEquals(true, Red.getState().isInFirstState());
 
 
 
-        squirtle.setAttack(bubble);
-
-        Blue.setPlaying(true);
-
-        Blue.initiateDeck(list);
-        Blue.drawCard();
+        Red.playCard(squirtle);
+        assertEquals(true, Red.getState().isInFirstState());
 
 
-        Blue.takeCard(squirtle);
-        Blue.playCard(squirtle);
 
-        Blue.endActions();
+        List<IPokemon> list4= Red.seeMyPokemons();
+        assertEquals(2, list4.size());
 
-        Blue.useAttack(bubble,Red);
-        assertEquals(true, Blue.getState().isInInitialState());
-        assertEquals(false, Blue.getState().isInSecondState());
+        List<IPokemon> list5= Red.seeOpponentPokemons(Blue);
+        assertEquals(1, list5.size());
+
+        List<ICard> list6=Red.seeCards();
+        assertEquals(1, list6.size());
+
+        Red.useAttack(bubble, Blue);
+        assertEquals(true, Red.getState().isInFirstState());
+
+        Red.endTurn();
+        assertEquals(true, Red.getState().isInFirstState());
+        Red.enableHability(energyBurn);
+        assertEquals(true, Red.getState().isInFirstState());
+
+        Red.endActions();
+        assertEquals(true, Red.getState().isInSecondState());
+
+        List<IPokemon> list7= Red.seeMyPokemons();
+        assertEquals(0, list7.size());
+
+        List<IPokemon> list8= Red.seeOpponentPokemons(Blue);
+        assertEquals(0, list8.size());
+
+        List<ICard> list9=Red.seeCards();
+        assertEquals(0, list9.size());
+
+        Red.drawCard();
+        assertEquals(true, Red.getState().isInSecondState());
+
+        Red.playCard(squirtle);
+        assertEquals(true, Red.getState().isInSecondState());
+
+        Red.enableHability(energyBurn);
+        assertEquals(true, Red.getState().isInSecondState());
+
+        Red.useAttack(bubble, Blue);
+        assertEquals(true, Red.getState().isInInitialState());
+
+
+
+
+
+
 
 
     }

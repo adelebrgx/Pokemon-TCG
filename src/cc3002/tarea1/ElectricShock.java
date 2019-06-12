@@ -13,14 +13,16 @@ public class ElectricShock extends Attack {
 
 
 
-
-
-
-
     @Override
     public void isBeingActivated(Player first, Player following){
-        IPokemon pokemon= following.getSelectedPokemon();
-        pokemon.isBeingAffectedBy(this);
+        if(!first.getSelectedPokemon().getAbilitiesList().contains(this)){
+            System.out.println("The pokemon cannot use Electric Shock");
+        }
+        else{
+            IPokemon pokemon= following.getSelectedPokemon();
+            pokemon.isBeingAffectedBy(this);
+        }
+
     }
 
 

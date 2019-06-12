@@ -18,8 +18,19 @@ public class TrainingCenter extends AStateCard {
 
     @Override
     public void beingPlayedBy(Player player) {
-        List<IPokemon> list= player.getBank();
-        for (IPokemon pokemon: list){
+        super.beingPlayedBy(player);
+        List<IPokemon> playerlist= player.getBank();
+        List<IPokemon> opponentlist;
+        if(player.getController().getFirst().equals(player)){
+            opponentlist=player.getController().getSecond().getBank();
+        }
+        else{
+            opponentlist=player.getController().getFirst().getBank();
+        }
+        for (IPokemon pokemon: playerlist){
+            pokemon.isBeingInspected(this);
+        }
+        for (IPokemon pokemon: opponentlist){
             pokemon.isBeingInspected(this);
         }
 

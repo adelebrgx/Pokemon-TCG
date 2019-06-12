@@ -8,5 +8,10 @@ public abstract class ASupportCard extends ATrainerCard implements ISupportCard{
 
     public ASupportCard(String aName, String aDescription){super(aName, aDescription);}
 
+    public void beingPlayedBy(Player player){
+        player.eliminate(this);
+    }
+
+
 
 }

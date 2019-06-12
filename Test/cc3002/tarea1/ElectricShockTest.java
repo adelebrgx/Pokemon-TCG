@@ -2,15 +2,21 @@ package cc3002.tarea1;
 
 import cc3002.tarea1.Electric.BasicElectricPokemon;
 import cc3002.tarea1.Electric.ElectricEnergy;
+import cc3002.tarea1.Electric.IElectricPokemon;
 import cc3002.tarea1.Fighting.BasicFightingPokemon;
 import cc3002.tarea1.Fighting.FightingEnergy;
+import cc3002.tarea1.Fighting.IFightingPokemon;
 import cc3002.tarea1.Fire.BasicFirePokemon;
 import cc3002.tarea1.Fire.FireEnergy;
+import cc3002.tarea1.Fire.IFirePokemon;
 import cc3002.tarea1.Plant.BasicPlantPokemon;
+import cc3002.tarea1.Plant.IPlantPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
 import cc3002.tarea1.Psychic.BasicPsychicPokemon;
+import cc3002.tarea1.Psychic.IPsychicPokemon;
 import cc3002.tarea1.Psychic.PsychicEnergy;
 import cc3002.tarea1.Water.BasicWaterPokemon;
+import cc3002.tarea1.Water.IWaterPokemon;
 import cc3002.tarea1.Water.WaterEnergy;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,14 +24,15 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class ElectricShockTest {
-    private IPokemon charmander;
-    private IPokemon squirtle;
-    private IPokemon pikachu;
-    private IPokemon abra;
-    private IPokemon bulbasaur;
-    private IPokemon mankey;
+    private IFirePokemon charmander;
+    private IWaterPokemon squirtle;
+    private IElectricPokemon pikachu;
+    private IPsychicPokemon abra;
+    private IPlantPokemon bulbasaur;
+    private IFightingPokemon mankey;
     private PlantEnergy plant;
     private FightingEnergy fighting;
     private WaterEnergy water;
@@ -48,6 +55,7 @@ public class ElectricShockTest {
         abra=new BasicPsychicPokemon("Abra", 12, 50, new ArrayList<>());
         bulbasaur=new BasicPlantPokemon("Bulbasaur", 15, 50, new ArrayList<>());
         mankey=new BasicFightingPokemon("Mankey", 21, 50, new ArrayList<>());
+        electric=new ElectricEnergy();
 
         Blue=new Player("Blue");
         Red=new Player("Red");
@@ -70,7 +78,7 @@ public class ElectricShockTest {
     public void ElectricShockFunctionnalitiesTest(){
 
         boolean result=false;
-        charmander.setAttack(electricShock);
+        charmander.setAbility(electricShock);
         Blue.setPlaying(true);
       Blue.takeCard(charmander);
       Blue.setState(new FirstState());
@@ -82,8 +90,9 @@ public class ElectricShockTest {
       Red.playCard(squirtle);
 
       assertEquals(charmander, Blue.getSelectedPokemon());
-      assertEquals(electricShock, Blue.getSelectedPokemon().getAttacksList().get(0));
+      assertEquals(electricShock, Blue.getSelectedPokemon().getAbilitiesList().get(0));
       assertEquals(squirtle, Red.getSelectedPokemon());
+
 
 
       Blue.setState(new SecondState());

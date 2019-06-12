@@ -51,13 +51,13 @@ public class FirePokemonTest {
     @Test
     public void selectAttackTest(){
 
-        assertEquals("Flame Thrower", charmeleon.getAttacksList().get(0).getName());
-        charmeleon.setAttack(firepunch);
-        charmander.setAttack(firepunch);
-        assertEquals("Fire Punch", charmeleon.getAttacksList().get(1).getName());
-        assertEquals("Fire Punch", charmander.getAttacksList().get(0).getName());
-        assertEquals(2, charmeleon.getAttacksList().size());
-        assertEquals(1, charmander.getAttacksList().size());
+        assertEquals("Flame Thrower", charmeleon.getAbilitiesList().get(0).getName());
+        charmeleon.setAbility(firepunch);
+        charmander.setAbility(firepunch);
+        assertEquals("Fire Punch", charmeleon.getAbilitiesList().get(1).getName());
+        assertEquals("Fire Punch", charmander.getAbilitiesList().get(0).getName());
+        assertEquals(2, charmeleon.getAbilitiesList().size());
+        assertEquals(1, charmander.getAbilitiesList().size());
 
     }
 

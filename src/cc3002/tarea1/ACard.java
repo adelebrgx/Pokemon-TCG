@@ -8,8 +8,8 @@ public abstract class ACard implements ICard {
     private String title;
 
 
-    public ACard(String aName){
-        this.title=title;
+    public ACard(String aTitle){
+        this.title=aTitle;
     }
 
     @Override

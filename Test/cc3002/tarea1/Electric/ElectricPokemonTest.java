@@ -51,13 +51,13 @@ public class ElectricPokemonTest {
     @Test
     public void selectAttackTest(){
 
-        assertEquals("Discharge", raichu.getAttacksList().get(0).getName());
-        raichu.setAttack(thundershock);
-        pikachu.setAttack(thundershock);
-        assertEquals("Thundershock", raichu.getAttacksList().get(1).getName());
-        assertEquals("Thundershock", pikachu.getAttacksList().get(0).getName());
-        assertEquals(2, raichu.getAttacksList().size());
-        assertEquals(1, pikachu.getAttacksList().size());
+        assertEquals("Discharge", raichu.getAbilitiesList().get(0).getName());
+        raichu.setAbility(thundershock);
+        pikachu.setAbility(thundershock);
+        assertEquals("Thundershock", raichu.getAbilitiesList().get(1).getName());
+        assertEquals("Thundershock", pikachu.getAbilitiesList().get(0).getName());
+        assertEquals(2, raichu.getAbilitiesList().size());
+        assertEquals(1, pikachu.getAbilitiesList().size());
 
     }
 

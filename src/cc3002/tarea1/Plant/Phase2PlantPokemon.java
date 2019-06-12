@@ -14,8 +14,8 @@ import java.util.List;
 
 public class Phase2PlantPokemon extends APlantPokemon implements IPhase2Pokemon {
 
-    public Phase2PlantPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
-        super(someName, somePokedexID, someHP, someAttacks);
+    public Phase2PlantPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+        super(someName, somePokedexID, someHP, someAbilities);
     }
 
 

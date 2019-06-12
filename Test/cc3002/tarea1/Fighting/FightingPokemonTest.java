@@ -54,13 +54,13 @@ public class FightingPokemonTest {
     @Test
     public void selectAttackTest(){
 
-        assertEquals("Karate Chop", monferno.getAttacksList().get(0).getName());
-        monferno.setAttack(lowkick);
-        chimchar.setAttack(lowkick);
-        assertEquals("Low Kick", monferno.getAttacksList().get(1).getName());
-        assertEquals("Low Kick", chimchar.getAttacksList().get(0).getName());
-        assertEquals(2, monferno.getAttacksList().size());
-        assertEquals(1, chimchar.getAttacksList().size());
+        assertEquals("Karate Chop", monferno.getAbilitiesList().get(0).getName());
+        monferno.setAbility(lowkick);
+        chimchar.setAbility(lowkick);
+        assertEquals("Low Kick", monferno.getAbilitiesList().get(1).getName());
+        assertEquals("Low Kick", chimchar.getAbilitiesList().get(0).getName());
+        assertEquals(2, monferno.getAbilitiesList().size());
+        assertEquals(1, chimchar.getAbilitiesList().size());
 
     }
 

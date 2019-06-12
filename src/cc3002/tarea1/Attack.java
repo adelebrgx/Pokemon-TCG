@@ -32,7 +32,7 @@ public abstract class Attack extends AAbility implements IAttack{
 
     @Override
     public void isBeingActivated(Player first, Player following){
-        if (!first.getSelectedPokemon().getAttacksList().contains(this)) {
+        if (!first.getSelectedPokemon().getAbilitiesList().contains(this)) {
             System.out.println("Pokemon cannot use attack he doesn't posess");
         } else {
             boolean canAttack=canBeUsed(first);

@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -24,7 +25,8 @@ public class ControllerTest {
     private IPokemon pichu;
     private ArrayList list;
     private FireEnergy fire;
-    WaterEnergy water;
+    private WaterEnergy water;
+    private BasicAttack aquajet;
 
     private Controller controller;
     private NullController nullC;
@@ -38,9 +40,10 @@ public class ControllerTest {
         squirtle=new BasicWaterPokemon("Squirtle",7,70,new ArrayList<>());
         watortle=new Phase1WaterPokemon("Watortle", 8, 85, new ArrayList<>() );
         blastoise=new Phase2WaterPokemon("Blastoise",9,90,new ArrayList<>());
-        charmander= new BasicFirePokemon("Charmander",3,50,new ArrayList<>());
+        charmander= new BasicFirePokemon("Charmander",3,100,new ArrayList<>());
         charmeleon= new Phase1FirePokemon( "Charmeleon",4,50,new ArrayList<>());
         pichu=new BasicElectricPokemon("Pichu", 60, 30, new ArrayList<>() );
+        aquajet=new BasicAttack("Aqua Jet",10,"Attack of pokemon type: water");
         fire=new FireEnergy();
         water= new WaterEnergy();
         controller=new Controller();
@@ -76,16 +79,74 @@ public class ControllerTest {
         Player blue= controller.getFirst();
         Player red= controller.getSecond();
 
+        squirtle.setAbility(aquajet);
+        blue.takeCard(squirtle);
+        blue.selectPokemon(squirtle);
+        blue.takeCard(fire);
+        red.takeCard(charmander);
+        red.selectPokemon(charmander);
+
+        assertEquals(squirtle, blue.getSelectedPokemon());
+        assertEquals(charmander, red.getSelectedPokemon());
+
+        assertEquals(2,blue.getHand().size());
+        assertEquals(1, red.getHand().size());
         assertEquals(true, blue.getIsPlaying());
         assertEquals(false, red.getIsPlaying());
 
         blue.initiateDeck(list);
         red.initiateDeck(list);
 
+        List<IPokemon> list=red.seeMyPokemons();
+        List<IPokemon> list2= red.seeOpponentPokemons(blue);
+        List<ICard> list3=red.seeCards();
+        assertEquals(0, list.size());
+        assertEquals(0,list2.size());
+        assertEquals(0,list3.size());
+
+
         blue.drawCard();
         red.drawCard();
-        assertEquals(1,blue.getHand().size());
-        assertEquals(0, red.getHand().size());
+        assertEquals(3,blue.getHand().size());
+        assertEquals(1, red.getHand().size());
+
+        assertEquals(true, controller.getPlaying().getState().isInFirstState());
+        assertEquals(false, controller.getSecond().getState().isInFirstState());
+
+
+
+        blue.endActions();
+        red.endActions();
+
+        assertEquals(true, controller.getPlaying().getState().isInSecondState());
+        assertEquals(false, controller.getSecond().getState().isInSecondState());
+
+
+
+        blue.drawCard();
+        assertEquals(3,blue.getHand().size());
+
+        blue.playCard(fire);
+        assertEquals(3,blue.getHand().size());
+
+        blue.useAttack(aquajet,red);
+
+        assertEquals(80, red.getSelectedPokemon().getHP());
+
+        assertEquals(true, controller.getPlaying().getState().isInInitialState());
+        assertEquals(red, controller.getPlaying());
+        assertEquals(true, red.getIsPlaying());
+
+        red.drawCard();
+
+        red.endActions();
+
+        red.endTurn();
+        assertEquals(true, controller.getPlaying().getState().isInInitialState());
+        assertEquals(blue, controller.getPlaying());
+        assertEquals(true, blue.getIsPlaying());
+
+
 
     }
 

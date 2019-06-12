@@ -12,7 +12,8 @@ public class Controller {
     private Player first;
     private Player second;
     private Player isPlaying;
-    private PlayerState state;
+    private IStateCard stateCard;
+
 
 
     /**
@@ -21,15 +22,21 @@ public class Controller {
     public void initGame(){
         first=new Player("First");
         second=new Player("Second");
+        stateCard=null;
+
 
         first.assignController(this);
         second.assignController(this);
 
         second.setPlaying(false);
         second.setEndingTurn(false);
+        first.setPlayingEnergy(false);
+        first.setUsingAbility(false);
 
         first.setEndingTurn(false);
         first.setPlaying(true);
+        first.setPlayingEnergy(false);
+        first.setUsingAbility(false);
 
         isPlaying=first;
 
@@ -41,10 +48,16 @@ public class Controller {
        if(p.getEndingTurn()){
            if(isPlaying.equals(first)){
                first.setPlaying(false);
+               first.setPlayingEnergy(false);
+               first.setUsingAbility(false);
+               first.setEndingTurn(false);
                SwitchTurns(second);
            }
            else{
                second.setPlaying(false);
+               second.setUsingAbility(false);
+               second.setPlayingEnergy(false);
+               second.setEndingTurn(false);
                SwitchTurns(first);
            }
        }
@@ -58,10 +71,22 @@ public class Controller {
         return second;
     }
 
+    public void setStateCard(IStateCard card){
+        stateCard=card;
+    }
+
+    public IStateCard getStateCard(){
+        return this.stateCard;
+    }
+
+
+
     public void SwitchTurns(Player player){
         isPlaying=player;
         player.setPlaying(true);
     }
+
+
 
     public Player getPlaying(){
         return this.isPlaying;

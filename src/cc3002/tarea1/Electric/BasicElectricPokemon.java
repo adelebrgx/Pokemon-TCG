@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public class BasicElectricPokemon extends AElectricPokemon implements IBasicPokemon {
 
-    public BasicElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<Attack> someAttacks) {
-        super(someName, somePokedexID, someHP, someAttacks);
+    public BasicElectricPokemon(String someName, int somePokedexID, int someHP, ArrayList<IHability> someAbilities) {
+        super(someName, somePokedexID, someHP, someAbilities);
     }
 
     @Override

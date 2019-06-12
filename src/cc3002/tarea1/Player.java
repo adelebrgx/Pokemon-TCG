@@ -17,6 +17,8 @@ public class Player {
     private PlayerState state;
     private boolean isPlaying;
     private boolean hasEndedTurn;
+    private boolean EnergyPlayed;
+    private boolean AbilityUsed;
     private Controller controller;
 
     /**
@@ -35,6 +37,7 @@ public class Player {
         state=new InitialState();
         controller=new NullController();
 
+
     }
 
     public void assignController(Controller controller){
@@ -45,6 +48,10 @@ public class Player {
         state = aState;
         controller.update(this);
     }
+    public Controller getController(){
+        return controller;
+    }
+
 
     public PlayerState getState(){
         return this.state;
@@ -65,6 +72,22 @@ public class Player {
     public boolean getEndingTurn(){
         return this.hasEndedTurn;
     }
+
+    public boolean getUsingAbility(){
+        return AbilityUsed;
+    }
+
+    public void setUsingAbility(boolean bool){
+        AbilityUsed=bool;}
+
+    public void setPlayingEnergy(boolean bool){
+        EnergyPlayed=bool;
+    }
+
+    public boolean getPlayingEnergy(){
+        return EnergyPlayed;
+    }
+
 
     /**
      * Initiate the player's deck of cards using a set of existing cards and shuffling them to simulate hazard
@@ -184,7 +207,9 @@ public class Player {
     }
 
 
-    public void eliminate(ICard card){ this.lostCards.add(card);
+    public void eliminate(ICard card){
+        this.hand.remove(card);
+        this.lostCards.add(card);
     }
 
     /**
@@ -291,10 +316,16 @@ public class Player {
 
     }
 
-    public void enableHability(IHability hability, IPokemon pokemon){
+    public void enableHability(IHability hability){
         if(isPlaying){
             if (state.isInFirstState()){
-                hability.isBeingEnabled(this, pokemon);
+                if(AbilityUsed){
+                    System.out.println("One ability has already been played by player");
+                }
+                else {
+                    AbilityUsed=true;
+                    hability.isBeingEnabled(this);
+                }
             }
             else if(state.isInInitialState()){
                 System.out.println("The player hasn't drawn any card yet");
@@ -340,11 +371,67 @@ public class Player {
     public void endTurn(){
         if(isPlaying){
             state.endTurn(this);
-            this.hasEndedTurn=true;
+
         }
         else {
             controller.error();
         }
+
+    }
+
+    public List<ICard> seeCards(){
+        if(isPlaying){
+            if (state.isInFirstState()){
+                return this.hand;
+            }
+            else{
+                System.out.println("The player cannot see the opponent's Pokemon now");
+                return new ArrayList<>();
+            }
+
+        }
+        else{
+            System.out.println("This is not the player's turn");
+            return new ArrayList<>();
+        }
+
+    }
+
+    public  List<IPokemon> seeMyPokemons(){
+        if(isPlaying){
+            if(state.isInFirstState()){
+                return this.getBank();
+            }
+            else{
+                System.out.println("The player cannot see his Pokemon now");
+                return new ArrayList<>();
+            }
+
+        }
+        else {
+            System.out.println("This is not the player's turn");
+            return new ArrayList<>();
+        }
+
+
+    }
+
+    public List<IPokemon> seeOpponentPokemons(Player opponent){
+        if(isPlaying){
+            if(state.isInFirstState()){
+                return opponent.getBank();
+            }
+            else {
+                System.out.println("The player cannot see the opponent's Pokemon now");
+                return new ArrayList<>();
+            }
+
+        }
+        else {
+            System.out.println("This is not the player's turn");
+            return new ArrayList<>();
+        }
+
 
     }
 

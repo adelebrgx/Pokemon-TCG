@@ -19,14 +19,6 @@ public abstract class ATrainerCard extends ACard implements ITrainerCard {
     }
 
     /**
-     * getter to the given card's name
-     * @return a String which is the card's name
-     */
-    public String getName(){
-        return this.name;
-    }
-
-    /**
      * getter to the given's card description
      * @return a String which is the card's description
      */

@@ -49,13 +49,13 @@ public class PlantPokemonTest {
     @Test
     public void selectAttackTest(){
 
-        assertEquals("Tackle", ivysaur.getAttacksList().get(0).getName());
-        bulbasaur.setAttack(vinewhip);
-        ivysaur.setAttack(vinewhip);
-        assertEquals("Vine Whip", ivysaur.getAttacksList().get(1).getName());
-        assertEquals("Vine Whip", bulbasaur.getAttacksList().get(0).getName());
-        assertEquals(2, ivysaur.getAttacksList().size());
-        assertEquals(1, bulbasaur.getAttacksList().size());
+        assertEquals("Tackle", ivysaur.getAbilitiesList().get(0).getName());
+        bulbasaur.setAbility(vinewhip);
+        ivysaur.setAbility(vinewhip);
+        assertEquals("Vine Whip", ivysaur.getAbilitiesList().get(1).getName());
+        assertEquals("Vine Whip", bulbasaur.getAbilitiesList().get(0).getName());
+        assertEquals(2, ivysaur.getAbilitiesList().size());
+        assertEquals(1, bulbasaur.getAbilitiesList().size());
 
     }
     @Test
