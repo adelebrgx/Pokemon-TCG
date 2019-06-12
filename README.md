@@ -35,13 +35,15 @@ The Pokemon's trainer or player is represented by a class named Player, which se
 Finally a Controller was added in the last iteration of the project. It sets the structure of a turn for a player and gives turn to the player's opponent once the player's done playing. Thereby, different states were implemented to represent the state of the player during a turn and control his/her actions. These different states: IntitialState, FirstState and Second State inherits from the Player State class. 
 
 ### Card Entity
+#### Attributes:
+```String title ```
 
 The Card interface ICard is implemented by an abstract class ACard. A card can only be played and this action will be described within the entities Pokemon, Energy, Object Cards, Trainer Cards, State Cards. 
 
 ### Pokemon Entity
 
 #### Attributes:
-```String name, int pokedexID, int hp, HashMap<String, Integer> EnergiesAssociated, ArrayList<IAbility> abilitiesList, IObjectCard objectCardAssociated; ```
+```String title, String name, int pokedexID, int hp, HashMap<String, Integer> EnergiesAssociated, ArrayList<IAbility> abilitiesList, IObjectCard objectCardAssociated; ```
 
 A Pokemon is implemented within the Abstract class APokemon which implements IPokemon. Basically a Pokemon is described with its name, its hp, its Pokedex ID, a list of abilities assigned to it and a list of energies is been given by its player. 
 
@@ -57,11 +59,54 @@ Finally one object card can be assigned to the Pokemon by the player. If another
 ### Energy Entity
 
 #### Attributes: 
-```String name```
+```String title```
 
 An energy is implemented within the Abstract class AEnergy which implements IEnergy. Basically an energy is described with its name and a type _  returned by each class Energy_ in a method. 
 
 An energy can be played by the player and attributed to one of his Pokemons on the battlefield according to the index chosen by the trainer.
+
+### Trainer Cards Entity
+##### Attributes 
+```String title, String Description ```
+
+A Trainer Card is a type of card which has 3 subtypes. It has a name and a description. 
+
+#### Object Cards 
+##### Attributes 
+```String title, String Description ```
+
+An object Card is implemented within the abstract class AObjectCard implementing the interface IObjectCard.
+An Object Card has a name and a description. An object card can be associated to a Pokemon or have an instant effect. Once an object card is played it comes to replace the player's selected pokemon object card associated. 
+
+##### Super Scoop Up Card
+
+Action: Throw a coin. If it's head, put one of your Pokémon in play and all the cards associated with it in your hand.
+Implements a visitor pattern to visit the Player. 
+
+### Support Cards
+##### Attributes 
+```String title, String Description ```
+
+A Support Card is implemented within the abstract class ASupportCard implementing the interface ISupportCard.
+A Support Card has a name and a description. A Support Card has a name and a description. A support card performs its actions and is put away. Only one support card can be played during a turn. 
+
+##### Professor Cozmos Discovery Card 
+
+Action: Throw a coin, if it's head draw 3 cards from your deck, if it's tails draw 2.
+Implements a Visitor Pattern to visit the player.
+
+### State Cards 
+##### Attributes 
+```String title, String Description ```
+A State Card is implemented within the abstract class AStateCard implementing the interface IStateCard. A State Card changes the state of the game. Only one can be in the game. 
+
+##### Training Center
+
+###### Attributes 
+```int x ```
+
+Action: Each Pokemon of phase 1 or 2 receives +x HP. 
+Implements a visitor pattern to visit the Player's Pokemons according to their phase. 
 
 ### Player entity
 
