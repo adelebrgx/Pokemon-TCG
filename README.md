@@ -108,6 +108,36 @@ A State Card is implemented within the abstract class AStateCard implementing th
 Action: Each Pokemon of phase 1 or 2 receives +x HP. 
 Implements a visitor pattern to visit the Player's Pokemons according to their phase. 
 
+### Abilities entity
+#### Attributes 
+```private String name, String description, HashMap<String, Integer> cost```
+
+An ability is a property of a Pokemon. it has a name, a description and a cost to be executed. Abilities are implemented in the IAbility interface from which derives an abstract class Ability. 
+
+A Basic Ability was implemented to demonstrate the properties of a basic ability; 
+
+##### Energy Burn 
+###### Attributes 
+```private String name, String description, HashMap<String, Integer> cost```
+
+Action: All the energies of the Pokemon turn into energies of the Pokemon's type. 
+Implements a visitor pattern to visit the player's pokemon according to its type. 
+
+#### Attack entity 
+##### Attributes
+```private String name, String description, HashMap<String, Integer> cost, int baseDamage```
+
+An attack is a special ability which has a base damage. They're implemented by the interface IAttack which extends the IAbility interface, from wich derives an abtract class AAttack. 
+
+A Basic Attack was implemented to demonstrate the properties of a basic attack. 
+
+##### Electric Shock
+###### Attributes 
+```private String name, String description, HashMap<String, Integer> cost, int baseDamage, int x```
+
+Action: Throw a coin. If it's tails, the opponent's pokemon receives x of damage. Implements a visitor pattern to visit the opponent's Pokemon. 
+
+
 ### Player entity
 
 #### Attributes : 
@@ -122,6 +152,30 @@ Amongst all the actions the player can perform, he/she can draw a card from the 
 The player can also assign one ability to his/her selected Pokemon and choose which Pokemon's he wants to assign an energy too. 
 As part of playing, the trainer also needs to notify he's done performing actions such as see his cards, his pokemon's or the other player's pokemons to be able to attack the opponent's selected Pokemon. 
 He then ends his turn. 
+
+### Controller Entity and player's states 
+
+#### Controller 
+##### Attributes 
+```  Player first, Player second,Player isPlaying, IStateCard stateCard; ```
+
+The controller implemented by the Controller class controls the state of the game. It has two players which it initiates at the beginning of the game, a isPlaying Player and a state card. 
+
+It 'observes' the changes in the player's state and once the player's atribute hasEndedTurn is set to True and the player's back to his/her initial state, it switches turn to the other player and reinitialize the first player's atributes. 
+
+
+#### Player's states 
+##### Attributes 
+
+The PlayerState implements the states in which can be a player. 
+
+The player begins in Initial State in which he/she has to draw a card to get to First State. 
+
+Once he/she is in state 1, he can see his cards, see the opponent's pokemons and his/her Pokemons. He can use an ability of his/ her selected pokemon and play cards (one energy and one object card). Once then, he/she needs to declare he's done performing actions. 
+
+Once in state2 he/she can perform one attack or end his/her turn. He goes back to initial state and has ended his/her turn.
+
+The controller assigned to him/her switches turn to his/her opponent.
 
 ## Tests
 
