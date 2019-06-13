@@ -81,7 +81,7 @@ An Object Card has a name and a description. An object card can be associated to
 ##### Super Scoop Up Card
 
 Action: Throw a coin. If it's head, put one of your Pokémon in play and all the cards associated with it in your hand.
-Implements a visitor pattern to visit the Player. 
+
 
 ### Support Cards
 ##### Attributes 
@@ -93,7 +93,6 @@ A Support Card has a name and a description. A Support Card has a name and a des
 ##### Professor Cozmos Discovery Card 
 
 Action: Throw a coin, if it's head draw 3 cards from your deck, if it's tails draw 2.
-Implements a Visitor Pattern to visit the player.
 
 ### State Cards 
 ##### Attributes 
@@ -135,17 +134,16 @@ A Basic Attack was implemented to demonstrate the properties of a basic attack.
 ###### Attributes 
 ```private String name, String description, HashMap<String, Integer> cost, int baseDamage, int x```
 
-Action: Throw a coin. If it's tails, the opponent's pokemon receives x of damage. Implements a visitor pattern to visit the opponent's Pokemon. 
-
+Action: Throw a coin. If it's tails, the opponent's pokemon receives x of damage. 
 
 ### Player entity
 
 #### Attributes : 
-``` private String name, List<ICard> hand, List<IPokemon> pokemonBank, IPokemon selectedPokemon, List<ICard> lostCards, List<ICard> cardStack, List<ICard> primeCards, PlayerState state, boolean isPlaying, boolean hasEndedTurn, boolean EnergyPlayed, boolean AbilityUsed, Controller controller ```
+``` private String name, List<ICard> hand, List<IPokemon> pokemonBank, IPokemon selectedPokemon, List<ICard> lostCards, List<ICard> cardStack, List<ICard> primeCards, IPokemon selectedPokemon;, PlayerState state, boolean isPlaying, boolean hasEndedTurn, boolean EnergyPlayed, boolean AbilityUsed, boolean hasPlayedSupport, Controller controller ```
   
-A player in implemented within the class Player. A player is described by his/her name, a list of cards he has in hand, a list of Pokemons he/she has in his/her bank, the Pokemon he/she has selected to fight on the battlefield, a deck of cards, 6 prime cards, and a list of cards that were put aside for some reason. 
+A player in implemented within the class Player. A player is described by his/her name, a list of cards he has in hand, a list of Pokemons he/she has in his/her bank, the Pokemon he/she has selected to fight on the battlefield, a deck of cards, 6 prime cards, a list of cards that were put aside for some reason and one Pokemon selected by the player to be the one receiveing the effects of a card (energies for example). 
 
-When a player is playing, the controller also verifies he/she can be playing through isPlaying, that his/ger turn has or hasn't ended through hasEndedTurn, that he/she cannot play more than one Energy during a turn through Energy played, and use more than one ability during a turn through AbilityUsed. 
+When a player is playing, the controller also verifies he/she can be playing through isPlaying, that his/ger turn has or hasn't ended through hasEndedTurn, that he/she cannot play more than one Energy during a turn through Energy played, cannot play more than one support card during one turn and use more than one ability during a turn through AbilityUsed. 
 
 All the functionnalities a player can perform are implemented in the class and will allow us to implement the game further on. 
 Amongst all the actions the player can perform, he/she can draw a card from the deck, put a Pokemon in his bank, send a Pokemon to a battlefield,and play a Card : that's to say put a new Pokemon in his Pokemon bank or assign an energy to the Pokemon he/she sent to the battlefield. 
@@ -181,7 +179,7 @@ The controller assigned to him/her switches turn to his/her opponent.
 
 ## Tests
 
-Each class method is tested in the method of a test file. Each method of the test file tests different scenarios and considers different border cases. The coverage of the tests oscillates between 88% and 91% as many functionnalities depend on random situtations (the result of throwing a coin for example). One functionnality's performance could not be tested because it depends on a player's action through the interface: to play an energy, the player enters the position of the pokemon he/she wants to assign the energy to through the console.  
+Each class method is tested in the method of a test file. Each method of the test file tests different scenarios and considers different border cases.  
 
 ## Built with 
 
