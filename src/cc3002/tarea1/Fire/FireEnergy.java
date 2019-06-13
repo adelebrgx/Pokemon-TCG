@@ -23,11 +23,10 @@ public class FireEnergy extends AEnergy {
 
     @Override
     public void beingPlayedBy(Player inAction) {
-        int index = inAction.submitIndex(this);
-        if (canbeUsed(inAction, index)) {
-            inAction.getBank().get(index).addFireEnergy(this);
+        if (canbeUsed(inAction)) {
+            inAction.getbenefiecient().addFireEnergy(this);
+            inAction.getHand().remove(this);
             inAction.setPlayingEnergy(true);
         }
-
     }
 }

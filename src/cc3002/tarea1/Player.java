@@ -11,10 +11,12 @@ public class Player {
     private List<ICard> hand;
     private List<IPokemon> pokemonBank;
     private IPokemon selectedPokemon;
+    private IPokemon beneficientPokemon;
     private List<ICard> lostCards;
     private List<ICard> cardStack;
     private List<ICard> primeCards;
     private PlayerState state;
+    private boolean hasPlayedSupport;
     private boolean isPlaying;
     private boolean hasEndedTurn;
     private boolean EnergyPlayed;
@@ -28,7 +30,7 @@ public class Player {
 
     public Player(String name){
         this.name=name;
-        hand= new ArrayList<>(6);
+        hand= new ArrayList<>();
         pokemonBank=new ArrayList<>(6);
         selectedPokemon= null;
         lostCards =new ArrayList<>();
@@ -142,6 +144,21 @@ public class Player {
         return EnergyPlayed;
     }
 
+    /**
+     * Indicates if the player has used a support card
+     * @return true if used
+     */
+    public boolean getSupportPlayed(){
+        return hasPlayedSupport;
+    }
+
+    /**
+     * When a player uses a support card during a turn
+     * @param b true if used
+     */
+    public void setHasPlayedSupport(boolean b){
+        hasPlayedSupport=b;
+    }
 
     /**
      * Initiate the player's deck of cards using a set of existing cards and shuffling them to simulate hazard
@@ -206,6 +223,7 @@ public class Player {
             else{
                 System.out.println("Player already has 6 Pokemon in his Pokemon Bank");
             }
+            hand.remove(pokemon);
         }
 
     }
@@ -339,7 +357,7 @@ public class Player {
             }
             else{
                 aCard.beingPlayedBy(this);
-                this.getHand().remove(aCard);
+
             }
         }
         else{
@@ -520,35 +538,24 @@ public class Player {
     }
 
     /**
-     * Allows recuperate this integer input from the user which represents the index of the pokemon, the player wants to assign the energy to
-     * This method can not be tested because it requires to know the input of the player, but the energy can be assigned to the Pokemon directly and this is tested.
-     * @param energy the energy which will be assigned
-     * @return integer input which is -1 if there's no Pokemon with this index in the bank
+     * Allows select a pokemon which will receive an energy for example
+     * @param pokemon which will receive the energy
      */
-    public int submitIndex(IEnergy energy){
-        try (Scanner scanner = new Scanner(System.in)) {
-
-            System.out.println("Please enter the index of the pokemon you want to apply the energy to : ");
-            int index = scanner.nextInt(); // get integer
-
-            while (index>=6){
-                System.out.println("There is only 6 Pokemon in the bank");
-                System.out.println("Please choose and index between 0 and 5: ");
-                index = scanner.nextInt(); // get integer
-
-            }
-
-            if (this.getBank().size()<=index){
-                System.out.println("There's no Pokemon with this index in the player's bank of Pokemons");
-                index=-1;
-
-            }
-            else{
-                System.out.format("The energy's been applied to the pokemon number %d", index);
-            }
-            return index;
+    public void selectBeneficientPokemon(IPokemon pokemon){
+        if(!this.pokemonBank.contains(pokemon)){
+            System.out.println("You cannot perform action on this Pokemon as you do not have it on your battlefield");
         }
+        else{
+            this.beneficientPokemon=pokemon;
+        }
+    }
 
+    /**
+     * return the pokemon which was selected
+     * @return a pokemon selected by the player
+     */
+    public IPokemon getbenefiecient(){
+        return this.beneficientPokemon;
     }
 
 

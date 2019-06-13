@@ -141,6 +141,7 @@ public abstract class APokemon extends ACard implements IPokemon  {
     @Override
     public void beingPlayedBy(Player inAction){
         inAction.addPokemontoBank(this);
+        inAction.getHand().remove(this);
     }
 
     @Override

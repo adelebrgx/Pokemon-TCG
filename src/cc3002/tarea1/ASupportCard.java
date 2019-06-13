@@ -16,6 +16,7 @@ public abstract class ASupportCard extends ATrainerCard implements ISupportCard{
     @Override
     public void beingPlayedBy(Player player){
         player.eliminate(this);
+        player.setHasPlayedSupport(true);
     }
 
 

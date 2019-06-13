@@ -90,8 +90,9 @@ public class ControllerTest {
         assertEquals(squirtle, blue.getSelectedPokemon());
         assertEquals(charmander, red.getSelectedPokemon());
 
-        assertEquals(2,blue.getHand().size());
-        assertEquals(1, red.getHand().size());
+        //because Pokemons were selected they're out of player's hand
+        assertEquals(1,blue.getHand().size());
+        assertEquals(0, red.getHand().size());
         assertEquals(true, blue.getIsPlaying());
         assertEquals(false, red.getIsPlaying());
 
@@ -108,8 +109,8 @@ public class ControllerTest {
 
         blue.drawCard();
         red.drawCard();
-        assertEquals(3,blue.getHand().size());
-        assertEquals(1, red.getHand().size());
+        assertEquals(2,blue.getHand().size());
+        assertEquals(0, red.getHand().size());
 
         assertEquals(true, controller.getPlaying().getState().isInFirstState());
         assertEquals(false, controller.getSecond().getState().isInFirstState());
@@ -125,10 +126,10 @@ public class ControllerTest {
 
 
         blue.drawCard();
-        assertEquals(3,blue.getHand().size());
+        assertEquals(2, blue.getHand().size());
 
         blue.playCard(fire);
-        assertEquals(3,blue.getHand().size());
+        assertEquals(2,blue.getHand().size());
 
         blue.useAttack(aquajet,red);
 

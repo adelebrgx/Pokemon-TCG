@@ -2,6 +2,7 @@ package cc3002.tarea1.Trainer;
 
 import cc3002.tarea1.*;
 import cc3002.tarea1.Electric.BasicElectricPokemon;
+import cc3002.tarea1.Electric.ElectricEnergy;
 import cc3002.tarea1.Fighting.BasicFightingPokemon;
 import cc3002.tarea1.Fighting.FightingEnergy;
 import cc3002.tarea1.Fire.BasicFirePokemon;
@@ -9,6 +10,7 @@ import cc3002.tarea1.Fire.FireEnergy;
 import cc3002.tarea1.Plant.BasicPlantPokemon;
 import cc3002.tarea1.Plant.PlantEnergy;
 import cc3002.tarea1.Psychic.BasicPsychicPokemon;
+import cc3002.tarea1.Psychic.PsychicEnergy;
 import cc3002.tarea1.Water.BasicWaterPokemon;
 import cc3002.tarea1.Water.WaterEnergy;
 import org.junit.Before;
@@ -31,6 +33,8 @@ public class TrainerTest {
     private IEnergy plant;
     private IEnergy water;
     private IEnergy fire;
+    private IEnergy psychic;
+    private IEnergy electric;
     private IEnergy fighting;
     private Attack torpedo;
     private ArrayList<ICard> deckSet;
@@ -53,6 +57,8 @@ public class TrainerTest {
     fire=new FireEnergy();
     water=new WaterEnergy();
     fighting=new FightingEnergy();
+    electric=new ElectricEnergy();
+    psychic=new PsychicEnergy();
 
     torpedo= new BasicAttack("Torpedo", 30, "a Whip Attack");
     }
@@ -196,6 +202,64 @@ public class TrainerTest {
         Red.setState(new SecondState());
         Red.useAttack(torpedo,Blue);
         assertEquals(50,Blue.getSelectedPokemon().getHP());
+
+    }
+
+    @Test
+    public void playEnergyCard(){
+
+        Blue.takeCard(squirtle);
+        Blue.takeCard(bulbasaur);
+        Blue.takeCard(charmander);
+        Blue.takeCard(fire);
+        Blue.takeCard(plant);
+        Blue.takeCard(psychic);
+        Blue.takeCard(fighting);
+        Blue.takeCard(electric);
+        Blue.takeCard(water);
+
+        Blue.setPlaying(true);
+        Blue.setState(new FirstState());
+        Blue.playCard(squirtle);
+        Blue.playCard(charmander);
+        Blue.playCard(bulbasaur);
+
+        assertEquals(3, Blue.getBank().size());
+
+        Blue.selectBeneficientPokemon(charmander);
+        Blue.playCard(fire);
+
+        assertEquals(1, charmander.getQuantityofAnEnergy(fire));
+
+        Blue.playCard(water);
+
+        //two energy cards cannot be played in the same turn
+        assertEquals(0, charmander.getQuantityofAnEnergy(water));
+
+        Blue.setPlayingEnergy(false);
+        Blue.playCard(water);
+        assertEquals(1, charmander.getQuantityofAnEnergy(water));
+
+        Blue.selectBeneficientPokemon(bulbasaur);
+        Blue.setPlayingEnergy(false);
+        Blue.playCard(plant);
+        Blue.setPlayingEnergy(false);
+        Blue.playCard(fighting);
+        Blue.setPlayingEnergy(false);
+        Blue.playCard(psychic);
+
+        assertEquals(1, bulbasaur.getQuantityofAnEnergy(psychic));
+        assertEquals(1, bulbasaur.getQuantityofAnEnergy(plant));
+        assertEquals(1, bulbasaur.getQuantityofAnEnergy(fighting));
+
+        Blue.selectBeneficientPokemon(charmander);
+        Blue.setPlayingEnergy(false);
+        Blue.playCard(electric);
+
+        assertEquals(1, charmander.getQuantityofAnEnergy(electric));
+
+
+
 
     }
 

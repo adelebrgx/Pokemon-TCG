@@ -73,6 +73,8 @@ public class ProfessorCozmosDiscoveryTest {
         }
 
         assertEquals(true, result);
+
+        assertEquals(true, Blue.getSupportPlayed());
     }
 
 

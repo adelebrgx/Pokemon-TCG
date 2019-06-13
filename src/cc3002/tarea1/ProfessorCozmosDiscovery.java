@@ -17,14 +17,17 @@ public class ProfessorCozmosDiscovery extends ASupportCard {
 
     @Override
     public void beingPlayedBy(Player player){
-        Random random = new Random();
-        int rand= random.nextInt(2);
-        if(rand==1){
+        if (!player.getSupportPlayed()){
+            Random random = new Random();
+            int rand= random.nextInt(2);
+            if(rand==1){
                 player.getCard(3);
-        }
-        else{
+            }
+            else{
                 player.getCard(2);
+            }
+            super.beingPlayedBy(player);
         }
-        super.beingPlayedBy(player);
+
     }
 }

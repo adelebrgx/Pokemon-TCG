@@ -23,9 +23,10 @@ public class WaterEnergy extends AEnergy {
     }
 
     public void beingPlayedBy(Player inAction) {
-        int index=inAction.submitIndex(this);
-        if(canbeUsed(inAction, index)){
-            inAction.getBank().get(index).addWaterEnergy(this);
+
+        if(canbeUsed(inAction)){
+            inAction.getbenefiecient().addWaterEnergy(this);
+            inAction.getHand().remove(this);
             inAction.setPlayingEnergy(true);
         }
 

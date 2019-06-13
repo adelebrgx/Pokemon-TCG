@@ -21,11 +21,11 @@ public class FightingEnergy extends AEnergy {
 
     @Override
     public void beingPlayedBy(Player inAction) {
-        int index=inAction.submitIndex(this);
-        if(canbeUsed(inAction, index)){
-                inAction.getBank().get(index).addFightingEnergy(this);
-                inAction.setPlayingEnergy(true);
-            }
+        if (canbeUsed(inAction)) {
+            inAction.getbenefiecient().addFightingEnergy(this);
+            inAction.getHand().remove(this);
+            inAction.setPlayingEnergy(true);
         }
+    }
 
 }

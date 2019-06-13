@@ -137,7 +137,7 @@ public class TrainerStateTest {
 
 
         List<IPokemon> list4= Red.seeMyPokemons();
-        assertEquals(2, list4.size());
+        assertEquals(1, list4.size());
 
         List<IPokemon> list5= Red.seeOpponentPokemons(Blue);
         assertEquals(1, list5.size());
