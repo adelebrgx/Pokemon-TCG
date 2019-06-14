@@ -177,9 +177,11 @@ Once in state2 he/she can perform one attack or end his/her turn. He goes back t
 
 The controller assigned to him/her switches turn to his/her opponent.
 
+The controller doesn't contain the logic of the game itself as the MVC model hadn't been studied in class yet. However, it is set in the model but the controller allows to delegate to entities the logic of a game. 
+
 ## Tests
 
-Each class method is tested in the method of a test file. Each method of the test file tests different scenarios and considers different border cases.  
+Each class method is tested in the method of a test file. Each method of the test file tests different scenarios and considers different border cases.  The coverage of the project's lines may vary a little as some functionnalities depend on hazard and not the same number of lines are tested each time. 
 
 ## Built with 
 
