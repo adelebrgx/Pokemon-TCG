@@ -163,6 +163,9 @@ It 'observes' the changes in the player's state and once the player's atribute h
 
 A Null Controller class, which implements the Null Object Pattern, was created to assign a Null Controller to a Player to perform tests more easily. 
 
+The controller doesn't contain the logic of the game itself as the MVC model hadn't been studied in class yet. However, it is set in the model but the controller allows to delegate to entities the logic of a game. 
+
+
 
 #### Player's states 
 ##### Attributes 
@@ -177,7 +180,6 @@ Once in state2 he/she can perform one attack or end his/her turn. He goes back t
 
 The controller assigned to him/her switches turn to his/her opponent.
 
-The controller doesn't contain the logic of the game itself as the MVC model hadn't been studied in class yet. However, it is set in the model but the controller allows to delegate to entities the logic of a game. 
 
 ## Tests
 
